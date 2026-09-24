@@ -1,0 +1,9 @@
+# 本地备份文件不入库（Tony 习惯保留备份，仅排除出 git）
+*.bak.*
+index.html.bak*
+*.before
+.DS_Store
+
+# 临时/脚本
+/tmp/
+*.tmp
