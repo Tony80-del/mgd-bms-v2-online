@@ -345,7 +345,7 @@
       padding:0 var(--pad-x); height:62px; overflow:visible;
     }
     .sb .sb-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-right:6px}
-    .sb .sb-brand img{height:34px;width:auto;border-radius:8px}
+    .sb .sb-logo{width:48px;height:33px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--acc-2));display:grid;place-items:center;font-weight:800;font-size:13px;letter-spacing:.5px;color:var(--on-acc);box-shadow:0 4px 14px color-mix(in srgb,var(--blue) 30%,transparent);flex-shrink:0}
     .sb .sb-brand .sb-title{font-size:12px;color:var(--text2);letter-spacing:.5px;font-weight:600;line-height:1.15}
     .sb nav{display:flex;flex-direction:row;align-items:center;gap:2px;flex:1;overflow:visible}
     .ni{position:relative;padding:0 14px;height:40px;margin:0;border-radius:var(--radius);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;color:var(--text2);font-size:13.5px;font-weight:500;white-space:nowrap;background:transparent;border:none}
@@ -888,7 +888,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
 
 <nav class="sb" id="sb">
   <div class="sb-brand">
-    <a href="https://tony80-del.github.io/mgd-bms-v2-online/" class="block bg-white/90 rounded-lg p-[1px]"><img src="mgd-logo.png" alt="MGD Logo"></a>
+    <div class="sb-logo">MGD</div>
     <span class="sb-title">BMS v2</span>
   </div>
   <nav>
