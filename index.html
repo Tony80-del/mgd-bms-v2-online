@@ -898,15 +898,8 @@ input[type="date"]::-moz-calendar-picker-indicator {
     <!-- 1 · Summary -->
     <div class="ni" data-mod="summary" onclick="navGo('summary',null,event)"><span class="nic">📊</span><span id="nd">综合统计</span></div>
     <!-- 2 · Bid Tracking (dropdown) -->
-    <div class="ni has-sub" data-mod="bids" onclick="navParent('bids',event)">
-      <span class="nic">📈</span><span id="nb">投标追踪</span><span class="chev">▾</span>
-      <div class="subm">
-        <a onclick="navGo('bids','table',event)">📊 投标列表 / Bid List</a>
-        <a onclick="navGo('bids','verify',event)">✅ Verification</a>
-        <a onclick="navGo('bids','tracking',event)">🏗️ Follow-up</a>
-        <a onclick="navGo('bids','mom',event)">📝 MOM</a>
-        <a onclick="navGo('bids','rfi',event)">📄 RFI</a>
-      </div>
+    <div class="ni" data-mod="bids" onclick="navGo('bids','table',event)">
+      <span class="nic">📈</span><span id="nb">投标追踪</span>
     </div>
     <!-- 3 · Customers Mgmt (dropdown) -->
     <div class="ni has-sub" data-mod="customers" onclick="navParent('customers',event)">
@@ -920,22 +913,14 @@ input[type="date"]::-moz-calendar-picker-indicator {
     <!-- 4 · Annual Target -->
     <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span>Annual Target</span></div>
     <!-- 5 · Reports (dropdown) -->
-    <div class="ni has-sub" data-mod="weeklyreport" onclick="navParent('weeklyreport',event)">
-      <span class="nic">📝</span><span>Reports</span><span class="chev">▾</span>
-      <div class="subm">
-        <a onclick="navGo('weeklyreport','report',event)">📊 Weekly Report</a>
-        <a onclick="navGo('weeklyreport','mom',event)">📝 Meeting Minutes</a>
-      </div>
+    <div class="ni" data-mod="weeklyreport" onclick="navGo('weeklyreport','report',event)">
+      <span class="nic">📝</span><span>Reports</span>
     </div>
     <!-- 6 · Plan 2026 -->
     <div class="ni" data-mod="plan2026" onclick="navGo('plan2026',null,event)"><span class="nic">🗓</span><span id="nplan"></span></div>
     <!-- 7 · Documentation (dropdown) -->
-    <div class="ni has-sub" data-mod="docstorage" onclick="navParent('docstorage',event)">
-      <span class="nic">🗄</span><span>Documentation</span><span class="chev">▾</span>
-      <div class="subm">
-        <a onclick="navGo('docstorage',null,event)">📂 Storage</a>
-        <a onclick="navGo('docscollect',null,event)">📥 Collection</a>
-      </div>
+    <div class="ni" data-mod="docstorage" onclick="navGo('docstorage',null,event)">
+      <span class="nic">🗄</span><span>Documentation</span>
     </div>
   </nav>
   <div class="skin-toggle" title="皮肤 Skin">
@@ -2907,6 +2892,12 @@ window.atRenderAll = renderAll;
     <div class="tc ai" style="animation-delay:.6s"><table id="dt"><thead></thead><tbody id="tb"></tbody></table></div>
   </div>
 <div id="docstorageContainer" class="mb-6" style="display:none;">
+
+  <!-- ── Module switch: Documentation | Collection ── -->
+  <div id="docSubTabsRow" style="display:none;justify-content:flex-start;align-items:center;gap:8px;margin-top:-32px;margin-bottom:16px;padding:0 24px;border-bottom:1px solid var(--border);background:var(--bg1);">
+    <button id="docSubTabStorage" onclick="docSwitchView('docstorage')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;">🗄️ Documentation</button>
+    <button id="docSubTabCollect" onclick="docSwitchView('docscollect')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📥 Collection</button>
+  </div>
 
 <div class="doc-sticky-header">
 
@@ -5453,6 +5444,7 @@ function sm(m){
   var _rfc=document.getElementById('bidsRfiContainer'); if(_rfc)_rfc.style.display='none';
   var _cst=document.getElementById('custSubTabsRow'); if(_cst)_cst.style.display='none';
   var _ccc=document.getElementById('custCalContainer'); if(_ccc)_ccc.style.display='none';
+  var _dst=document.getElementById('docSubTabsRow'); if(_dst)_dst.style.display='none';
   document.getElementById('sum').style.display='none';
   document.getElementById('win123Container').style.display='none';
   document.getElementById('plan2026Section').style.display='none';
@@ -5526,6 +5518,9 @@ function sm(m){
     if(dsC){
       dsC.style.display='block';
     }
+    var _dstRow=document.getElementById('docSubTabsRow');
+    if(_dstRow)_dstRow.style.display='flex';
+    if(typeof docSetSubTab==='function')docSetSubTab('docstorage');
     // Close any open doc modals
     ['addModal','secModal','locModal'].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('open');});
     ['btnAdd','exportMainBtn','btnCsv','btnImport'].forEach(function(id){var b=document.getElementById(id);if(b)b.style.display='none';});
@@ -6637,6 +6632,24 @@ function navToggleSub(ev){
   var el=ev && ev.currentTarget; var wasOpen=el && el.classList.contains('open');
   document.querySelectorAll('.ni.has-sub').forEach(function(n){n.classList.remove('open');});
   if(el && !wasOpen) el.classList.add('open');
+}
+/* Documentation <-> Documents Collection 子标签 */
+function docSetSubTab(which){
+  var on=(which==='docscollect')?'docSubTabCollect':'docSubTabStorage';
+  ['docSubTabStorage','docSubTabCollect'].forEach(function(id){
+    var b=document.getElementById(id); if(!b)return;
+    var isOn=(id===on);
+    b.style.color=isOn?'var(--blue)':'var(--text2)';
+    b.style.borderBottomColor=isOn?'var(--blue)':'transparent';
+  });
+}
+function docSwitchView(which){
+  if(which!=='docscollect') which='docstorage';
+  try{ sm(which); }catch(e){}
+  // 顶栏保持高亮在 Documentation（sm 会把 active 加到触发元素上）
+  var ni=document.querySelector('.ni[data-mod="docstorage"]');
+  if(ni){ document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('active');}); ni.classList.add('active'); }
+  docSetSubTab(which);
 }
 function setSkin(skin, ev){
   if(ev){try{ev.stopPropagation();}catch(e){}}
