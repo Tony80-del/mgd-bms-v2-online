@@ -901,14 +901,9 @@ input[type="date"]::-moz-calendar-picker-indicator {
     <div class="ni" data-mod="bids" onclick="navGo('bids','table',event)">
       <span class="nic">📈</span><span id="nb">投标追踪</span>
     </div>
-    <!-- 3 · Customers Mgmt (dropdown) -->
-    <div class="ni has-sub" data-mod="customers" onclick="navParent('customers',event)">
-      <span class="nic">👥</span><span id="nc">客户管理</span><span class="chev">▾</span>
-      <div class="subm">
-        <a onclick="navGo('customers',null,event)">👥 客户列表 / List</a>
-        <a onclick="navGo('projects',null,event)">💬 客户互动 / Interactions</a>
-        <a onclick="navGo('chambers',null,event)">🏛️ 商会信息 / Chamber</a>
-      </div>
+    <!-- 3 · Customers Mgmt -->
+    <div class="ni" data-mod="customers" onclick="navGo('customers',null,event)">
+      <span class="nic">👥</span><span id="nc">客户管理</span>
     </div>
     <!-- 4 · Annual Target -->
     <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span>Annual Target</span></div>
@@ -985,6 +980,12 @@ input[type="date"]::-moz-calendar-picker-indicator {
           <div class="sc ai" style="animation-delay:.65s"><div class="text-[var(--muted)] text-xs mb-1">6 · Result</div><div class="text-2xl font-bold text-emerald-400" id="cst6">0</div></div>
         </div>
       </div>
+    </div>
+    <!-- Customer area module switch: Customer Management | Interactions | Chamber -->
+    <div id="custModTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);background:var(--bg1);">
+      <button id="custModTabCust" onclick="custModSwitch('customers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;">👥 客户管理 / Customer Management</button>
+      <button id="custModTabInter" onclick="custModSwitch('projects')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">💬 客户互动 / Customer Interactions</button>
+      <button id="custModTabChamber" onclick="custModSwitch('chambers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">🏛️ 商会 / Chamber</button>
     </div>
     <div id="cs" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8" style="display:none">
       <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1">2025客户 / 2025</div><div class="text-2xl font-bold text-purple-400" id="cust2025">0</div></div>
@@ -5445,6 +5446,7 @@ function sm(m){
   var _cst=document.getElementById('custSubTabsRow'); if(_cst)_cst.style.display='none';
   var _ccc=document.getElementById('custCalContainer'); if(_ccc)_ccc.style.display='none';
   var _dst=document.getElementById('docSubTabsRow'); if(_dst)_dst.style.display='none';
+  var _cmt=document.getElementById('custModTabsRow'); if(_cmt)_cmt.style.display='none';
   document.getElementById('sum').style.display='none';
   document.getElementById('win123Container').style.display='none';
   document.getElementById('plan2026Section').style.display='none';
@@ -5481,6 +5483,8 @@ function sm(m){
     updateStats();
     bidsApplyView();
   }else if(m==='customers'){
+    var _cmtC=document.getElementById('custModTabsRow'); if(_cmtC)_cmtC.style.display='flex';
+    if(typeof custSetModTab==='function')custSetModTab('customers');
     document.getElementById('cs').style.display='grid';
     document.getElementById('yf').style.display='flex';
     document.getElementById('cf').style.display='flex';
@@ -5491,6 +5495,8 @@ function sm(m){
     document.querySelector('.tc').style.display='block';
     ['exportMainBtn','btnCsv','btnImport'].forEach(function(id){var b=document.getElementById(id);if(b)b.style.display='none';});
   }else if(m==='chambers'){
+    var _cmtCh=document.getElementById('custModTabsRow'); if(_cmtCh)_cmtCh.style.display='flex';
+    if(typeof custSetModTab==='function')custSetModTab('chambers');
     document.getElementById('chf').style.display='flex';
     ['exportMainBtn','btnCsv','btnImport'].forEach(function(id){var b=document.getElementById(id);if(b)b.style.display='none';});
     document.querySelector('.tc').style.display='block';
@@ -5549,6 +5555,8 @@ function sm(m){
     // Double-safety: re-scroll after render/layout settles
     setTimeout(function(){ window.scrollTo(0,0); }, 100);
   }else if(m==='projects'){
+    var _cmtP=document.getElementById('custModTabsRow'); if(_cmtP)_cmtP.style.display='flex';
+    if(typeof custSetModTab==='function')custSetModTab('projects');
     var _cstRow=document.getElementById('custSubTabsRow'); if(_cstRow)_cstRow.style.display='flex';
     if(typeof custApplyView==='function'){custApplyView();}else{document.querySelector('.tc').style.display='block';}
     ['exportMainBtn','btnCsv','btnImport'].forEach(function(id){var b=document.getElementById(id);if(b)b.style.display='none';});
@@ -6650,6 +6658,27 @@ function docSwitchView(which){
   var ni=document.querySelector('.ni[data-mod="docstorage"]');
   if(ni){ document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('active');}); ni.classList.add('active'); }
   docSetSubTab(which);
+}
+/* 客户区模块切换：客户管理 / 客户互动 / 商会 */
+function custSetModTab(which){
+  var map={customers:'custModTabCust', projects:'custModTabInter', chambers:'custModTabChamber'};
+  var on=map[which]||'custModTabCust';
+  Object.keys(map).forEach(function(k){
+    var b=document.getElementById(map[k]); if(!b)return;
+    var isOn=(map[k]===on);
+    b.style.color=isOn?'var(--blue)':'var(--text2)';
+    b.style.borderBottomColor=isOn?'var(--blue)':'transparent';
+  });
+}
+function custModSwitch(which){
+  if(['customers','projects','chambers'].indexOf(which)<0) which='customers';
+  try{ sm(which); }catch(e){}
+  // 顶栏保持高亮在「客户管理」（sm 会把 active 加到触发元素上）
+  var ni=document.querySelector('.ni[data-mod="customers"]');
+  if(ni){ document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('active');}); ni.classList.add('active'); }
+  var row=document.getElementById('custModTabsRow');
+  if(row) row.style.display='flex';
+  custSetModTab(which);
 }
 function setSkin(skin, ev){
   if(ev){try{ev.stopPropagation();}catch(e){}}
