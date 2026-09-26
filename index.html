@@ -906,16 +906,16 @@ input[type="date"]::-moz-calendar-picker-indicator {
       <span class="nic">👥</span><span id="nc">客户管理</span>
     </div>
     <!-- 4 · Annual Target -->
-    <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span>Annual Target</span></div>
+    <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span data-zh="年度指标" data-en="Annual Target">Annual Target</span></div>
     <!-- 5 · Reports (dropdown) -->
     <div class="ni" data-mod="weeklyreport" onclick="navGo('weeklyreport','report',event)">
-      <span class="nic">📝</span><span>Reports</span>
+      <span class="nic">📝</span><span data-zh="周报" data-en="Reports">Reports</span>
     </div>
     <!-- 6 · Plan 2026 -->
     <div class="ni" data-mod="plan2026" onclick="navGo('plan2026',null,event)"><span class="nic">🗓</span><span id="nplan"></span></div>
     <!-- 7 · Documentation (dropdown) -->
     <div class="ni" data-mod="docstorage" onclick="navGo('docstorage',null,event)">
-      <span class="nic">🗄</span><span>Documentation</span>
+      <span class="nic">🗄</span><span data-zh="文档管理" data-en="Documentation">Documentation</span>
     </div>
   </nav>
   <div class="skin-toggle" title="皮肤 Skin">
@@ -937,17 +937,17 @@ input[type="date"]::-moz-calendar-picker-indicator {
         <span id="cloudBadge" onclick="showCloudInfo()" title="Cloud Status" class="text-xs px-2 py-1 rounded-full bg-[var(--card)] border border-[var(--border)] cursor-pointer select-none flex items-center gap-1">☁️ <span id="cloudBadgeTxt" class="text-[10px] text-[var(--muted)]">Cloud</span></span>
         <button class="bp" id="btnAdd" onclick="openAddModal()"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg><span id="ba">新增</span></button>
         <button class="bs" id="exportMainBtn" onclick="exportCurrentModule()" title="导出Excel" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg><span id="be">导出</span></button>
-        <button class="bs" id="exportCustTplBtn" onclick="exportCustomerTemplate()" title="导出空白模板" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span>模板</span></button>
-        <button class="bs" id="expInteractBtn" onclick="exportInteractionsOnly()" title="导出客户互动" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span>导出互动</span></button>
+        <button class="bs" id="exportCustTplBtn" onclick="exportCustomerTemplate()" title="导出空白模板" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="模板" data-en="Template">模板</span></button>
+        <button class="bs" id="expInteractBtn" onclick="exportInteractionsOnly()" title="导出客户互动" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="导出互动" data-en="Export Interactions">导出互动</span></button>
         <button class="bs" id="btnCsv" onclick="exportCSV()" title="导出CSV" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.293.707l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span id="bcsv">CSV</span></button>
         <button class="bs" id="btnImport" onclick="document.getElementById('importFile').click()" title="导入数据" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span id="bi">导入</span></button>
         <!-- 工具齿轮菜单 -->
         <div class="relative" id="toolGearWrap" style="display:none">
           <button class="bp" id="btnToolGear" onclick="toggleToolMenu(event)" title="工具"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.573-1.066z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></button>
           <div id="toolMenu" class="tool-menu" style="display:none">
-            <div class="tm-item" onclick="authThenBackup(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg><span>📦 备份</span></div>
-            <div class="tm-item" onclick="authThenCloudVersions(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm3 5h10M8 17h8"/></svg><span>☁️ 云版本</span></div>
-            <div class="tm-item" onclick="authThenRestore(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span>🔄 恢复</span></div>
+            <div class="tm-item" onclick="authThenBackup(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg><span data-zh="📦 备份" data-en="📦 Backup">📦 备份</span></div>
+            <div class="tm-item" onclick="authThenCloudVersions(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm3 5h10M8 17h8"/></svg><span data-zh="☁️ 云版本" data-en="☁️ Cloud Versions">☁️ 云版本</span></div>
+            <div class="tm-item" onclick="authThenRestore(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span data-zh="🔄 恢复" data-en="🔄 Restore">🔄 恢复</span></div>
           </div>
         </div>
         <input type="file" id="importFile" accept=".json,.xls,.xlsx,.xlsm,.csv,.xml" style="display:none" onchange="importData(event)">
@@ -959,7 +959,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
   <div class="p-8">
     <!-- Bid Project Tracking sub-tabs: list view | Project Follow-up -->
     <div id="bidsSubTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);position:sticky;top:81px;z-index:40;background:var(--bg1);">
-      <button id="bidsSubTabTable" onclick="bidsSwitchView('table')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;">📊 投标列表 / Bid Tracking</button>
+      <button id="bidsSubTabTable" onclick="bidsSwitchView('table')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="📊 投标列表" data-en="📊 Bid Tracking">📊 投标列表</button>
       <button id="bidsSubTabVerify" onclick="bidsSwitchView('verify')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">✅ Project verification</button>
       <button id="bidsSubTabTracking" onclick="bidsSwitchView('tracking')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">🏗️ Project Follow-up</button>
       <button id="bidsSubTabMom" onclick="bidsSwitchView('mom')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📝 Project MOM</button>
@@ -967,10 +967,10 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
     <div id="bs" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
       <div class="sc ai" style="animation-delay:.1s"><div class="text-[var(--muted)] text-sm mb-1" id="s1">项目信息 / Project Info</div><div class="text-2xl font-bold text-blue-400" id="c1">0</div></div>
-      <div class="sc ai" style="animation-delay:.2s"><div class="text-[var(--muted)] text-sm mb-1" id="s5">分类统计 / Category</div><div class="flex gap-3 mt-1"><span class="text-lg font-bold text-emerald-400">A: <span id="ca">0</span></span><span class="text-lg font-bold text-amber-400">B: <span id="cba">0</span></span></div></div>
-      <div class="sc ai" style="animation-delay:.3s"><div class="text-[var(--muted)] text-sm mb-1" id="s6">预估总额 / Est. Total Value</div><div class="text-2xl font-bold text-cyan-400" id="totalValue">0</div></div>
+      <div class="sc ai" style="animation-delay:.2s"><div class="text-[var(--muted)] text-sm mb-1" id="s5" data-zh="分类统计" data-en="Category">分类统计</div><div class="flex gap-3 mt-1"><span class="text-lg font-bold text-emerald-400">A: <span id="ca">0</span></span><span class="text-lg font-bold text-amber-400">B: <span id="cba">0</span></span></div></div>
+      <div class="sc ai" style="animation-delay:.3s"><div class="text-[var(--muted)] text-sm mb-1" id="s6" data-zh="预估总额" data-en="Est. Total Value">预估总额</div><div class="text-2xl font-bold text-cyan-400" id="totalValue">0</div></div>
       <div style="grid-column:1/-1">
-        <div class="text-xs text-[var(--muted)] mb-2">📌 跟随 Project Follow-up 阶段 · 共 <span id="cstTotal">0</span> 个跟进项目 / From Project Follow-up stages</div>
+        <div class="text-xs text-[var(--muted)] mb-2"><span data-zh="📌 跟随 Project Follow-up 阶段 · 共 " data-en="📌 Follow-up stages · ">📌 跟随 Project Follow-up 阶段 · 共 </span><span id="cstTotal">0</span><span data-zh=" 个跟进项目" data-en=" projects"> 个跟进项目</span></div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div class="sc ai" style="animation-delay:.4s"><div class="text-[var(--muted)] text-xs mb-1">1 · Project Info collection</div><div class="text-2xl font-bold text-slate-300" id="cst1">0</div></div>
           <div class="sc ai" style="animation-delay:.45s"><div class="text-[var(--muted)] text-xs mb-1">2 · PQ</div><div class="text-2xl font-bold text-amber-400" id="cst2">0</div></div>
@@ -983,64 +983,64 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
     <!-- Customer area module switch: Customer Management | Interactions | Chamber -->
     <div id="custModTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);background:var(--bg1);">
-      <button id="custModTabCust" onclick="custModSwitch('customers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;">👥 客户管理 / Customer Management</button>
-      <button id="custModTabInter" onclick="custModSwitch('projects')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">💬 客户互动 / Customer Interactions</button>
-      <button id="custModTabChamber" onclick="custModSwitch('chambers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">🏛️ 商会 / Chamber</button>
+      <button id="custModTabCust" onclick="custModSwitch('customers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="👥 客户管理" data-en="👥 Customer Management">👥 客户管理</button>
+      <button id="custModTabInter" onclick="custModSwitch('projects')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="💬 客户互动" data-en="💬 Customer Interactions">💬 客户互动</button>
+      <button id="custModTabChamber" onclick="custModSwitch('chambers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="🏛️ 商会" data-en="🏛️ Chamber">🏛️ 商会</button>
     </div>
     <div id="cs" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8" style="display:none">
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1">2025客户 / 2025</div><div class="text-2xl font-bold text-purple-400" id="cust2025">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1">2026客户 / 2026</div><div class="text-2xl font-bold text-blue-400" id="cust2026">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1">本周新增 / This Week</div><div class="text-2xl font-bold text-emerald-400" id="custWeek">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1">本月新增 / This Month</div><div class="text-2xl font-bold text-amber-400" id="custMonth">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2025客户" data-en="2025 Customers">2025客户</div><div class="text-2xl font-bold text-purple-400" id="cust2025">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2026客户" data-en="2026 Customers">2026客户</div><div class="text-2xl font-bold text-blue-400" id="cust2026">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本周新增" data-en="This Week">本周新增</div><div class="text-2xl font-bold text-emerald-400" id="custWeek">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本月新增" data-en="This Month">本月新增</div><div class="text-2xl font-bold text-amber-400" id="custMonth">0</div></div>
     </div>
     <div id="yf" class="flex gap-2 mb-4" style="display:none">
-      <button onclick="setYearFilter('all')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yfAll">全部 / All</button>
+      <button onclick="setYearFilter('all')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yfAll" data-zh="全部" data-en="All">全部</button>
       <button onclick="setYearFilter('2025')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yf2025">2025</button>
       <button onclick="setYearFilter('2026')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yf2026">2026</button>
     </div>
     <div id="cf" class="flex gap-2 mb-4" style="display:none;align-items:center">
-      <span class="text-sm text-[var(--muted)]">国家:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="国家:" data-en="Country:">国家:</span>
       <select id="countryFilter" onchange="setCountryFilter(this.value)" class="px-3 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm cursor-pointer">
-        <option value="all">全部 / All</option>
+        <option value="all" data-zh="全部" data-en="All">全部</option>
       </select>
     </div>
     <div id="custSearchWrap" class="mb-4" style="display:none">
       <input id="custSearchInput" type="text" placeholder="搜索公司名称 / Search company name..." oninput="setCustSearchFilter(this.value)" class="w-full px-4 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm text-[var(--text)] placeholder-[var(--muted)] outline-none focus:border-[var(--blue)]" />
     </div>
     <div id="custDateWrap" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]">添加日期:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="添加日期:" data-en="Date Added:">添加日期:</span>
       <input id="custDateInput" type="date" onchange="setCustDateFilter(this.value)" class="px-3 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm text-[var(--text)] outline-none focus:border-[var(--blue)] cursor-pointer" />
     </div>
     <div id="chf" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]">出席日期:</span>
-      <button onclick="setChamberDateFilter('all')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAll">全部 / All</button>
-      <button onclick="setChamberDateFilter('upcoming')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfUpcoming">即将出席 / Upcoming</button>
-      <button onclick="setChamberDateFilter('attended')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAttended">已出席 / Attended</button>
-      <span class="text-sm text-[var(--muted)] ml-2">月份:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="出席日期:" data-en="Attendance Date:">出席日期:</span>
+      <button onclick="setChamberDateFilter('all')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAll" data-zh="全部" data-en="All">全部</button>
+      <button onclick="setChamberDateFilter('upcoming')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfUpcoming" data-zh="即将出席" data-en="Upcoming">即将出席</button>
+      <button onclick="setChamberDateFilter('attended')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAttended" data-zh="已出席" data-en="Attended">已出席</button>
+      <span class="text-sm text-[var(--muted)] ml-2" data-zh="月份:" data-en="Month:">月份:</span>
       <select id="chMonthFilter" onchange="setChamberMonthFilter(this.value)" class="px-3 py-1.5 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm cursor-pointer">
-        <option value="all">全部 / All</option>
-        <option value="0">一月 / Jan</option>
-        <option value="1">二月 / Feb</option>
-        <option value="2">三月 / Mar</option>
-        <option value="3">四月 / Apr</option>
-        <option value="4">五月 / May</option>
-        <option value="5">六月 / Jun</option>
-        <option value="6">七月 / Jul</option>
-        <option value="7">八月 / Aug</option>
-        <option value="8">九月 / Sep</option>
-        <option value="9">十月 / Oct</option>
-        <option value="10">十一月 / Nov</option>
-        <option value="11">十二月 / Dec</option>
+        <option value="all" data-zh="全部" data-en="All">全部</option>
+        <option value="0" data-zh="一月" data-en="Jan">一月</option>
+        <option value="1" data-zh="二月" data-en="Feb">二月</option>
+        <option value="2" data-zh="三月" data-en="Mar">三月</option>
+        <option value="3" data-zh="四月" data-en="Apr">四月</option>
+        <option value="4" data-zh="五月" data-en="May">五月</option>
+        <option value="5" data-zh="六月" data-en="Jun">六月</option>
+        <option value="6" data-zh="七月" data-en="Jul">七月</option>
+        <option value="7" data-zh="八月" data-en="Aug">八月</option>
+        <option value="8" data-zh="九月" data-en="Sep">九月</option>
+        <option value="9" data-zh="十月" data-en="Oct">十月</option>
+        <option value="10" data-zh="十一月" data-en="Nov">十一月</option>
+        <option value="11" data-zh="十二月" data-en="Dec">十二月</option>
       </select>
     </div>
     <div id="bf" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]">筛选 / Filter:</span>
-      <button onclick="setBidsFilter('all')" class="bfbtn" id="bfAll"><span class="bfi">📋</span>全部 / All<span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('bidding')" class="bfbtn" id="bfBidding"><span class="bfi">⚡</span>投标中 / Bidding<span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('tracking')" class="bfbtn" id="bfTracking"><span class="bfi">🎯</span>追踪 / Tracking<span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('potential')" class="bfbtn" id="bfPotential"><span class="bfi">🌱</span>潜在 / Potential<span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('cancelled')" class="bfbtn" id="bfCancelled"><span class="bfi">🚫</span>已取消 / Cancelled<span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('won')" class="bfbtn" id="bfWon"><span class="bfi">🏆</span>中标 / Won<span class="bfn">0</span></button>
+      <span class="text-sm text-[var(--muted)]" data-zh="筛选:" data-en="Filter:">筛选:</span>
+      <button onclick="setBidsFilter('all')" class="bfbtn" id="bfAll"><span class="bfi">📋</span><span data-zh="全部" data-en="All">全部</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('bidding')" class="bfbtn" id="bfBidding"><span class="bfi">⚡</span><span data-zh="投标中" data-en="Bidding">投标中</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('tracking')" class="bfbtn" id="bfTracking"><span class="bfi">🎯</span><span data-zh="追踪" data-en="Tracking">追踪</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('potential')" class="bfbtn" id="bfPotential"><span class="bfi">🌱</span><span data-zh="潜在" data-en="Potential">潜在</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('cancelled')" class="bfbtn" id="bfCancelled"><span class="bfi">🚫</span><span data-zh="已取消" data-en="Cancelled">已取消</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('won')" class="bfbtn" id="bfWon"><span class="bfi">🏆</span><span data-zh="中标" data-en="Won">中标</span><span class="bfn">0</span></button>
     </div>
     <!-- ================= PROJECT DETAIL TRACKING (Project Follow-up) ================= -->
     <div id="bidsTrackingContainer" style="display:none">
@@ -1156,7 +1156,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
       </div>
       <!-- 商会统计(合并一张卡) -->
       <div class="bg-[var(--card)] rounded-xl p-6 border border-[var(--border)]">
-        <div class="text-sm text-[var(--muted)] mb-4 text-center" id="chStatsLabel">商会统计 / Chamber Stats</div>
+        <div class="text-sm text-[var(--muted)] mb-4 text-center" id="chStatsLabel" data-zh="商会统计" data-en="Chamber Stats">商会统计</div>
         <div class="flex items-center justify-around gap-4 text-center">
           <div>
             <div class="text-4xl font-bold text-purple-400" id="sumChambTotal">0</div>
@@ -1192,8 +1192,8 @@ input[type="date"]::-moz-calendar-picker-indicator {
           <span class="text-xs text-[var(--muted)]">Dec</span>
         </div>
         <div class="flex items-center justify-center gap-4 mt-2">
-          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-amber-400"></div><span class="text-xs text-[var(--muted)]" id="chLegAtt">已出席 / Attended</span></div>
-          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-sky-400"></div><span class="text-xs text-[var(--muted)]" id="chLegUpc">即将出席 / Upcoming</span></div>
+          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-amber-400"></div><span class="text-xs text-[var(--muted)]" id="chLegAtt" data-zh="已出席" data-en="Attended">已出席</span></div>
+          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-sky-400"></div><span class="text-xs text-[var(--muted)]" id="chLegUpc" data-zh="即将出席" data-en="Upcoming">即将出席</span></div>
         </div>
       </div>
     </div>
@@ -3102,7 +3102,7 @@ window.atRenderAll = renderAll;
 <div class="mo" id="md">
   <div class="mc">
     <div class="flex items-center justify-between mb-4" style="position:sticky;top:0;background:var(--card);z-index:1;padding-bottom:8px">
-      <h3 class="fd text-xl font-semibold" id="mt">新增</h3>
+      <h3 class="fd text-xl font-semibold" id="mt" data-zh="新增" data-en="Add New">新增</h3>
       <button onclick="cm()" class="p-2 rounded-lg hover:bg-[var(--bg2)]"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <form id="mf" onsubmit="event.preventDefault(); doSave();"></form>
@@ -3110,8 +3110,8 @@ window.atRenderAll = renderAll;
 </div>
 
 <script>
-const i18n={zh:{ttl:'业务管理系统',sub:'Business Management System',mf:'主要功能',nd:'综合统计',nb:'投标项目追踪',nc:'客户管理',ni:'客户互动',nch:'商会信息',nplan:'计划2026',ptPlan:'计划2026',psPlan:'系统追踪清单 2026',ptAT:'年度指标',psAT:'销售目标与 KPI',ptWR:'Weekly Report',psWR:'业务部周报',ptDoc:'文档管理系统',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'数据统计',stl1:'投标',stl2:'客户',stl3:'互动',sp:'搜索...',ba:'新增',bc:'取消',bs:'保存',be:'导出',bi:'导入',pt1:'投标项目追踪',ps1:'管理和追踪所有投标项目进度',pt2:'客户管理',ps2:'管理客户信息和跟进记录',pt3:'客户互动',ps3:'记录客户沟通和互动历史',pt5:'综合统计',ps5:'汇总三大模块的关键数据',ma:'新增',me:'编辑',ndd:'暂无数据',ndh:'点击"新增"按钮添加数据',nm:'未找到匹配记录',cd:'确定删除这条记录吗?',es:'导出成功!文件已下载',ic:'导入将覆盖当前数据,确定继续吗?',is:'导入成功!',ie:'导入失败:文件格式错误',s1:'项目信息 / Project Info',s2:'投标中 / Bidding',s3:'评审中 / Reviewing',s4:'跟踪 / Following',s5:'中标 / Won',s6:'资格审核 / PQ',s7:'资料收集 / Data Collection',s8:'跟踪 / Following',s9:'潜在 / Potential',s10:'已取消 / Cancelled',s11:'跟踪 / Follow up',st1:'待处理 / Pending',st2:'进行中 / In Progress',st3:'完成 / Completed',p1:'低 / Low',p2:'中 / Medium',p3:'高 / High',sp2:'请选择 / Please select',f1:'客户名称',f2:'项目名称',f3:'地点',f4:'土地面积',f5:'阶段日期',f6:'投标阶段',f7:'负责人',f8:'电子邮箱',f9:'分类',f10:'预估工程金额',ph4:'单位:平方米',ph10:'单位:越南盾 (VND)',f11:'公司名称',f11b:'公司业务',f12:'联系人',f12b:'职位',f13:'电话',f14:'邮箱',f14b:'国家',f14c:'优先级',f15:'客户名称',f16:'互动日期',f17:'互动类型',f18:'互动内容',f18b:'邮箱',f19:'负责人',f20:'下一步计划',f21:'状态',f22:'备注',f23:'添加日期',f24:'(任务启动日期)',f25:'(已激活内容)',f26:'下一步日期',f27:'下一步内容',c1:'客户名称',c2:'项目名称',c3:'地点',c4:'土地面积',c5:'阶段日期',c6:'投标阶段',c7:'负责人',c8:'电子邮箱',c9:'分类',c10:'预估金额',c11:'公司名称',c11b:'公司业务',c12:'联系人',c12b:'职位',c13:'电话',c14:'邮箱',c14b:'国家',c14c:'优先级',c15:'客户',c16:'日期',c17:'类型',c18:'内容',c19:'负责人',c20:'下一步',c21:'状态',c22:'备注',c23:'操作',c24:'(任务启动日期)',c25:'(已激活内容)',c22:'操作',nb1:'新增投标',nb2:'新增客户',nb3:'新增互动',eb1:'编辑投标',eb2:'编辑客户',eb3:'编辑互动',catA:'A',catB:'B',it1:'电话 / Phone',it2:'邮件 / Email',it3:'会议 / Meeting',it4:'拜访 / Visit',it5:'其他 / Other',is1:'已完成 / Completed',is2:'进行中 / In Progress',is3:'待跟进 / Pending',ch1:'商会名称',ch2:'商会简称',ch3:'国家 / Country',ch4:'城市',ch5:'地址',ch6:'电话',ch7:'邮箱',ch8:'网站',ch9:'联系人',ch10:'职位',ch11:'业务范围',ch12:'备注',ch13:'主题',ch14:'出席日期',ch15:'出席地点',ch16:'负责人',pt4:'商会信息',ps4:'管理商会和组织联系信息',nb4:'新增商会',eb4:'编辑商会',cc1:'商会名称',cc3:'国家',cc6:'电话',cc7:'邮箱',cc9:'联系人',cc14:'主题',cc15:'出席日期',cc16:'出席地点',cc17:'备注',cc18:'操作',stl4:'投标统计',stl5:'客户统计',stl6:'商会统计',smc1:'每月出席次数 / Monthly Attendance',sumBidsLabel:'项目信息\nProject Info',sumCustLabel:'2026客户统计\n2026 Customer Stats',sumChambTotalLbl:'商会总计\nTotal Chambers',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'项目信息\nProject Info',sumBidsTotalLbl:'总计\nTotal',sumBidsActiveLbl:'投标中\nBidding',sumBidsWonLbl:'追踪\nFollow-Up',bidLegTotal:'总计',bidLegActive:'投标中',bidLegWon:'追踪',cust2026StatsLabel:'2026客户统计\n2026 Customer Stats',sumCust2026TotalLbl:'2026总计\nTotal 2026',sumCustJunLbl:'···',sumCustInteractLbl:'客户互动\nInteractions',custLegNew:'新客户 / New',custLegInteract:'客户互动',chLegAtt:'已出席 / Attended',chLegUpc:'即将出席 / Upcoming',win1Title:'营收目标\nRevenue Target',win2Title:'客户信息分析\nCustomer Info Analysis',win3Title:'Event List',win1t1:'营收目标 2026',win1t1_en:'Revenue 2026',win1t2:'业务营收目标',win1t2_en:'Sale Dept revenue',win1t3:'项目预估金额',win1t4:'实际目标',ncTarget:'年度目标: 160 · 2025 总计: 57'},en:{ttl:'Business Management System',sub:'业务管理系统',mf:'MAIN FEATURES',nd:'Summary',nb:'Bid Tracking',nc:'Customer Mgmt',ni:'Interactions',nch:'Chambers',nplan:'PLAN 2026',ptPlan:'PLAN 2026',psPlan:'System Tracking List 2026',ptAT:'Annual Target',psAT:'Sales Target & KPI',ptWR:'Weekly Report',psWR:'Business Dept Weekly Report',ptDoc:'Documentation Storage',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'Statistics',stl1:'Bids',stl2:'Customers',stl3:'Interactions',sp:'Search...',ba:'Add',bc:'Cancel',bs:'Save',be:'Export',bi:'Import',pt1:'Bid Project Tracking',ps1:'Manage and track all bid project progress',pt2:'Customer Management',ps2:'Manage customer info and follow-ups',pt3:'Customer Interactions',ps3:'Record customer communications and interaction history',pt5:'Summary',ps5:'Key data from all three modules',ma:'Add New',me:'Edit',ndd:'No Data',ndh:'Click "Add" button to add data',nm:'No matching records',cd:'Delete this record?',es:'Export successful! File downloaded',ic:'Import will overwrite current data. Continue?',is:'Import successful!',ie:'Import failed: Invalid file format',s1:'Project Info / 项目信息',s2:'Bidding / 投标中',s3:'Reviewing / 评审中',s4:'Following / 跟踪',s5:'Won / 中标',s6:'PQ / 资格审核',s7:'Data Collection / 资料收集',s8:'Following / 跟踪',s9:'Potential / 潜在',s10:'Cancelled / 已取消',s11:'Follow up / 跟踪',st1:'Pending / 待处理',st2:'In Progress / 进行中',st3:'Completed / 完成',p1:'Low / 低',p2:'Medium / 中',p3:'High / 高',sp2:'Please select / 请选择',f1:'Customer Name',f2:'Project Name',f3:'Location',f4:'Land Area',f5:'Stage Date',f6:'Bid Stage',f7:'Person In Charge',f8:'Email',f9:'Category',f10:'Est. Project Value',ph4:'Unit: sq.m',ph10:'Unit: VND',f11:'Company Name',f11b:'Business Type',f12:'Contact Person',f12b:'Position',f13:'Phone',f14:'Email',f14b:'Country',f14c:'Priority',f15:'Customer',f16:'Date',f17:'Type',f18:'Content',f18b:'Email',f19:'Person In Charge',f20:'Next Step',f21:'Status',f22:'Notes',f23:'Created Date',f24:'(Task Establish Date)',f25:'(Activated content)',f26:'Next Action Date',f27:'Next Action Content',c1:'Customer',c2:'Project',c3:'Location',c4:'Land Area',c5:'Stage Date',c6:'Bid Stage',c7:'PIC',c8:'Email',c9:'Category',c10:'Est. Value',c11:'Company',c11b:'Business',c12:'Contact',c12b:'Position',c13:'Phone',c14:'Email',c14b:'Country',c14c:'Priority',c15:'Customer',c16:'Date',c17:'Type',c18:'Content',c19:'PIC',c20:'Next',c21:'Status',c22:'Notes',c23:'Actions',c24:'(Task Establish Date)',c25:'(Activated content)',c22:'Actions',nb1:'New Bid',nb2:'New Customer',nb3:'New Interaction',eb1:'Edit Bid',eb2:'Edit Customer',eb3:'Edit Interaction',catA:'A',catB:'B',it1:'Phone / 电话',it2:'Email / 邮件',it3:'Meeting / 会议',it4:'Visit / 拜访',it5:'Other / 其他',is1:'Completed / 已完成',is2:'In Progress / 进行中',is3:'Pending / 待跟进',ch1:'Chamber Name / 商会名称',ch2:'Short Name / 简称',ch3:'Country / 国家',ch4:'City / 城市',ch5:'Address / 地址',ch6:'Phone / 电话',ch7:'Email / 邮箱',ch8:'Website / 网站',ch9:'Contact / 联系人',ch10:'Position / 职位',ch11:'Business Scope / 业务范围',ch12:'Notes / 备注',ch13:'Topic / 主题',ch14:'Attendance Date / 出席日期',ch15:'Attendance Location / 出席地点',ch16:'Person In Charge / 负责人',pt4:'Chamber of Commerce',ps4:'Manage chamber and organization contacts',nb4:'New Chamber',eb4:'Edit Chamber',cc1:'Chamber Name',cc3:'Country',cc6:'Phone',cc7:'Email',cc9:'Contact',cc14:'Topic',cc15:'Date',cc16:'Location',cc17:'Notes',cc18:'Actions',stl4:'Bid Stats',stl5:'Customer Stats',stl6:'Chamber Stats',sumBidsLabel:'Project Info',sumCustLabel:'2026 Customer Stats',sumChambTotalLbl:'Total Chambers',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'Project Info',sumBidsTotalLbl:'Total',sumBidsActiveLbl:'Bidding',sumBidsWonLbl:'Follow-Up',bidLegActive:'Bidding',bidLegWon:'Follow-Up',cust2026StatsLabel:'2026 Customer Stats',sumCust2026TotalLbl:'Total 2026',sumCustJunLbl:'···',sumCustInteractLbl:'Interactions',custLegNew:'New Customers',custLegInteract:'Interactions',chLegAtt:'Attended',chLegUpc:'Upcoming',win1Title:'Revenue Target\n营收目标',win2Title:'Customer Info Analysis\n客户信息分析',win3Title:'Event List'
-,win1t1:'Revenue 2026',win1t1_en:'Revenue 2026',win1t2:'Sale Dept revenue',win1t2_en:'Sale Dept revenue',win1t3:'Project Est. Value',win1t4:'Actual Target',ncTarget:'Annual target: 160 · 2025 total: 57',kpiGuide:'📊 KPI指标说明',kpiGuideEn:'KPI Metrics Guide',kpiAnnual:'Q2目标',kpiQTarget:'Q1目标',kpiRateGuide:'🎯 完成率标识',kpiRateOn:'🟢 ≥100% 达标',kpiRateNear:'🟡 80-99% 接近',kpiRateOff:'🔴 <80% 需改进'}};
+const i18n={zh:{ttl:'业务管理系统',sub:'业务管理系统',mf:'主要功能',nd:'综合统计',nb:'投标项目追踪',nc:'客户管理',ni:'客户互动',nch:'商会信息',nplan:'计划2026',ptPlan:'计划2026',psPlan:'系统追踪清单 2026',ptAT:'年度指标',psAT:'销售目标与 KPI',ptWR:'Weekly Report',psWR:'业务部周报',ptDoc:'文档管理系统',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'数据统计',stl1:'投标',stl2:'客户',stl3:'互动',sp:'搜索...',ba:'新增',bc:'取消',bs:'保存',be:'导出',bi:'导入',pt1:'投标项目追踪',ps1:'管理和追踪所有投标项目进度',pt2:'客户管理',ps2:'管理客户信息和跟进记录',pt3:'客户互动',ps3:'记录客户沟通和互动历史',pt5:'综合统计',ps5:'汇总三大模块的关键数据',ma:'新增',me:'编辑',ndd:'暂无数据',ndh:'点击"新增"按钮添加数据',nm:'未找到匹配记录',cd:'确定删除这条记录吗?',es:'导出成功!文件已下载',ic:'导入将覆盖当前数据,确定继续吗?',is:'导入成功!',ie:'导入失败:文件格式错误',s1:'项目信息',s2:'投标中',s3:'评审中',s4:'跟踪',s5:'中标',s6:'资格审核 / PQ',s7:'资料收集',s8:'跟踪',s9:'潜在',s10:'已取消',s11:'跟踪',st1:'待处理',st2:'进行中',st3:'完成',p1:'低',p2:'中',p3:'高',sp2:'请选择',f1:'客户名称',f2:'项目名称',f3:'地点',f4:'土地面积',f5:'阶段日期',f6:'投标阶段',f7:'负责人',f8:'电子邮箱',f9:'分类',f10:'预估工程金额',ph4:'单位:平方米',ph10:'单位:越南盾 (VND)',f11:'公司名称',f11b:'公司业务',f12:'联系人',f12b:'职位',f13:'电话',f14:'邮箱',f14b:'国家',f14c:'优先级',f15:'客户名称',f16:'互动日期',f17:'互动类型',f18:'互动内容',f18b:'邮箱',f19:'负责人',f20:'下一步计划',f21:'状态',f22:'备注',f23:'添加日期',f24:'(任务启动日期)',f25:'(已激活内容)',f26:'下一步日期',f27:'下一步内容',c1:'客户名称',c2:'项目名称',c3:'地点',c4:'土地面积',c5:'阶段日期',c6:'投标阶段',c7:'负责人',c8:'电子邮箱',c9:'分类',c10:'预估金额',c11:'公司名称',c11b:'公司业务',c12:'联系人',c12b:'职位',c13:'电话',c14:'邮箱',c14b:'国家',c14c:'优先级',c15:'客户',c16:'日期',c17:'类型',c18:'内容',c19:'负责人',c20:'下一步',c21:'状态',c22:'备注',c23:'操作',c24:'(任务启动日期)',c25:'(已激活内容)',c22:'操作',nb1:'新增投标',nb2:'新增客户',nb3:'新增互动',eb1:'编辑投标',eb2:'编辑客户',eb3:'编辑互动',catA:'A',catB:'B',it1:'电话',it2:'邮件',it3:'会议',it4:'拜访',it5:'其他',is1:'已完成',is2:'进行中',is3:'待跟进',ch1:'商会名称',ch2:'商会简称',ch3:'国家',ch4:'城市',ch5:'地址',ch6:'电话',ch7:'邮箱',ch8:'网站',ch9:'联系人',ch10:'职位',ch11:'业务范围',ch12:'备注',ch13:'主题',ch14:'出席日期',ch15:'出席地点',ch16:'负责人',pt4:'商会信息',ps4:'管理商会和组织联系信息',nb4:'新增商会',eb4:'编辑商会',cc1:'商会名称',cc3:'国家',cc6:'电话',cc7:'邮箱',cc9:'联系人',cc14:'主题',cc15:'出席日期',cc16:'出席地点',cc17:'备注',cc18:'操作',stl4:'投标统计',stl5:'客户统计',stl6:'商会统计',smc1:'每月出席次数',sumBidsLabel:'项目信息',sumCustLabel:'2026客户统计',sumChambTotalLbl:'商会总计',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'项目信息',sumBidsTotalLbl:'总计',sumBidsActiveLbl:'投标中',sumBidsWonLbl:'追踪',bidLegTotal:'总计',bidLegActive:'投标中',bidLegWon:'追踪',cust2026StatsLabel:'2026客户统计',sumCust2026TotalLbl:'2026总计',sumCustJunLbl:'···',sumCustInteractLbl:'客户互动',custLegNew:'新客户',custLegInteract:'客户互动',chLegAtt:'已出席',chLegUpc:'即将出席',win1Title:'营收目标',win2Title:'客户信息分析',win3Title:'Event List',win1t1:'营收目标 2026',win1t1_en:'Revenue 2026',win1t2:'业务营收目标',win1t2_en:'Sale Dept revenue',win1t3:'项目预估金额',win1t4:'实际目标',ncTarget:'年度目标: 160 · 2025 总计: 57'},en:{ttl:'Business Management System',sub:'Business Management System',mf:'MAIN FEATURES',nd:'Summary',nb:'Bid Tracking',nc:'Customer Mgmt',ni:'Interactions',nch:'Chambers',nplan:'PLAN 2026',ptPlan:'PLAN 2026',psPlan:'System Tracking List 2026',ptAT:'Annual Target',psAT:'Sales Target & KPI',ptWR:'Weekly Report',psWR:'Business Dept Weekly Report',ptDoc:'Documentation Storage',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'Statistics',stl1:'Bids',stl2:'Customers',stl3:'Interactions',sp:'Search...',ba:'Add',bc:'Cancel',bs:'Save',be:'Export',bi:'Import',pt1:'Bid Project Tracking',ps1:'Manage and track all bid project progress',pt2:'Customer Management',ps2:'Manage customer info and follow-ups',pt3:'Customer Interactions',ps3:'Record customer communications and interaction history',pt5:'Summary',ps5:'Key data from all three modules',ma:'Add New',me:'Edit',ndd:'No Data',ndh:'Click "Add" button to add data',nm:'No matching records',cd:'Delete this record?',es:'Export successful! File downloaded',ic:'Import will overwrite current data. Continue?',is:'Import successful!',ie:'Import failed: Invalid file format',s1:'Project Info',s2:'Bidding',s3:'Reviewing',s4:'Following',s5:'Won',s6:'PQ',s7:'Data Collection',s8:'Following',s9:'Potential',s10:'Cancelled',s11:'Follow up',st1:'Pending',st2:'In Progress',st3:'Completed',p1:'Low',p2:'Medium',p3:'High',sp2:'Please select',f1:'Customer Name',f2:'Project Name',f3:'Location',f4:'Land Area',f5:'Stage Date',f6:'Bid Stage',f7:'Person In Charge',f8:'Email',f9:'Category',f10:'Est. Project Value',ph4:'Unit: sq.m',ph10:'Unit: VND',f11:'Company Name',f11b:'Business Type',f12:'Contact Person',f12b:'Position',f13:'Phone',f14:'Email',f14b:'Country',f14c:'Priority',f15:'Customer',f16:'Date',f17:'Type',f18:'Content',f18b:'Email',f19:'Person In Charge',f20:'Next Step',f21:'Status',f22:'Notes',f23:'Created Date',f24:'(Task Establish Date)',f25:'(Activated content)',f26:'Next Action Date',f27:'Next Action Content',c1:'Customer',c2:'Project',c3:'Location',c4:'Land Area',c5:'Stage Date',c6:'Bid Stage',c7:'PIC',c8:'Email',c9:'Category',c10:'Est. Value',c11:'Company',c11b:'Business',c12:'Contact',c12b:'Position',c13:'Phone',c14:'Email',c14b:'Country',c14c:'Priority',c15:'Customer',c16:'Date',c17:'Type',c18:'Content',c19:'PIC',c20:'Next',c21:'Status',c22:'Notes',c23:'Actions',c24:'(Task Establish Date)',c25:'(Activated content)',c22:'Actions',nb1:'New Bid',nb2:'New Customer',nb3:'New Interaction',eb1:'Edit Bid',eb2:'Edit Customer',eb3:'Edit Interaction',catA:'A',catB:'B',it1:'Phone',it2:'Email',it3:'Meeting',it4:'Visit',it5:'Other',is1:'Completed',is2:'In Progress',is3:'Pending',ch1:'Chamber Name',ch2:'Short Name',ch3:'Country',ch4:'City',ch5:'Address',ch6:'Phone',ch7:'Email',ch8:'Website',ch9:'Contact',ch10:'Position',ch11:'Business Scope',ch12:'Notes',ch13:'Topic',ch14:'Attendance Date',ch15:'Attendance Location',ch16:'Person In Charge',pt4:'Chamber of Commerce',ps4:'Manage chamber and organization contacts',nb4:'New Chamber',eb4:'Edit Chamber',cc1:'Chamber Name',cc3:'Country',cc6:'Phone',cc7:'Email',cc9:'Contact',cc14:'Topic',cc15:'Date',cc16:'Location',cc17:'Notes',cc18:'Actions',stl4:'Bid Stats',stl5:'Customer Stats',stl6:'Chamber Stats',sumBidsLabel:'Project Info',sumCustLabel:'2026 Customer Stats',sumChambTotalLbl:'Total Chambers',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'Project Info',sumBidsTotalLbl:'Total',sumBidsActiveLbl:'Bidding',sumBidsWonLbl:'Follow-Up',bidLegActive:'Bidding',bidLegWon:'Follow-Up',cust2026StatsLabel:'2026 Customer Stats',sumCust2026TotalLbl:'Total 2026',sumCustJunLbl:'···',sumCustInteractLbl:'Interactions',custLegNew:'New Customers',custLegInteract:'Interactions',chLegAtt:'Attended',chLegUpc:'Upcoming',win1Title:'Revenue Target',win2Title:'Customer Info Analysis',win3Title:'Event List'
+,win1t1:'Revenue 2026',win1t1_en:'Revenue 2026',win1t2:'Sale Dept revenue',win1t2_en:'Sale Dept revenue',win1t3:'Project Est. Value',win1t4:'Actual Target',ncTarget:'Annual target: 160 · 2025 total: 57',kpiGuide:'📊 KPI Guide',kpiGuideEn:'KPI Metrics Guide',kpiAnnual:'Q2 Target',kpiQTarget:'Q1 Target',kpiRateGuide:'🎯 Completion Rate',kpiRateOn:'🟢 ≥100% On target',kpiRateNear:'🟡 80-99% Near target',kpiRateOff:'🔴 <80% Needs work'}};
 
 let lang='zh',data={bids:[],customers:[],projects:[],chambers:[]},mod='summary',eid=null,custYearFilter='all',custCountryFilter='all',chamberDateFilter='all',chamberMonthFilter='all',custSearchFilter='',custDateFilter='',bidsFilter='all';
 
@@ -3137,11 +3137,36 @@ function applyDynamicMonthLabels(){
 }
 function t(k){return i18n[lang][k]||k;}
 
+/* 数据里存的双语值（「中文 / English」）按当前语言取一半 —— 只影响显示，不改数据 */
+function biText(v){
+  if(v===null||v===undefined)return v;
+  var s=String(v);
+  if(s.indexOf(' / ')<0)return s;
+  var parts=s.split(' / '),zh=null,en=null;
+  for(var i=0;i<parts.length;i++){
+    var p=parts[i];
+    if(/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(p)){if(zh===null)zh=p;}
+    else if(en===null)en=p;
+  }
+  if(zh===null||en===null)return s;
+  return lang==='en'?en:zh;
+}
+
+/* 双语标签：EN 模式只显示英文，ZH 模式只显示中文（data-zh / data-en 驱动） */
+function applyBilingual(){
+  var els=document.querySelectorAll('[data-zh]');
+  for(var i=0;i<els.length;i++){
+    var el=els[i],zh=el.getAttribute('data-zh'),en=el.getAttribute('data-en');
+    el.textContent=(lang==='en'&&en!==null&&en!==undefined)?en:zh;
+  }
+}
+
 function sl(l){
   lang=l;localStorage.setItem('bms_lang',l);
   document.getElementById('lzh').classList.toggle('active',l==='zh');
   document.getElementById('len').classList.toggle('active',l==='en');
   updateUI();if(mod!=='weeklyreport' && mod!=='plan2026' && mod!=='annualtarget') renderTable();
+  if(typeof updateSummary==='function'){try{updateSummary();}catch(e){}}
   if(document.getElementById('md').classList.contains('active')){eid?editItem(eid):openAddModal();}
 }
 
@@ -3170,6 +3195,12 @@ function updateUI(){
   }else{
     document.getElementById('ps').textContent=t(titles[safeMod]?titles[safeMod][1]:'ps5');
   }
+  // 投标页：标题栏跟随页内页签（中英双语，按当前界面语言取）
+  if(safeMod==='bids'&&typeof bidsApplyHead==='function')bidsApplyHead();
+  // 周报页：标题栏跟随页内页签（中英双语，按当前界面语言取）
+  if(safeMod==='weeklyreport'&&typeof wrApplyHead==='function')wrApplyHead();
+  // 双语标签（EN 只英文 / ZH 只中文）
+  if(typeof applyBilingual==='function')applyBilingual();
 }
 
 function getActiveCustomers(){
@@ -3454,7 +3485,7 @@ function populateCountryFilter(){
   const countries=[...new Set(data.customers.map(c=>c.country).filter(Boolean))].sort();
   const sel=document.getElementById('countryFilter');
   const current=sel.value;
-  sel.innerHTML='<option value="all">全部 / All</option>'+countries.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  sel.innerHTML='<option value="all" data-zh="全部" data-en="All">全部</option>'+countries.map(c=>'<option value="'+c+'">'+biText(c)+'</option>').join('');
   sel.value=custCountryFilter;
 }
 
@@ -3546,7 +3577,7 @@ function updateSummary(){
   var qc=q3Records.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
   var badge=document.getElementById('projInteractBadge');
   var q3badge=document.getElementById('q3InteractBadge');
-  if(badge) badge.textContent='互动: '+pic;
+  if(badge) badge.textContent=(lang==='en'?'Interactions: ':'互动: ')+pic;
   if(q3badge) q3badge.textContent='Q3: '+qc;
   document.getElementById('cust2026StatsLabel').innerHTML=t('cust2026StatsLabel');
   document.getElementById('sumCust2026TotalLbl').innerHTML=t('sumCust2026TotalLbl');
@@ -3655,6 +3686,20 @@ function momRestoreLast(){
   return momCurrentId;
 }
 function momSavedSub(){try{return localStorage.getItem('bms_wr_sub')||'report';}catch(e){return 'report';}}
+/* 周报页：页面标题栏跟随页内页签（中英双语，按当前界面语言取） */
+var WR_VIEW_HEAD={
+  report:{t:{zh:'周报',en:'Weekly Report'},s:{zh:'业务部周报',en:'Business Dept Weekly Report'}},
+  mom:{t:{zh:'会议纪要',en:'Meeting Minutes'},s:{zh:'每场会议一份纪要',en:'Minutes for every meeting — one sheet per MOM'}}
+};
+function wrApplyHead(which){
+  if(mod!=='weeklyreport')return;
+  var sub=which||(typeof momSavedSub==='function'?momSavedSub():'report');
+  var h=WR_VIEW_HEAD[sub]||WR_VIEW_HEAD.report;
+  var isEn=(typeof lang!=='undefined'&&lang==='en');
+  var pt=document.getElementById('pt'),ps=document.getElementById('ps');
+  if(pt)pt.textContent=isEn?h.t.en:h.t.zh;
+  if(ps)ps.textContent=isEn?h.s.en:h.s.zh;
+}
 function wrSwitchSub(which){
   var r=document.getElementById('wrSubReport'),m=document.getElementById('wrSubMom');
   var tr=document.getElementById('wrSubTabReport'),tm=document.getElementById('wrSubTabMom');
@@ -3674,6 +3719,7 @@ function wrSwitchSub(which){
     tr.style.color='var(--blue)';tr.style.borderBottomColor='var(--blue)';
     tm.style.color='var(--text2)';tm.style.borderBottomColor='transparent';
   }
+  wrApplyHead(which);
 }
 function momRenderList(){
   var d=momGetData(),el=document.getElementById('momList');if(!el)return;
@@ -4683,15 +4729,15 @@ function exportSummaryPDF(){
     html+='<div class="page">';
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
-    html+='<h2>Active Pipeline: Bidding / 投标中 — Value: '+(pdfActive>0?(pdfActive>=100?Math.round(pdfActive):pdfActive.toFixed(1))+'B':'—')+' (Bidding: '+(pdfBA>0?(pdfBA>=100?Math.round(pdfBA):pdfBA.toFixed(1))+'B':'—')+')</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>Customer / 客户</th><th>Project / 项目</th><th>Next Action Content / 下一步内容</th><th>Est. Value / 金额</th></tr></thead><tbody>';
+    html+='<h2>'+(lang==='en'?'Active Pipeline: Bidding — Value: ':'投标中管线 — 金额: ')+(pdfActive>0?(pdfActive>=100?Math.round(pdfActive):pdfActive.toFixed(1))+'B':'—')+' (Bidding: '+(pdfBA>0?(pdfBA>=100?Math.round(pdfBA):pdfBA.toFixed(1))+'B':'—')+')</h2>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     biddingBids.forEach(function(b,i){
       html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
     html+='</tbody></table>';
     if(potentialBids.length>0){
-      html+='<h2 style="margin-top:24px;">Active Pipeline: Potential / 潜在 — Value: '+(pdfPA>0?(pdfPA>=100?Math.round(pdfPA):pdfPA.toFixed(1))+'B':'—')+'</h2>';
-      html+='<table class="table"><thead><tr><th>#</th><th>Customer / 客户</th><th>Project / 项目</th><th>Next Action Content / 下一步内容</th><th>Est. Value / 金额</th></tr></thead><tbody>';
+      html+='<h2 style="margin-top:24px;">'+(lang==='en'?'Active Pipeline: Potential — Value: ':'潜在管线 — 金额: ')+(pdfPA>0?(pdfPA>=100?Math.round(pdfPA):pdfPA.toFixed(1))+'B':'—')+'</h2>';
+      html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
       potentialBids.forEach(function(b,i){
         html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
       });
@@ -4705,8 +4751,8 @@ function exportSummaryPDF(){
     html+='<div class="page">';
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
-    html+='<h2>Active Pipeline: Follow up / 跟踪 — Value: '+(pdfTA>0?(pdfTA>=100?Math.round(pdfTA):pdfTA.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>Customer / 客户</th><th>Project / 项目</th><th>Next Action Content / 下一步内容</th><th>Est. Value / 金额</th></tr></thead><tbody>';
+    html+='<h2>'+(lang==='en'?'Active Pipeline: Follow up — Value: ':'跟踪管线 — 金额: ')+(pdfTA>0?(pdfTA>=100?Math.round(pdfTA):pdfTA.toFixed(1))+'B':'—')+'</h2>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     trackingBids.forEach(function(b,i){
       html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
@@ -4719,8 +4765,8 @@ function exportSummaryPDF(){
     html+='<div class="page">';
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
-    html+='<h2>Cancelled Projects / 已取消项目 — Value: '+(pdfCA>0?(pdfCA>=100?Math.round(pdfCA):pdfCA.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>Customer / 客户</th><th>Project / 项目</th><th>Next Action Content / 下一步内容</th><th>Est. Value / 金额</th></tr></thead><tbody>';
+    html+='<h2>'+(lang==='en'?'Cancelled Projects — Value: ':'已取消项目 — 金额: ')+(pdfCA>0?(pdfCA>=100?Math.round(pdfCA):pdfCA.toFixed(1))+'B':'—')+'</h2>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     cancelledBids.forEach(function(b,i){
       html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
@@ -4730,8 +4776,8 @@ function exportSummaryPDF(){
     html+='<div class="page">';
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
-    html+='<h2>Won Projects / 中标项目 — Value: '+(pdfW>0?(pdfW>=100?Math.round(pdfW):pdfW.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>Customer / 客户</th><th>Project / 项目</th><th>Next Action Content / 下一步内容</th><th>Est. Value / 金额</th></tr></thead><tbody>';
+    html+='<h2>'+(lang==='en'?'Won Projects — Value: ':'中标项目 — 金额: ')+(pdfW>0?(pdfW>=100?Math.round(pdfW):pdfW.toFixed(1))+'B':'—')+'</h2>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     wonBids.forEach(function(b,i){
       html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
@@ -4783,9 +4829,9 @@ function renderWin2Chart(){
     cInteract += cnt;
   });
   var slices=[
-    {label:window.lang==='zh'?'2026总计':'Total 2026',value:c2026Total,color:'#3b82f6'},
-    {label:window.lang==='zh'?monthNameZH()+'新增':monthNameEN()+' New',value:cAugTotal,color:'#34d399'},
-    {label:window.lang==='zh'?'客户互动':'Interactions',value:cInteract,color:'#a78bfa'}
+    {label:lang==='zh'?'2026总计':'Total 2026',value:c2026Total,color:'#3b82f6'},
+    {label:lang==='zh'?monthNameZH()+'新增':monthNameEN()+' New',value:cAugTotal,color:'#34d399'},
+    {label:lang==='zh'?'客户互动':'Interactions',value:cInteract,color:'#a78bfa'}
   ];
   var total=slices.reduce(function(s,sl){return s+sl.value;},0);
   if(total===0){container.innerHTML='<div style="color:var(--muted);font-size:12px;padding:16px 0;">No data</div>';return;}
@@ -4808,7 +4854,7 @@ function renderWin2Chart(){
     '<svg width="200" height="'+svgH+'" style="overflow:visible;">'+side+top+
     '<circle cx="'+cx+'" cy="'+cy+'" r="35" fill="var(--card)"/>'+
     '<text x="'+cx+'" y="'+(cy-5)+'" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" fill="var(--text1)" font-family="Space Grotesk,sans-serif">'+c2026Total+'</text>'+
-    '<text x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="var(--muted)" font-family="Noto Sans SC,sans-serif">'+(window.lang==='zh'?'总计':'Total')+'</text>'+
+    '<text x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="var(--muted)" font-family="Noto Sans SC,sans-serif">'+(lang==='zh'?'总计':'Total')+'</text>'+
     labels+'</svg>';
   var leg='<div style="display:flex;flex-direction:column;gap:8px;padding-top:6px;font-size:11px;min-width:140px;">';
   slices.forEach(function(sl){
@@ -5034,7 +5080,7 @@ function renderWin1Chart(){
   // 双语标签函数
   function getWin1Label(key, zhVal, enVal){
     var currentVal=lang==='en'?enVal:zhVal;
-    return '<span onclick="toggleWin1Lang()" style="cursor:pointer;text-decoration:underline dotted;" title="点击切换语言">'+currentVal+'</span>';
+    return '<span onclick="toggleWin1Lang()" style="cursor:pointer;text-decoration:underline dotted;" title="'+(lang==='en'?'Switch language':'点击切换语言')+'">'+currentVal+'</span>';
   }
 
   function barRow(label,val,color,bg){
@@ -5277,8 +5323,8 @@ function renderTable(){
   // 投标项目添加暂停/取消勾选列;商会信息添加出席状态列
   const isBids=mod==='bids';
   const isChambers=mod==='chambers';
-  const actionCol=isBids?'<th class="text-center" title="暂停/取消">☑</th>':isChambers?'<th class="text-center" title="已出席">☑</th>':'';
-  const cols=ff.map(x=>x.l).concat(mod==='projects'?['互动次数 / Interactions']:isChambers?[]:t('c20')).concat(isChambers?['attendanceStatus']:[]);
+  const actionCol=isBids?'<th class="text-center" title="'+(lang==='en'?'Pause / Cancel':'暂停/取消')+'">☑</th>':isChambers?'<th class="text-center" title="'+(lang==='en'?'Attended':'已出席')+'">☑</th>':'';
+  const cols=ff.map(x=>x.l).concat(mod==='projects'?[(lang==='en'?'Interactions':'互动次数')]:isChambers?[]:t('c20')).concat(isChambers?['attendanceStatus']:[]);
   document.querySelector('#dt thead').innerHTML='<tr>'+cols.map((c,i)=>{
     const firstMod=mod==='bids'?'customerName':mod==='customers'?'companyName':mod==='projects'?'customerName':'chamberName';
     const isFirst=ff[i]&&ff[i].k===firstMod;
@@ -5299,6 +5345,10 @@ function renderRow(item,rowIdx){
   const f=getFields(mod);
   let cells=f.filter(x=>x.l).map(x=>{
     let v=item[x.k]||'-';
+    // 双语枚举值：按当前语言取一半（只影响显示，不改数据）
+    // sel 型字段 = 下拉枚举，一律单语显示；country/status/priority 虽非 sel 但也是枚举
+    if(x.tp==='sel'||['stage','status','priority','country','stageContent'].indexOf(x.k)>=0) v=biText(v);
+    if(x.k==='category'){var _c=String(item.category||'');if(_c.indexOf('A')===0){v=(lang==='en'?'A':'A工程');}else if(_c.indexOf('B')===0){v=(lang==='en'?'B':'B工程');}}
     // 冻结列:各模块第一列(水平固定)
     const firstMod=mod==='bids'?'customerName':mod==='customers'?'companyName':mod==='projects'?'customerName':'chamberName';
     const firstCls=x.k===firstMod?' col-customer':'';
@@ -5363,8 +5413,9 @@ function renderRow(item,rowIdx){
       if(cur.includes('高')||cur==='High') short='高';
       else if(cur.includes('中')||cur==='Medium') short='中';
       else if(cur.includes('低')||cur==='Low') short='低';
+      if(lang==='en') short={'高':'High','中':'Medium','低':'Low'}[short]||short;
       const cls=pCls[cur]||'bdgLow';
-      v='<span class="bdg '+cls+' bdg-priority" onclick="cyclePriority(\''+item.id+'\')" title="点击切换 / Click to change">'+short+'</span>';
+      v='<span class="bdg '+cls+' bdg-priority" onclick="cyclePriority(\''+item.id+'\')" title="'+(lang==='en'?'Click to change':'点击切换')+'">'+short+'</span>';
     }
     if(x.k==='category'){const cls={'A工程':'bdgA','B工程':'bdgB','A':'bdgA','B':'bdgB'}[item.category]||'';v='<span class="bdg '+cls+'">'+v+'</span>';}
     if(x.k==='estimatedValue'&&item.estimatedValue){
@@ -5598,7 +5649,7 @@ function sm(m){
     });
     var pic=julRecords.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
     var qc=q3Records.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
-    if(badge) badge.textContent='互动: '+pic;
+    if(badge) badge.textContent=(lang==='en'?'Interactions: ':'互动: ')+pic;
     if(q3badge) q3badge.textContent='Q3: '+qc;
   }
   // 显示/隐藏「导出互动」按钮
@@ -5623,13 +5674,13 @@ function openAddModal(){
     }else if(x.tp==='sel'){
       if(x.k==='position' || x.k==='companyBusiness' || x.k==='country'){
         const listId='list_'+x.k+'_'+Date.now();
-        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+o+'">').join('')+'</datalist>';
+        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
       }else{
-        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+' onchange="this.dataset.v=this.value"><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>';
+        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+' onchange="this.dataset.v=this.value"><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'">'+biText(o)+'</option>').join('')+'</select>';
       }
     }else if(x.tp==='datalist'){
       const listId='list_'+x.k+'_'+Date.now();
-      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+o+'">').join('')+'</datalist>';
+      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
     }else if(x.tp==='date'){
       inputHtml='<input type="date" name="'+x.k+'" value="" class="fi fi-t" data-k="'+x.k+'" '+(x.r?'required':'')+' style="color:var(--text1);background:var(--bg2);">';
     }else{
@@ -5689,7 +5740,7 @@ function openInlineEdit(id,k,v,tp,optStr){
   let inputHtml='';
   if(tp==='sel'){
     const opts=optStr.split('|');
-    inputHtml='<select id="ied_'+k+'" class="fi text-sm"><option value="">请选择 / Please select</option>'+opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')+'</select>';
+    inputHtml='<select id="ied_'+k+'" class="fi text-sm"><option value="">'+(lang==='en'?'Please select':'请选择')+'</option>'+opts.map(o=>'<option value="'+o+'">'+biText(o)+'</option>').join('')+'</select>';
   }else if(tp==='date'){
     inputHtml='<input type="date" id="ied_'+k+'" class="fi text-sm" value="'+v+'">';
   }else if(tp==='ta'){
@@ -5779,13 +5830,13 @@ function editItem(id){
     }else if(x.tp==='sel'){
       if(x.k==='position' || x.k==='companyBusiness' || x.k==='country'){
         const listId='list_'+x.k+'_'+Date.now();
-        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+o+'">').join('')+'</datalist>';
+        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
       }else{
-        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+'><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'" '+(o===v?'selected':'')+'>'+o+'</option>').join('')+'</select>';
+        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+'><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'" '+(o===v?'selected':'')+'>'+biText(o)+'</option>').join('')+'</select>';
       }
     }else if(x.tp==='datalist'){
       const listId='list_'+x.k+'_'+Date.now();
-      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+o+'">').join('')+'</datalist>';
+      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
     }else if(x.tp==='date'){
       inputHtml='<input type="date" name="'+x.k+'" value="'+v+'" class="fi fi-t" data-k="'+x.k+'" '+(x.r?'required':'')+' style="color:var(--text1);background:var(--bg2);">';
     }else{
@@ -5826,7 +5877,7 @@ function exportCurrentModule(){
   if(mod==='customers'){ exportData(); return; }
   if(mod==='projects'){ exportInteractionsOnly(); return; }
   if(mod==='chambers'){ exportChambers(); return; }
-  alert('导出失败');
+  alert(lang==='en'?'Export failed':'导出失败');
 }
 
 function exportCustomerTemplate(){
@@ -5858,19 +5909,19 @@ function exportBids(){
   const fields = getFields('bids').filter(x=>x.l);
   const headers = fields.map(x=>x.l);
   const rows = data.bids.map(b => fields.map(f => b[f.k]||''));
-  const ws = XLSX.utils.aoa_to_sheet([['投标项目追踪 / Bid Project Tracking']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Bid Project Tracking':'投标项目追踪']].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:22}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, '投标项目');
+  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Bids':'投标项目'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `投标项目追踪_${dateStr}.xlsx`;
+  a.download = (lang==='en'?'BidTracking_':'投标项目追踪_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert('导出成功！\n共 ' + data.bids.length + ' 条投标记录');
+  alert((lang==='en'?'Exported successfully!\n' + data.bids.length + ' bid records':'导出成功！\n共 ' + data.bids.length + ' 条投标记录'));
 }
 
 function exportChambers(){
@@ -5878,61 +5929,61 @@ function exportChambers(){
   const fields = getFields('chambers').filter(x=>x.l);
   const headers = fields.map(x=>x.l);
   const rows = data.chambers.map(c => fields.map(f => c[f.k]||''));
-  const ws = XLSX.utils.aoa_to_sheet([['商会信息 / Chamber of Commerce']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Chamber of Commerce':'商会信息']].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:22}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, '商会信息');
+  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Chambers':'商会信息'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `商会信息_${dateStr}.xlsx`;
+  a.download = (lang==='en'?'Chambers_':'商会信息_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert('导出成功！\n共 ' + data.chambers.length + ' 条商会记录');
+  alert((lang==='en'?'Exported successfully!\n' + data.chambers.length + ' chamber records':'导出成功！\n共 ' + data.chambers.length + ' 条商会记录'));
 }
 
 function exportInteractionsOnly(){
   const dateStr = new Date().toISOString().slice(0,10);
-  const headers = ['客户名称','互动日期','互动类型','互动内容','邮箱','负责人','下一步计划','状态','备注'];
+  const headers = (lang==='en'?['Customer','Date','Type','Content','Email','PIC','Next Step','Status','Notes']:['客户名称','互动日期','互动类型','互动内容','邮箱','负责人','下一步计划','状态','备注']);
   const rows = (data.projects||[]).map(p=>[
     p.customerName||'',p.interactionDate||'',p.interactionType||'',
     p.content||'',p.emailContent||'',p.personInCharge||'',
     p.nextStep||'',p.status||'',p.notes||''
   ]);
-  const ws = XLSX.utils.aoa_to_sheet([['客户互动 / Customer Interactions']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Customer Interactions':'客户互动']].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:25}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, '客户互动');
+  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Interactions':'客户互动'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `客户互动_${dateStr}.xlsx`;
+  a.download = (lang==='en'?'Interactions_':'客户互动_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert('客户互动导出成功！\n共 ' + rows.length + ' 条记录');
+  alert((lang==='en'?'Interactions exported!\n' + rows.length + ' records':'客户互动导出成功！\n共 ' + rows.length + ' 条记录'));
 }
 
 function exportData(){
   const dateStr = new Date().toISOString().slice(0,10);
-  const custHeaders = ['公司名称','公司业务','联系人','职位','电话','邮箱','国家','优先级','添加日期'];
+  const custHeaders = (lang==='en'?['Company Name','Business','Contact Person','Position','Phone','Email','Country','Priority','Date Added']:['公司名称','公司业务','联系人','职位','电话','邮箱','国家','优先级','添加日期']);
   const custRows = data.customers.map(c => [c.companyName||'',c.companyBusiness||'',c.contactPerson||'',c.position||'',c.phone||'',c.email||'',c.country||'',c.priority||'',c.createdDate||'']);
-  const ws = XLSX.utils.aoa_to_sheet([['客户管理']].concat([custHeaders], custRows));
+  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Customer Management':'客户管理']].concat([custHeaders], custRows));
   ws['!cols'] = custHeaders.map(() => ({wch:25}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, '客户管理');
+  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Customers':'客户管理'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `客户管理_${dateStr}.xlsx`;
+  a.download = (lang==='en'?'Customers_':'客户管理_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert('导出成功！\n共 ' + data.customers.length + ' 条客户记录');
+  alert((lang==='en'?'Exported successfully!\n' + data.customers.length + ' customer records':'导出成功！\n共 ' + data.customers.length + ' 条客户记录'));
 }
 
 
@@ -5961,7 +6012,7 @@ function requirePassword(actionFn,label){
   overlay.id='pwOverlay';
   var existing=document.getElementById('pwOverlay');
   if(existing)existing.remove();
-  overlay.innerHTML='<div id="pwBox"><h3>🔐 '+label+'</h3><input type="password" id="pwInput" placeholder="输入管理密码" autocomplete="off"><div id="pwError"></div><div class="pw-actions"><button class="pw-cancel" onclick="removePwOverlay()">取消</button><button class="pw-confirm" onclick="checkPwAndRun()">确认</button></div></div>';
+  overlay.innerHTML='<div id="pwBox"><h3>🔐 '+label+'</h3><input type="password" id="pwInput" placeholder="'+(lang==='en'?'Admin password':'输入管理密码')+'" autocomplete="off"><div id="pwError"></div><div class="pw-actions"><button class="pw-cancel" onclick="removePwOverlay()">'+(lang==='en'?'Cancel':'取消')+'</button><button class="pw-confirm" onclick="checkPwAndRun()">'+(lang==='en'?'Confirm':'确认')+'</button></div></div>';
   document.body.appendChild(overlay);
   setTimeout(function(){
     var inp=document.getElementById('pwInput');
@@ -5982,15 +6033,15 @@ function checkPwAndRun(){
     removePwOverlay();
     if(action){action();}
   }else{
-    err.textContent='❌ 密码错误，请重试';
+    err.textContent=lang==='en'?'❌ Wrong password, please try again':'❌ 密码错误，请重试';
     inp.value='';
     inp.focus();
   }
 }
 
-function authThenBackup(e){e.stopPropagation();closeToolMenu();requirePassword(function(){backupAll();},'数据备份');}
-function authThenCloudVersions(e){e.stopPropagation();closeToolMenu();requirePassword(function(){showCloudSnapshots();},'云版本恢复');}
-function authThenRestore(e){e.stopPropagation();closeToolMenu();requirePassword(function(){document.getElementById('restoreFile').click();},'数据恢复');}
+function authThenBackup(e){e.stopPropagation();closeToolMenu();requirePassword(function(){backupAll();},lang==='en'?'Data Backup':'数据备份');}
+function authThenCloudVersions(e){e.stopPropagation();closeToolMenu();requirePassword(function(){showCloudSnapshots();},lang==='en'?'Cloud Versions':'云版本恢复');}
+function authThenRestore(e){e.stopPropagation();closeToolMenu();requirePassword(function(){document.getElementById('restoreFile').click();},lang==='en'?'Data Restore':'数据恢复');}
 
 // ============================================================
 // 完整系统备份 / 恢复
@@ -6062,7 +6113,7 @@ function restoreAll(event){
         } else { location.reload(); }
       } else { location.reload(); }
     } catch(err) {
-      alert('恢复失败: ' + err.message + '\nRestore failed: ' + err.message);
+      alert((lang==='en'?'Restore failed: ':'恢复失败: ') + err.message);
     }
   };
   reader.readAsText(file);
@@ -6136,38 +6187,38 @@ function exportCSV(){
 
   // 投标项目追踪 CSV
   let csv1 = '\uFEFF'; // BOM for Chinese
-  csv1 += '客户名称,项目名称,地点,土地面积(平方米),跟踪日期,投标阶段,下一步日期,下一步内容,备注,负责人,电子邮箱,分类(A/B),预估金额(VND),任务启动日期,已激活内容\n';
+  csv1 += (lang==='en'?'Customer,Project,Location,Land Area (m2),Track Date,Bid Stage,Next Action Date,Next Action Content,Notes,PIC,Email,Category (A/B),Est. Value (VND),Task Start Date,Stage Content\n':'客户名称,项目名称,地点,土地面积(平方米),跟踪日期,投标阶段,下一步日期,下一步内容,备注,负责人,电子邮箱,分类(A/B),预估金额(VND),任务启动日期,已激活内容\n');
   data.bids.forEach(b => {
     csv1 += `"${b.customerName||''}","${b.projectName||''}","${b.location||''}","${b.landArea||''}","${b.trackDate||''}","${b.stage||''}","${b.nextActionDate||''}","${(b.nextActionContent||'').replace(/"/g,'""')}","${(b.notes||'').replace(/"/g,'""')}","${b.personInCharge||''}","${b.email||''}","${b.category||''}","${b.estimatedValue||''}","${b.startDate||''}","${b.stageContent||''}"\n`;
   });
 
   // 客户管理 CSV
   let csv2 = '\uFEFF';
-  csv2 += '公司名称,公司业务,联系人,职位,电话,邮箱,国家,优先级(高/中/低),添加日期\n';
+  csv2 += (lang==='en'?'Company Name,Business,Contact Person,Position,Phone,Email,Country,Priority (High/Med/Low),Date Added\n':'公司名称,公司业务,联系人,职位,电话,邮箱,国家,优先级(高/中/低),添加日期\n');
   data.customers.forEach(c => {
     csv2 += `"${c.companyName||''}","${c.companyBusiness||''}","${c.contactPerson||''}","${c.position||''}","${c.phone||''}","${c.email||''}","${c.country||''}","${c.priority||''}","${c.createdDate||''}"\n`;
   });
 
   // 客户互动 CSV
   let csv3 = '\uFEFF';
-  csv3 += '客户名称,互动日期,互动类型,互动内容,负责人,下一步计划,状态,备注\n';
+  csv3 += (lang==='en'?'Customer,Date,Type,Content,PIC,Next Step,Status,Notes\n':'客户名称,互动日期,互动类型,互动内容,负责人,下一步计划,状态,备注\n');
   data.projects.forEach(p => {
     csv3 += `"${p.customerName||''}","${p.interactionDate||''}","${p.interactionType||''}","${(p.content||'').replace(/"/g,'""')}","${p.personInCharge||''}","${p.nextStep||''}","${p.status||''}","${(p.notes||'').replace(/"/g,'""')}"\n`;
   });
 
   // 商会信息 CSV
   let csv4 = '\uFEFF';
-  csv4 += '商会名称,国家,电话,邮箱,联系人,主题,出席日期,出席地点,备注\n';
+  csv4 += (lang==='en'?'Chamber Name,Country,Phone,Email,Contact Person,Topic,Attendance Date,Attendance Location,Notes\n':'商会名称,国家,电话,邮箱,联系人,主题,出席日期,出席地点,备注\n');
   data.chambers.forEach(c => {
     csv4 += `"${c.chamberName||''}","${c.country||''}","${c.phone||''}","${c.email||''}","${c.contactPerson||''}","${c.topic||''}","${c.attendanceDate||''}","${c.attendanceLocation||''}","${(c.notes||'').replace(/"/g,'""')}"\n`;
   });
 
   // 下载4个文件
   const files = [
-    {name: `投标项目追踪_${dateStr}.csv`, content: csv1},
-    {name: `客户管理_${dateStr}.csv`, content: csv2},
-    {name: `客户互动_${dateStr}.csv`, content: csv3},
-    {name: `商会信息_${dateStr}.csv`, content: csv4}
+    {name: (lang==='en'?'BidTracking_':'投标项目追踪_')+dateStr+'.csv', content: csv1},
+    {name: (lang==='en'?'Customers_':'客户管理_')+dateStr+'.csv', content: csv2},
+    {name: (lang==='en'?'Interactions_':'客户互动_')+dateStr+'.csv', content: csv3},
+    {name: (lang==='en'?'Chambers_':'商会信息_')+dateStr+'.csv', content: csv4}
   ];
 
   files.forEach(f => {
@@ -6180,7 +6231,7 @@ function exportCSV(){
     URL.revokeObjectURL(url);
   });
 
-  alert('已导出4个CSV文件!\n\n请用Excel分别打开编辑,然后点击「导入」导入回来。');
+  alert(lang==='en'?'Exported 4 CSV files!\n\nOpen them in Excel, edit, then use Import to bring them back.':'已导出4个CSV文件!\n\n请用Excel分别打开编辑,然后点击「导入」导入回来。');
 }
 
 function importData(event){
@@ -6247,7 +6298,7 @@ function importData(event){
             });
             console.log('导入投标数据: 新增', added, '条 (已跳过重复)');
           }
-          else if(sheetName.includes('客户管理') || sheetName === '客户管理'){
+          else if(sheetName.includes('客户管理') || sheetName === '客户管理' || sheetNameLower.includes('customer')){
             const existingNames = new Set(data.customers.map(c => c.companyName));
             const headerKeywords = ['公司名称', 'Company Name']; // 跳过表头行
             let added = 0;
@@ -6271,7 +6322,7 @@ function importData(event){
             });
             console.log('导入客户数据: 新增', added, '条 (已跳过重复)');
           }
-          else if(sheetName.includes('互动') || sheetName === '客户互动'){
+          else if(sheetName.includes('互动') || sheetName === '客户互动' || sheetNameLower.includes('interaction')){
             const existingKeys = new Set(data.projects.map(p => p.customerName + '|' + p.interactionDate + '|' + p.content));
             let added = 0;
             dataRows.forEach((row) => {
@@ -6293,7 +6344,7 @@ function importData(event){
             });
             console.log('导入互动数据: 新增', added, '条 (已跳过重复)');
           }
-          else if(sheetName.includes('商会') || sheetName === '商会信息'){
+          else if(sheetName.includes('商会') || sheetName === '商会信息' || sheetNameLower.includes('chamber')){
             const existingNames = new Set(data.chambers.map(c => c.chamberName));
             let added = 0;
             dataRows.forEach((row) => {
@@ -6318,7 +6369,7 @@ function importData(event){
           }
         });
 
-        if(confirm('导入Excel数据将覆盖当前数据,确定继续吗?')){
+        if(confirm(lang==='en'?'Importing Excel will overwrite the current data. Continue?':'导入Excel数据将覆盖当前数据,确定继续吗?')){
           saveData();
           updateOptionsFromData();
           updateStats();
@@ -6340,11 +6391,11 @@ function importData(event){
           }
 
           renderTable();
-          alert('Excel导入成功!\n\n已导入:\n- 投标项目:' + data.bids.length + ' 条\n- 客户管理:' + data.customers.length + ' 条\n- 客户互动:' + data.projects.length + ' 条\n- 商会信息:' + data.chambers.length + ' 条');
+          alert((lang==='en'?'Excel import successful!\n\nImported:\n- Bids: ':'Excel导入成功!\n\n已导入:\n- 投标项目:') + data.bids.length + (lang==='en'?'\n- Customers: ':' 条\n- 客户管理:') + data.customers.length + (lang==='en'?'\n- Interactions: ':' 条\n- 客户互动:') + data.projects.length + (lang==='en'?'\n- Chambers: ':' 条\n- 商会信息:') + data.chambers.length);
         }
       }catch(err){
         console.error('导入错误:', err);
-        alert('Excel导入失败: ' + err.message + '\n\n请确保文件是有效的Excel格式');
+        alert((lang==='en'?'Excel import failed: ':'Excel导入失败: ') + err.message + (lang==='en'?'\n\nPlease make sure the file is a valid Excel file.':'\n\n请确保文件是有效的Excel格式'));
       }
     };
     reader.readAsArrayBuffer(file);
@@ -6358,7 +6409,7 @@ function importData(event){
         const lines = text.split('\n').filter(l => l.trim());
 
         if(lines.length < 2){
-          alert('CSV文件为空或格式不正确');
+          alert(lang==='en'?'CSV file is empty or malformed':'CSV文件为空或格式不正确');
           return;
         }
 
@@ -6396,7 +6447,7 @@ function importData(event){
         }
 
         // 根据文件名判断导入哪个模块
-        if(fileName.includes('投标')){
+        if(fileName.includes('投标') || /bid/i.test(fileName)){
           data.bids = dataRows.map((row, idx) => ({
             id: 'B-' + Date.now() + '-' + idx,
             customerName: row[0] || '',
@@ -6413,9 +6464,9 @@ function importData(event){
           saveData();
           updateStats();
           renderTable();
-          alert(`投标项目导入成功!共${data.bids.length}条记录`);
+          alert(lang==='en'?('Bids imported: '+data.bids.length+' records'):`投标项目导入成功!共${data.bids.length}条记录`);
         }
-        else if(fileName.includes('客户管理') || fileName.includes('客户')){
+        else if(fileName.includes('客户管理') || fileName.includes('客户') || /customer/i.test(fileName)){
           data.customers = dataRows.map((row, idx) => ({
             id: 'C-' + Date.now() + '-' + idx,
             companyName: row[0] || '',
@@ -6431,9 +6482,9 @@ function importData(event){
           saveData();
           updateCustomerStats();
           renderTable();
-          alert(`客户管理导入成功!共${data.customers.length}条记录`);
+          alert(lang==='en'?('Customers imported: '+data.customers.length+' records'):`客户管理导入成功!共${data.customers.length}条记录`);
         }
-        else if(fileName.includes('互动')){
+        else if(fileName.includes('互动') || /interaction/i.test(fileName)){
           data.projects = dataRows.map((row, idx) => ({
             id: 'I-' + Date.now() + '-' + idx,
             customerName: row[0] || '',
@@ -6447,9 +6498,9 @@ function importData(event){
           }));
           saveData();
           renderTable();
-          alert(`客户互动导入成功!共${data.projects.length}条记录`);
+          alert(lang==='en'?('Interactions imported: '+data.projects.length+' records'):`客户互动导入成功!共${data.projects.length}条记录`);
         }
-        else if(fileName.includes('商会')){
+        else if(fileName.includes('商会') || /chamber/i.test(fileName)){
           data.chambers = dataRows.map((row, idx) => ({
             id: 'CH-' + Date.now() + '-' + idx,
             chamberName: row[0] || '',
@@ -6464,13 +6515,13 @@ function importData(event){
           }));
           saveData();
           renderTable();
-          alert(`商会信息导入成功!共${data.chambers.length}条记录`);
+          alert(lang==='en'?('Chambers imported: '+data.chambers.length+' records'):`商会信息导入成功!共${data.chambers.length}条记录`);
         }
         else{
-          alert('无法识别CSV文件类型,请确保文件名包含:投标、客户管理、互动、商会');
+          alert(lang==='en'?'Unrecognized CSV type. The filename must contain one of: bid, customer, interaction, chamber':'无法识别CSV文件类型,请确保文件名包含:投标、客户管理、互动、商会');
         }
       }catch(err){
-        alert('CSV导入失败: ' + err.message);
+        alert((lang==='en'?'CSV import failed: ':'CSV导入失败: ') + err.message);
       }
     };
     reader.readAsText(file);
@@ -6501,7 +6552,7 @@ function importData(event){
     reader.readAsText(file);
   }
   else{
-    alert('不支持的文件格式,请使用 .xls 或 .json 文件');
+    alert(lang==='en'?'Unsupported file format. Use .xls or .json':'不支持的文件格式,请使用 .xls 或 .json 文件');
   }
   event.target.value = '';
 }
@@ -6894,7 +6945,7 @@ function renderPlanTracking(){
   var titleEl = document.getElementById('plan2026Title');
   if(titleEl) titleEl.textContent = 'System Tracking List 2026';
   var saveBtn = document.getElementById('planSaveBtn');
-  if(saveBtn) saveBtn.innerHTML = '💾 <span>保存 / Save</span>';
+  if(saveBtn) saveBtn.innerHTML = (lang==='en'?'💾 <span>Save</span>':'💾 <span>保存</span>');
 }
 
 // Live-update sub/parent row pct display when leaf cumulative changes
@@ -6995,10 +7046,10 @@ function savePlanTracking(){
   // flash save indicator (match Q2 Result style)
   var btn = document.getElementById('planSaveBtn');
   if(btn){
-    btn.innerHTML = '✅ 已保存';
+    btn.innerHTML = (lang==='en'?'✅ Saved':'✅ 已保存');
     btn.style.background = '#10b981';
     setTimeout(function(){
-      btn.innerHTML = '💾 <span>保存 / Save</span>';
+      btn.innerHTML = (lang==='en'?'💾 <span>Save</span>':'💾 <span>保存</span>');
       btn.style.background = '';
     }, 1500);
   }
@@ -9498,7 +9549,7 @@ function openDownloadModal(items){
     h += `</div>`;
   });
   body.innerHTML = h;
-  btns.innerHTML = '<button class="btn btn-ghost" onclick="dcCancelDownload()">Cancel</button><button class="btn btn-secondary" onclick="dcManualDownload()">⬇️ 逐条手动点</button><button class="btn btn-accent" onclick="dcConfirmDownload()">📥 Auto Download All</button>';
+  btns.innerHTML = '<button class="btn btn-ghost" onclick="dcCancelDownload()">Cancel</button><button class="btn btn-secondary" onclick="dcManualDownload()">'+(lang==='en'?'⬇️ Manual one by one':'⬇️ 逐条手动点')+'</button><button class="btn btn-accent" onclick="dcConfirmDownload()">📥 Auto Download All</button>';
   document.getElementById('downloadModal').classList.add('show');
 }
 
@@ -10500,6 +10551,22 @@ function rfiPrint(){
   var go=function(){try{w.print();}catch(e){}};
   if(w.document.readyState==='complete'){setTimeout(go,350);}else{w.onload=function(){setTimeout(go,350);};}}
 
+/* 投标页：页面标题栏跟随页内页签（中英双语，按当前界面语言取） */
+var BIDS_VIEW_HEAD={
+  table:{t:{zh:'投标追踪',en:'Bid Tracking'},s:{zh:'投标项目全清单 —— 阶段、分类与预估金额',en:'Full list of bid projects — stage, category and estimated value'}},
+  verify:{t:{zh:'项目验证',en:'Project Verification'},s:{zh:'五步验证与 MR-001 负责人表',en:'5-step verification and the MR-001 PIC form'}},
+  tracking:{t:{zh:'项目跟进',en:'Project Follow-up'},s:{zh:'按六个阶段跟进每个项目',en:'Track each project through the 6 follow-up stages'}},
+  mom:{t:{zh:'项目会议纪要',en:'Project MOM'},s:{zh:'每个项目一份会议纪要',en:'Meeting minutes per project — one file per project'}},
+  rfi:{t:{zh:'资料索取单 RFI',en:'RFI'},s:{zh:'每个项目的资料索取记录',en:'Request-for-information log per project'}}
+};
+function bidsApplyHead(){
+  if(mod!=='bids')return;
+  var h=BIDS_VIEW_HEAD[bidsView]||BIDS_VIEW_HEAD.table;
+  var isEn=(typeof lang!=='undefined'&&lang==='en');
+  var pt=document.getElementById('pt'), ps=document.getElementById('ps');
+  if(pt)pt.textContent=isEn?h.t.en:h.t.zh;
+  if(ps)ps.textContent=isEn?h.s.en:h.s.zh;
+}
 function bidsSwitchView(v){
   bidsView=(v==='tracking')?'tracking':((v==='verify')?'verify':((v==='mom')?'mom':((v==='rfi')?'rfi':'table')));
   bidsApplyView();
@@ -10534,6 +10601,7 @@ function bidsApplyView(){
   }
   if(showTable){setBidsFilter(bidsFilter);}
   else if(showTrack){pfuRenderAll();}
+  bidsApplyHead();
 }
 
 /* ---------- Project Follow-up (data + render) ---------- */
@@ -10893,7 +10961,7 @@ function pfuCongrats(){
   var p=pfuCur(); if(!p)return;
   pfuCongratsClose();
   var d=document.createElement('div'); d.className='pfu-congrats'; d.id='pfuCongratsBox';
-  d.innerHTML='<div class="cg"><img src="mgd-logo.png" alt="MGD Logo" class="cglogo"><div class="em">🎉🏆🎉</div><h1>CONGRATULATIONS!</h1><div class="pj">'+pfuEsc(p.name)+'</div><div class="rw">PROJECT WON · 中标</div><button class="pfu-btn pri cgclose" onclick="pfuCongratsClose()">Close</button></div>';
+  d.innerHTML='<div class="cg"><img src="mgd-logo.png" alt="MGD Logo" class="cglogo"><div class="em">🎉🏆🎉</div><h1>CONGRATULATIONS!</h1><div class="pj">'+pfuEsc(p.name)+'</div><div class="rw">PROJECT WON'+(lang==='en'?'':' · 中标')+'</div><button class="pfu-btn pri cgclose" onclick="pfuCongratsClose()">Close</button></div>';
   d.addEventListener('click',function(e){if(e.target===d)pfuCongratsClose();});
   document.body.appendChild(d);
 }
@@ -10945,7 +11013,7 @@ function pfuRenderDetail(){
     h+='<div>'+kv[1]+'<b data-edit data-f="'+kv[0]+'">'+pfuEsc(p[kv[0]]||'\u2014')+'</b></div>';
   });
   h+='<div>Progress<b style="border-bottom:none">'+(p.progress==null?0:p.progress)+'% <span class="pfu-auto-tag" title="Auto-calculated: completed stages / 6">auto</span></b></div>';
-  h+=(function(){var _b=pfuBidStageOf(p.name);return _b?'<div>Bid Stage<b style="border-bottom:none"><span class="pfu-badge '+_b.cls+'" title="From Bid Tracking / 投标追踪状态: '+pfuEsc(_b.raw)+'">'+pfuEsc(_b.label)+'</span></b></div>':'';})();
+  h+=(function(){var _b=pfuBidStageOf(p.name);return _b?'<div>Bid Stage<b style="border-bottom:none"><span class="pfu-badge '+_b.cls+'" title="'+(lang==='en'?'From Bid Tracking: ':'投标追踪状态: ')+pfuEsc(_b.raw)+'">'+pfuEsc(_b.label)+'</span></b></div>':'';})();
   h+='</div></div>';
   h+='<div class="pfu-pipe">';
   PFU_STAGES.forEach(function(s,i){
@@ -10969,8 +11037,8 @@ function pfuRenderDetail(){
     h+='<button class="pfu-resbtn undo" onclick="pfuResetResult()" title="Undo \u2014 clear the final result and go back to \'no result\'">\u21ba Undo</button>';
     h+='</div>';
     if(_rs==='Lost'||_rs==='Cancelled'){
-      h+='<div class="pfu-resreason"><div class="pfu-card-t" style="font-size:12px;margin-bottom:6px">'+(_rs==='Lost'?'📝 Reason why CLOSED — quick note / 关闭原因（简）':'📝 Reason why CANCELLED — analysis report / 取消原因分析')+'</div>';
-      h+='<textarea data-f="resultReason" placeholder="Write the reason here... / 在这里写原因...">'+pfuEsc(_r.reason||'')+'</textarea>';
+      h+='<div class="pfu-resreason"><div class="pfu-card-t" style="font-size:12px;margin-bottom:6px">'+(_rs==='Lost'?(lang==='en'?'📝 Reason why CLOSED — quick note':'📝 关闭原因（简）'):(lang==='en'?'📝 Reason why CANCELLED — analysis report':'📝 取消原因分析'))+'</div>';
+      h+='<textarea data-f="resultReason" placeholder="'+(lang==='en'?'Write the reason here...':'在这里写原因...')+'">'+pfuEsc(_r.reason||'')+'</textarea>';
       h+='<div class="pfu-formhint">Saved with the project when you press 💾 Save.</div>';
       if(_rs==='Lost'){
         var _a=(p.analysis||{});
