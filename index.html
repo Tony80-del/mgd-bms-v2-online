@@ -907,16 +907,16 @@ input[type="date"]::-moz-calendar-picker-indicator {
       <span class="nic">👥</span><span id="nc">客户管理</span>
     </div>
     <!-- 4 · Annual Target -->
-    <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span data-zh="年度指标" data-en="Annual Target">Annual Target</span></div>
+    <div class="ni" data-mod="annualtarget" onclick="navGo('annualtarget',null,event)"><span class="nic">🎯</span><span data-zh="年度指标" data-en="Annual Target" data-vi="Mục tiêu năm">Annual Target</span></div>
     <!-- 5 · Reports (dropdown) -->
     <div class="ni" data-mod="weeklyreport" onclick="navGo('weeklyreport','report',event)">
-      <span class="nic">📝</span><span data-zh="周报" data-en="Reports">Reports</span>
+      <span class="nic">📝</span><span data-zh="周报" data-en="Reports" data-vi="Báo cáo tuần">Reports</span>
     </div>
     <!-- 6 · Plan 2026 -->
     <div class="ni" data-mod="plan2026" onclick="navGo('plan2026',null,event)"><span class="nic">🗓</span><span id="nplan"></span></div>
     <!-- 7 · Documentation (dropdown) -->
     <div class="ni" data-mod="docstorage" onclick="navGo('docstorage',null,event)">
-      <span class="nic">🗄</span><span data-zh="文档管理" data-en="Documentation">Documentation</span>
+      <span class="nic">🗄</span><span data-zh="文档管理" data-en="Documentation" data-vi="Quản lý tài liệu">Documentation</span>
     </div>
   </nav>
   <div class="skin-toggle" title="皮肤 Skin">
@@ -933,22 +933,22 @@ input[type="date"]::-moz-calendar-picker-indicator {
         <div><h2 class="fd text-xl font-semibold" id="pt">投标项目追踪</h2><p class="text-sm text-[var(--muted)]" id="ps">管理和追踪所有投标项目进度</p><span id="projInteractBadge" class="hidden text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full mt-1 inline-block">互动: 0</span><span id="q3InteractBadge" class="hidden text-xs font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full mt-1 inline-block ml-2">Q3: 0</span></div>
       </div>
       <div class="flex items-center gap-3">
-        <div class="flex gap-1"><button class="ls active" id="lzh" onclick="sl('zh')" title="中文" aria-label="中文"><span class="flgw"><svg width="24" height="16" viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><path d="M5.000 2.000L5.674 4.073L7.853 4.073L6.090 5.354L6.763 7.427L5.000 6.146L3.237 7.427L3.910 5.354L2.147 4.073L4.326 4.073Z" fill="#FFDE00"/><path d="M10.391 1.080L10.328 1.803L10.996 2.088L10.288 2.251L10.224 2.975L9.851 2.352L9.143 2.514L9.620 1.966L9.246 1.343L9.914 1.628ZM12.718 3.304L12.378 3.946L12.884 4.467L12.168 4.343L11.829 4.985L11.726 4.266L11.010 4.141L11.662 3.821L11.560 3.102L12.065 3.624ZM12.939 6.657L12.367 7.105L12.616 7.787L12.014 7.382L11.442 7.830L11.641 7.131L11.038 6.725L11.765 6.699L11.964 6.001L12.213 6.683ZM10.353 8.064L10.319 8.790L10.999 9.046L10.298 9.239L10.265 9.964L9.865 9.357L9.165 9.550L9.618 8.982L9.219 8.375L9.899 8.632Z" fill="#FFDE00"/></svg></span></button><button class="ls" id="len" onclick="sl('en')" title="English" aria-label="English"><span class="flgw"><svg width="24" height="16" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="flgUkDiag"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#flgUkDiag)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#FFFFFF" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></span></button></div>
+        <div class="flex gap-1"><button class="ls active" id="lzh" onclick="sl('zh')" title="中文" aria-label="中文"><span class="flgw"><svg width="24" height="16" viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><path d="M5.000 2.000L5.674 4.073L7.853 4.073L6.090 5.354L6.763 7.427L5.000 6.146L3.237 7.427L3.910 5.354L2.147 4.073L4.326 4.073Z" fill="#FFDE00"/><path d="M10.391 1.080L10.328 1.803L10.996 2.088L10.288 2.251L10.224 2.975L9.851 2.352L9.143 2.514L9.620 1.966L9.246 1.343L9.914 1.628ZM12.718 3.304L12.378 3.946L12.884 4.467L12.168 4.343L11.829 4.985L11.726 4.266L11.010 4.141L11.662 3.821L11.560 3.102L12.065 3.624ZM12.939 6.657L12.367 7.105L12.616 7.787L12.014 7.382L11.442 7.830L11.641 7.131L11.038 6.725L11.765 6.699L11.964 6.001L12.213 6.683ZM10.353 8.064L10.319 8.790L10.999 9.046L10.298 9.239L10.265 9.964L9.865 9.357L9.165 9.550L9.618 8.982L9.219 8.375L9.899 8.632Z" fill="#FFDE00"/></svg></span></button><button class="ls" id="len" onclick="sl('en')" title="English" aria-label="English"><span class="flgw"><svg width="24" height="16" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="flgUkDiag"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#flgUkDiag)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#FFFFFF" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></span></button><button class="ls" id="lvi" onclick="sl('vi')" title="Tiếng Việt" aria-label="Tiếng Việt"><span class="flgw"><svg width="24" height="16" viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="30" height="20" fill="#DA251D"/><path d="M15.000 4.000L16.347 8.146L20.706 8.146L17.180 10.708L18.527 14.854L15.000 12.292L11.473 14.854L12.820 10.708L9.294 8.146L13.653 8.146Z" fill="#FFDE00"/></svg></span></button></div>
         <div class="relative"><input type="text" id="si" class="fi pl-10 w-64" onkeyup="hs(event)"><svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
         <span id="cloudBadge" onclick="showCloudInfo()" title="Cloud Status" class="text-xs px-2 py-1 rounded-full bg-[var(--card)] border border-[var(--border)] cursor-pointer select-none flex items-center gap-1">☁️ <span id="cloudBadgeTxt" class="text-[10px] text-[var(--muted)]">Cloud</span></span>
         <button class="bp" id="btnAdd" onclick="openAddModal()"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg><span id="ba">新增</span></button>
         <button class="bs" id="exportMainBtn" onclick="exportCurrentModule()" title="导出Excel" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg><span id="be">导出</span></button>
-        <button class="bs" id="exportCustTplBtn" onclick="exportCustomerTemplate()" title="导出空白模板" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="模板" data-en="Template">模板</span></button>
-        <button class="bs" id="expInteractBtn" onclick="exportInteractionsOnly()" title="导出客户互动" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="导出互动" data-en="Export Interactions">导出互动</span></button>
+        <button class="bs" id="exportCustTplBtn" onclick="exportCustomerTemplate()" title="导出空白模板" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="模板" data-en="Template" data-vi="Mẫu">模板</span></button>
+        <button class="bs" id="expInteractBtn" onclick="exportInteractionsOnly()" title="导出客户互动" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span data-zh="导出互动" data-en="Export Interactions" data-vi="Xuất tương tác">导出互动</span></button>
         <button class="bs" id="btnCsv" onclick="exportCSV()" title="导出CSV" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.293.707l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span id="bcsv">CSV</span></button>
         <button class="bs" id="btnImport" onclick="document.getElementById('importFile').click()" title="导入数据" style="display:none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span id="bi">导入</span></button>
         <!-- 工具齿轮菜单 -->
         <div class="relative" id="toolGearWrap" style="display:none">
           <button class="bp" id="btnToolGear" onclick="toggleToolMenu(event)" title="工具"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.573-1.066z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></button>
           <div id="toolMenu" class="tool-menu" style="display:none">
-            <div class="tm-item" onclick="authThenBackup(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg><span data-zh="📦 备份" data-en="📦 Backup">📦 备份</span></div>
-            <div class="tm-item" onclick="authThenCloudVersions(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm3 5h10M8 17h8"/></svg><span data-zh="☁️ 云版本" data-en="☁️ Cloud Versions">☁️ 云版本</span></div>
-            <div class="tm-item" onclick="authThenRestore(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span data-zh="🔄 恢复" data-en="🔄 Restore">🔄 恢复</span></div>
+            <div class="tm-item" onclick="authThenBackup(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg><span data-zh="📦 备份" data-en="📦 Backup" data-vi="📦 Sao lưu">📦 备份</span></div>
+            <div class="tm-item" onclick="authThenCloudVersions(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm3 5h10M8 17h8"/></svg><span data-zh="☁️ 云版本" data-en="☁️ Cloud Versions" data-vi="☁️ Bản trên cloud">☁️ 云版本</span></div>
+            <div class="tm-item" onclick="authThenRestore(event)"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span data-zh="🔄 恢复" data-en="🔄 Restore" data-vi="🔄 Khôi phục">🔄 恢复</span></div>
           </div>
         </div>
         <input type="file" id="importFile" accept=".json,.xls,.xlsx,.xlsm,.csv,.xml" style="display:none" onchange="importData(event)">
@@ -960,7 +960,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
   <div class="p-8">
     <!-- Bid Project Tracking sub-tabs: list view | Project Follow-up -->
     <div id="bidsSubTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);position:sticky;top:81px;z-index:40;background:var(--bg1);">
-      <button id="bidsSubTabTable" onclick="bidsSwitchView('table')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="📊 投标列表" data-en="📊 Bid Tracking">📊 投标列表</button>
+      <button id="bidsSubTabTable" onclick="bidsSwitchView('table')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="📊 投标列表" data-en="📊 Bid Tracking" data-vi="📊 Danh sách thầu">📊 投标列表</button>
       <button id="bidsSubTabVerify" onclick="bidsSwitchView('verify')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">✅ Project verification</button>
       <button id="bidsSubTabTracking" onclick="bidsSwitchView('tracking')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">🏗️ Project Follow-up</button>
       <button id="bidsSubTabMom" onclick="bidsSwitchView('mom')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📝 Project MOM</button>
@@ -968,10 +968,10 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
     <div id="bs" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
       <div class="sc ai" style="animation-delay:.1s"><div class="text-[var(--muted)] text-sm mb-1" id="s1">项目信息 / Project Info</div><div class="text-2xl font-bold text-blue-400" id="c1">0</div></div>
-      <div class="sc ai" style="animation-delay:.2s"><div class="text-[var(--muted)] text-sm mb-1" id="s5" data-zh="分类统计" data-en="Category">分类统计</div><div class="flex gap-3 mt-1"><span class="text-lg font-bold text-emerald-400">A: <span id="ca">0</span></span><span class="text-lg font-bold text-amber-400">B: <span id="cba">0</span></span></div></div>
-      <div class="sc ai" style="animation-delay:.3s"><div class="text-[var(--muted)] text-sm mb-1" id="s6" data-zh="预估总额" data-en="Est. Total Value">预估总额</div><div class="text-2xl font-bold text-cyan-400" id="totalValue">0</div></div>
+      <div class="sc ai" style="animation-delay:.2s"><div class="text-[var(--muted)] text-sm mb-1" id="s5" data-zh="分类统计" data-en="Category" data-vi="Thống kê phân loại">分类统计</div><div class="flex gap-3 mt-1"><span class="text-lg font-bold text-emerald-400">A: <span id="ca">0</span></span><span class="text-lg font-bold text-amber-400">B: <span id="cba">0</span></span></div></div>
+      <div class="sc ai" style="animation-delay:.3s"><div class="text-[var(--muted)] text-sm mb-1" id="s6" data-zh="预估总额" data-en="Est. Total Value" data-vi="Tổng giá trị dự kiến">预估总额</div><div class="text-2xl font-bold text-cyan-400" id="totalValue">0</div></div>
       <div style="grid-column:1/-1">
-        <div class="text-xs text-[var(--muted)] mb-2"><span data-zh="📌 跟随 Project Follow-up 阶段 · 共 " data-en="📌 Follow-up stages · ">📌 跟随 Project Follow-up 阶段 · 共 </span><span id="cstTotal">0</span><span data-zh=" 个跟进项目" data-en=" projects"> 个跟进项目</span></div>
+        <div class="text-xs text-[var(--muted)] mb-2"><span data-zh="📌 跟随 Project Follow-up 阶段 · 共 " data-en="📌 Follow-up stages · " data-vi="📌 Giai đoạn Project Follow-up · ">📌 跟随 Project Follow-up 阶段 · 共 </span><span id="cstTotal">0</span><span data-zh=" 个跟进项目" data-en=" projects" data-vi=" dự án"> 个跟进项目</span></div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div class="sc ai" style="animation-delay:.4s"><div class="text-[var(--muted)] text-xs mb-1">1 · Project Info collection</div><div class="text-2xl font-bold text-slate-300" id="cst1">0</div></div>
           <div class="sc ai" style="animation-delay:.45s"><div class="text-[var(--muted)] text-xs mb-1">2 · PQ</div><div class="text-2xl font-bold text-amber-400" id="cst2">0</div></div>
@@ -984,64 +984,64 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
     <!-- Customer area module switch: Customer Management | Interactions | Chamber -->
     <div id="custModTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);background:var(--bg1);">
-      <button id="custModTabCust" onclick="custModSwitch('customers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="👥 客户管理" data-en="👥 Customer Management">👥 客户管理</button>
-      <button id="custModTabInter" onclick="custModSwitch('projects')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="💬 客户互动" data-en="💬 Customer Interactions">💬 客户互动</button>
-      <button id="custModTabChamber" onclick="custModSwitch('chambers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="🏛️ 商会" data-en="🏛️ Chamber">🏛️ 商会</button>
+      <button id="custModTabCust" onclick="custModSwitch('customers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="👥 客户管理" data-en="👥 Customer Management" data-vi="👥 Quản lý khách hàng">👥 客户管理</button>
+      <button id="custModTabInter" onclick="custModSwitch('projects')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="💬 客户互动" data-en="💬 Customer Interactions" data-vi="💬 Tương tác khách hàng">💬 客户互动</button>
+      <button id="custModTabChamber" onclick="custModSwitch('chambers')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;" data-zh="🏛️ 商会" data-en="🏛️ Chamber" data-vi="🏛️ Hiệp hội Thương mại">🏛️ 商会</button>
     </div>
     <div id="cs" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8" style="display:none">
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2025客户" data-en="2025 Customers">2025客户</div><div class="text-2xl font-bold text-purple-400" id="cust2025">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2026客户" data-en="2026 Customers">2026客户</div><div class="text-2xl font-bold text-blue-400" id="cust2026">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本周新增" data-en="This Week">本周新增</div><div class="text-2xl font-bold text-emerald-400" id="custWeek">0</div></div>
-      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本月新增" data-en="This Month">本月新增</div><div class="text-2xl font-bold text-amber-400" id="custMonth">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2025客户" data-en="2025 Customers" data-vi="Khách hàng 2025">2025客户</div><div class="text-2xl font-bold text-purple-400" id="cust2025">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="2026客户" data-en="2026 Customers" data-vi="Khách hàng 2026">2026客户</div><div class="text-2xl font-bold text-blue-400" id="cust2026">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本周新增" data-en="This Week" data-vi="Mới trong tuần">本周新增</div><div class="text-2xl font-bold text-emerald-400" id="custWeek">0</div></div>
+      <div class="sc ai"><div class="text-[var(--muted)] text-sm mb-1" data-zh="本月新增" data-en="This Month" data-vi="Mới trong tháng">本月新增</div><div class="text-2xl font-bold text-amber-400" id="custMonth">0</div></div>
     </div>
     <div id="yf" class="flex gap-2 mb-4" style="display:none">
-      <button onclick="setYearFilter('all')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yfAll" data-zh="全部" data-en="All">全部</button>
+      <button onclick="setYearFilter('all')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yfAll" data-zh="全部" data-en="All" data-vi="Tất cả">全部</button>
       <button onclick="setYearFilter('2025')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yf2025">2025</button>
       <button onclick="setYearFilter('2026')" class="px-4 py-2 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm" id="yf2026">2026</button>
     </div>
     <div id="cf" class="flex gap-2 mb-4" style="display:none;align-items:center">
-      <span class="text-sm text-[var(--muted)]" data-zh="国家:" data-en="Country:">国家:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="国家:" data-en="Country:" data-vi="Quốc gia:">国家:</span>
       <select id="countryFilter" onchange="setCountryFilter(this.value)" class="px-3 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm cursor-pointer">
-        <option value="all" data-zh="全部" data-en="All">全部</option>
+        <option value="all" data-zh="全部" data-en="All" data-vi="Tất cả">全部</option>
       </select>
     </div>
     <div id="custSearchWrap" class="mb-4" style="display:none">
       <input id="custSearchInput" type="text" placeholder="搜索公司名称 / Search company name..." oninput="setCustSearchFilter(this.value)" class="w-full px-4 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm text-[var(--text)] placeholder-[var(--muted)] outline-none focus:border-[var(--blue)]" />
     </div>
     <div id="custDateWrap" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]" data-zh="添加日期:" data-en="Date Added:">添加日期:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="添加日期:" data-en="Date Added:" data-vi="Ngày thêm:">添加日期:</span>
       <input id="custDateInput" type="date" onchange="setCustDateFilter(this.value)" class="px-3 py-2 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm text-[var(--text)] outline-none focus:border-[var(--blue)] cursor-pointer" />
     </div>
     <div id="chf" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]" data-zh="出席日期:" data-en="Attendance Date:">出席日期:</span>
-      <button onclick="setChamberDateFilter('all')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAll" data-zh="全部" data-en="All">全部</button>
-      <button onclick="setChamberDateFilter('upcoming')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfUpcoming" data-zh="即将出席" data-en="Upcoming">即将出席</button>
-      <button onclick="setChamberDateFilter('attended')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAttended" data-zh="已出席" data-en="Attended">已出席</button>
-      <span class="text-sm text-[var(--muted)] ml-2" data-zh="月份:" data-en="Month:">月份:</span>
+      <span class="text-sm text-[var(--muted)]" data-zh="出席日期:" data-en="Attendance Date:" data-vi="Ngày tham dự:">出席日期:</span>
+      <button onclick="setChamberDateFilter('all')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAll" data-zh="全部" data-en="All" data-vi="Tất cả">全部</button>
+      <button onclick="setChamberDateFilter('upcoming')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfUpcoming" data-zh="即将出席" data-en="Upcoming" data-vi="Sắp tham dự">即将出席</button>
+      <button onclick="setChamberDateFilter('attended')" class="px-3 py-1.5 rounded-lg bg-[var(--card)] hover:bg-[var(--cardh)] text-sm cursor-pointer" id="chfAttended" data-zh="已出席" data-en="Attended" data-vi="Đã tham dự">已出席</button>
+      <span class="text-sm text-[var(--muted)] ml-2" data-zh="月份:" data-en="Month:" data-vi="Tháng:">月份:</span>
       <select id="chMonthFilter" onchange="setChamberMonthFilter(this.value)" class="px-3 py-1.5 rounded-lg bg-[var(--card)] border border-[var(--border)] text-sm cursor-pointer">
-        <option value="all" data-zh="全部" data-en="All">全部</option>
-        <option value="0" data-zh="一月" data-en="Jan">一月</option>
-        <option value="1" data-zh="二月" data-en="Feb">二月</option>
-        <option value="2" data-zh="三月" data-en="Mar">三月</option>
-        <option value="3" data-zh="四月" data-en="Apr">四月</option>
-        <option value="4" data-zh="五月" data-en="May">五月</option>
-        <option value="5" data-zh="六月" data-en="Jun">六月</option>
-        <option value="6" data-zh="七月" data-en="Jul">七月</option>
-        <option value="7" data-zh="八月" data-en="Aug">八月</option>
-        <option value="8" data-zh="九月" data-en="Sep">九月</option>
-        <option value="9" data-zh="十月" data-en="Oct">十月</option>
-        <option value="10" data-zh="十一月" data-en="Nov">十一月</option>
-        <option value="11" data-zh="十二月" data-en="Dec">十二月</option>
+        <option value="all" data-zh="全部" data-en="All" data-vi="Tất cả">全部</option>
+        <option value="0" data-zh="一月" data-en="Jan" data-vi="Tháng 1">一月</option>
+        <option value="1" data-zh="二月" data-en="Feb" data-vi="Tháng 2">二月</option>
+        <option value="2" data-zh="三月" data-en="Mar" data-vi="Tháng 3">三月</option>
+        <option value="3" data-zh="四月" data-en="Apr" data-vi="Tháng 4">四月</option>
+        <option value="4" data-zh="五月" data-en="May" data-vi="Tháng 5">五月</option>
+        <option value="5" data-zh="六月" data-en="Jun" data-vi="Tháng 6">六月</option>
+        <option value="6" data-zh="七月" data-en="Jul" data-vi="Tháng 7">七月</option>
+        <option value="7" data-zh="八月" data-en="Aug" data-vi="Tháng 8">八月</option>
+        <option value="8" data-zh="九月" data-en="Sep" data-vi="Tháng 9">九月</option>
+        <option value="9" data-zh="十月" data-en="Oct" data-vi="Tháng 10">十月</option>
+        <option value="10" data-zh="十一月" data-en="Nov" data-vi="Tháng 11">十一月</option>
+        <option value="11" data-zh="十二月" data-en="Dec" data-vi="Tháng 12">十二月</option>
       </select>
     </div>
     <div id="bf" class="flex gap-2 mb-4 items-center" style="display:none">
-      <span class="text-sm text-[var(--muted)]" data-zh="筛选:" data-en="Filter:">筛选:</span>
-      <button onclick="setBidsFilter('all')" class="bfbtn" id="bfAll"><span class="bfi">📋</span><span data-zh="全部" data-en="All">全部</span><span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('bidding')" class="bfbtn" id="bfBidding"><span class="bfi">⚡</span><span data-zh="投标中" data-en="Bidding">投标中</span><span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('tracking')" class="bfbtn" id="bfTracking"><span class="bfi">🎯</span><span data-zh="追踪" data-en="Tracking">追踪</span><span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('potential')" class="bfbtn" id="bfPotential"><span class="bfi">🌱</span><span data-zh="潜在" data-en="Potential">潜在</span><span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('cancelled')" class="bfbtn" id="bfCancelled"><span class="bfi">🚫</span><span data-zh="已取消" data-en="Cancelled">已取消</span><span class="bfn">0</span></button>
-      <button onclick="setBidsFilter('won')" class="bfbtn" id="bfWon"><span class="bfi">🏆</span><span data-zh="中标" data-en="Won">中标</span><span class="bfn">0</span></button>
+      <span class="text-sm text-[var(--muted)]" data-zh="筛选:" data-en="Filter:" data-vi="Lọc:">筛选:</span>
+      <button onclick="setBidsFilter('all')" class="bfbtn" id="bfAll"><span class="bfi">📋</span><span data-zh="全部" data-en="All" data-vi="Tất cả">全部</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('bidding')" class="bfbtn" id="bfBidding"><span class="bfi">⚡</span><span data-zh="投标中" data-en="Bidding" data-vi="Đang thầu">投标中</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('tracking')" class="bfbtn" id="bfTracking"><span class="bfi">🎯</span><span data-zh="追踪" data-en="Tracking" data-vi="Theo dõi">追踪</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('potential')" class="bfbtn" id="bfPotential"><span class="bfi">🌱</span><span data-zh="潜在" data-en="Potential" data-vi="Tiềm năng">潜在</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('cancelled')" class="bfbtn" id="bfCancelled"><span class="bfi">🚫</span><span data-zh="已取消" data-en="Cancelled" data-vi="Đã hủy">已取消</span><span class="bfn">0</span></button>
+      <button onclick="setBidsFilter('won')" class="bfbtn" id="bfWon"><span class="bfi">🏆</span><span data-zh="中标" data-en="Won" data-vi="Trúng thầu">中标</span><span class="bfn">0</span></button>
     </div>
     <!-- ================= PROJECT DETAIL TRACKING (Project Follow-up) ================= -->
     <div id="bidsTrackingContainer" style="display:none">
@@ -1157,7 +1157,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
       </div>
       <!-- 商会统计(合并一张卡) -->
       <div class="bg-[var(--card)] rounded-xl p-6 border border-[var(--border)]">
-        <div class="text-sm text-[var(--muted)] mb-4 text-center" id="chStatsLabel" data-zh="商会统计" data-en="Chamber Stats">商会统计</div>
+        <div class="text-sm text-[var(--muted)] mb-4 text-center" id="chStatsLabel" data-zh="商会统计" data-en="Chamber Stats" data-vi="Thống kê hiệp hội thương mại">商会统计</div>
         <div class="flex items-center justify-around gap-4 text-center">
           <div>
             <div class="text-4xl font-bold text-purple-400" id="sumChambTotal">0</div>
@@ -1193,8 +1193,8 @@ input[type="date"]::-moz-calendar-picker-indicator {
           <span class="text-xs text-[var(--muted)]">Dec</span>
         </div>
         <div class="flex items-center justify-center gap-4 mt-2">
-          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-amber-400"></div><span class="text-xs text-[var(--muted)]" id="chLegAtt" data-zh="已出席" data-en="Attended">已出席</span></div>
-          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-sky-400"></div><span class="text-xs text-[var(--muted)]" id="chLegUpc" data-zh="即将出席" data-en="Upcoming">即将出席</span></div>
+          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-amber-400"></div><span class="text-xs text-[var(--muted)]" id="chLegAtt" data-zh="已出席" data-en="Attended" data-vi="Đã tham dự">已出席</span></div>
+          <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-sm bg-sky-400"></div><span class="text-xs text-[var(--muted)]" id="chLegUpc" data-zh="即将出席" data-en="Upcoming" data-vi="Sắp tham dự">即将出席</span></div>
         </div>
       </div>
     </div>
@@ -3103,7 +3103,7 @@ window.atRenderAll = renderAll;
 <div class="mo" id="md">
   <div class="mc">
     <div class="flex items-center justify-between mb-4" style="position:sticky;top:0;background:var(--card);z-index:1;padding-bottom:8px">
-      <h3 class="fd text-xl font-semibold" id="mt" data-zh="新增" data-en="Add New">新增</h3>
+      <h3 class="fd text-xl font-semibold" id="mt" data-zh="新增" data-en="Add New" data-vi="Thêm">新增</h3>
       <button onclick="cm()" class="p-2 rounded-lg hover:bg-[var(--bg2)]"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <form id="mf" onsubmit="event.preventDefault(); doSave();"></form>
@@ -3112,7 +3112,7 @@ window.atRenderAll = renderAll;
 
 <script>
 const i18n={zh:{ttl:'业务管理系统',sub:'业务管理系统',mf:'主要功能',nd:'综合统计',nb:'投标项目追踪',nc:'客户管理',ni:'客户互动',nch:'商会信息',nplan:'计划2026',ptPlan:'计划2026',psPlan:'系统追踪清单 2026',ptAT:'年度指标',psAT:'销售目标与 KPI',ptWR:'Weekly Report',psWR:'业务部周报',ptDoc:'文档管理系统',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'数据统计',stl1:'投标',stl2:'客户',stl3:'互动',sp:'搜索...',ba:'新增',bc:'取消',bs:'保存',be:'导出',bi:'导入',pt1:'投标项目追踪',ps1:'管理和追踪所有投标项目进度',pt2:'客户管理',ps2:'管理客户信息和跟进记录',pt3:'客户互动',ps3:'记录客户沟通和互动历史',pt5:'综合统计',ps5:'汇总三大模块的关键数据',ma:'新增',me:'编辑',ndd:'暂无数据',ndh:'点击"新增"按钮添加数据',nm:'未找到匹配记录',cd:'确定删除这条记录吗?',es:'导出成功!文件已下载',ic:'导入将覆盖当前数据,确定继续吗?',is:'导入成功!',ie:'导入失败:文件格式错误',s1:'项目信息',s2:'投标中',s3:'评审中',s4:'跟踪',s5:'中标',s6:'资格审核 / PQ',s7:'资料收集',s8:'跟踪',s9:'潜在',s10:'已取消',s11:'跟踪',st1:'待处理',st2:'进行中',st3:'完成',p1:'低',p2:'中',p3:'高',sp2:'请选择',f1:'客户名称',f2:'项目名称',f3:'地点',f4:'土地面积',f5:'阶段日期',f6:'投标阶段',f7:'负责人',f8:'电子邮箱',f9:'分类',f10:'预估工程金额',ph4:'单位:平方米',ph10:'单位:越南盾 (VND)',f11:'公司名称',f11b:'公司业务',f12:'联系人',f12b:'职位',f13:'电话',f14:'邮箱',f14b:'国家',f14c:'优先级',f15:'客户名称',f16:'互动日期',f17:'互动类型',f18:'互动内容',f18b:'邮箱',f19:'负责人',f20:'下一步计划',f21:'状态',f22:'备注',f23:'添加日期',f24:'(任务启动日期)',f25:'(已激活内容)',f26:'下一步日期',f27:'下一步内容',c1:'客户名称',c2:'项目名称',c3:'地点',c4:'土地面积',c5:'阶段日期',c6:'投标阶段',c7:'负责人',c8:'电子邮箱',c9:'分类',c10:'预估金额',c11:'公司名称',c11b:'公司业务',c12:'联系人',c12b:'职位',c13:'电话',c14:'邮箱',c14b:'国家',c14c:'优先级',c15:'客户',c16:'日期',c17:'类型',c18:'内容',c19:'负责人',c20:'下一步',c21:'状态',c22:'备注',c23:'操作',c24:'(任务启动日期)',c25:'(已激活内容)',c22:'操作',nb1:'新增投标',nb2:'新增客户',nb3:'新增互动',eb1:'编辑投标',eb2:'编辑客户',eb3:'编辑互动',catA:'A',catB:'B',it1:'电话',it2:'邮件',it3:'会议',it4:'拜访',it5:'其他',is1:'已完成',is2:'进行中',is3:'待跟进',ch1:'商会名称',ch2:'商会简称',ch3:'国家',ch4:'城市',ch5:'地址',ch6:'电话',ch7:'邮箱',ch8:'网站',ch9:'联系人',ch10:'职位',ch11:'业务范围',ch12:'备注',ch13:'主题',ch14:'出席日期',ch15:'出席地点',ch16:'负责人',pt4:'商会信息',ps4:'管理商会和组织联系信息',nb4:'新增商会',eb4:'编辑商会',cc1:'商会名称',cc3:'国家',cc6:'电话',cc7:'邮箱',cc9:'联系人',cc14:'主题',cc15:'出席日期',cc16:'出席地点',cc17:'备注',cc18:'操作',stl4:'投标统计',stl5:'客户统计',stl6:'商会统计',smc1:'每月出席次数',sumBidsLabel:'项目信息',sumCustLabel:'2026客户统计',sumChambTotalLbl:'商会总计',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'项目信息',sumBidsTotalLbl:'总计',sumBidsActiveLbl:'投标中',sumBidsWonLbl:'追踪',bidLegTotal:'总计',bidLegActive:'投标中',bidLegWon:'追踪',cust2026StatsLabel:'2026客户统计',sumCust2026TotalLbl:'2026总计',sumCustJunLbl:'···',sumCustInteractLbl:'客户互动',custLegNew:'新客户',custLegInteract:'客户互动',chLegAtt:'已出席',chLegUpc:'即将出席',win1Title:'营收目标',win2Title:'客户信息分析',win3Title:'Event List',win1t1:'营收目标 2026',win1t1_en:'Revenue 2026',win1t2:'业务营收目标',win1t2_en:'Sale Dept revenue',win1t3:'项目预估金额',win1t4:'实际目标',ncTarget:'年度目标: 160 · 2025 总计: 57'},en:{ttl:'Business Management System',sub:'Business Management System',mf:'MAIN FEATURES',nd:'Summary',nb:'Bid Tracking',nc:'Customer Mgmt',ni:'Interactions',nch:'Chambers',nplan:'PLAN 2026',ptPlan:'PLAN 2026',psPlan:'System Tracking List 2026',ptAT:'Annual Target',psAT:'Sales Target & KPI',ptWR:'Weekly Report',psWR:'Business Dept Weekly Report',ptDoc:'Documentation Storage',psDoc:'Document Storage & Registry System',ptDC:'Documents Collection',psDC:'Pick & Collect Confirmed Documents',ds:'Statistics',stl1:'Bids',stl2:'Customers',stl3:'Interactions',sp:'Search...',ba:'Add',bc:'Cancel',bs:'Save',be:'Export',bi:'Import',pt1:'Bid Project Tracking',ps1:'Manage and track all bid project progress',pt2:'Customer Management',ps2:'Manage customer info and follow-ups',pt3:'Customer Interactions',ps3:'Record customer communications and interaction history',pt5:'Summary',ps5:'Key data from all three modules',ma:'Add New',me:'Edit',ndd:'No Data',ndh:'Click "Add" button to add data',nm:'No matching records',cd:'Delete this record?',es:'Export successful! File downloaded',ic:'Import will overwrite current data. Continue?',is:'Import successful!',ie:'Import failed: Invalid file format',s1:'Project Info',s2:'Bidding',s3:'Reviewing',s4:'Following',s5:'Won',s6:'PQ',s7:'Data Collection',s8:'Following',s9:'Potential',s10:'Cancelled',s11:'Follow up',st1:'Pending',st2:'In Progress',st3:'Completed',p1:'Low',p2:'Medium',p3:'High',sp2:'Please select',f1:'Customer Name',f2:'Project Name',f3:'Location',f4:'Land Area',f5:'Stage Date',f6:'Bid Stage',f7:'Person In Charge',f8:'Email',f9:'Category',f10:'Est. Project Value',ph4:'Unit: sq.m',ph10:'Unit: VND',f11:'Company Name',f11b:'Business Type',f12:'Contact Person',f12b:'Position',f13:'Phone',f14:'Email',f14b:'Country',f14c:'Priority',f15:'Customer',f16:'Date',f17:'Type',f18:'Content',f18b:'Email',f19:'Person In Charge',f20:'Next Step',f21:'Status',f22:'Notes',f23:'Created Date',f24:'(Task Establish Date)',f25:'(Activated content)',f26:'Next Action Date',f27:'Next Action Content',c1:'Customer',c2:'Project',c3:'Location',c4:'Land Area',c5:'Stage Date',c6:'Bid Stage',c7:'PIC',c8:'Email',c9:'Category',c10:'Est. Value',c11:'Company',c11b:'Business',c12:'Contact',c12b:'Position',c13:'Phone',c14:'Email',c14b:'Country',c14c:'Priority',c15:'Customer',c16:'Date',c17:'Type',c18:'Content',c19:'PIC',c20:'Next',c21:'Status',c22:'Notes',c23:'Actions',c24:'(Task Establish Date)',c25:'(Activated content)',c22:'Actions',nb1:'New Bid',nb2:'New Customer',nb3:'New Interaction',eb1:'Edit Bid',eb2:'Edit Customer',eb3:'Edit Interaction',catA:'A',catB:'B',it1:'Phone',it2:'Email',it3:'Meeting',it4:'Visit',it5:'Other',is1:'Completed',is2:'In Progress',is3:'Pending',ch1:'Chamber Name',ch2:'Short Name',ch3:'Country',ch4:'City',ch5:'Address',ch6:'Phone',ch7:'Email',ch8:'Website',ch9:'Contact',ch10:'Position',ch11:'Business Scope',ch12:'Notes',ch13:'Topic',ch14:'Attendance Date',ch15:'Attendance Location',ch16:'Person In Charge',pt4:'Chamber of Commerce',ps4:'Manage chamber and organization contacts',nb4:'New Chamber',eb4:'Edit Chamber',cc1:'Chamber Name',cc3:'Country',cc6:'Phone',cc7:'Email',cc9:'Contact',cc14:'Topic',cc15:'Date',cc16:'Location',cc17:'Notes',cc18:'Actions',stl4:'Bid Stats',stl5:'Customer Stats',stl6:'Chamber Stats',sumBidsLabel:'Project Info',sumCustLabel:'2026 Customer Stats',sumChambTotalLbl:'Total Chambers',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'Project Info',sumBidsTotalLbl:'Total',sumBidsActiveLbl:'Bidding',sumBidsWonLbl:'Follow-Up',bidLegActive:'Bidding',bidLegWon:'Follow-Up',cust2026StatsLabel:'2026 Customer Stats',sumCust2026TotalLbl:'Total 2026',sumCustJunLbl:'···',sumCustInteractLbl:'Interactions',custLegNew:'New Customers',custLegInteract:'Interactions',chLegAtt:'Attended',chLegUpc:'Upcoming',win1Title:'Revenue Target',win2Title:'Customer Info Analysis',win3Title:'Event List'
-,win1t1:'Revenue 2026',win1t1_en:'Revenue 2026',win1t2:'Sale Dept revenue',win1t2_en:'Sale Dept revenue',win1t3:'Project Est. Value',win1t4:'Actual Target',ncTarget:'Annual target: 160 · 2025 total: 57',kpiGuide:'📊 KPI Guide',kpiGuideEn:'KPI Metrics Guide',kpiAnnual:'Q2 Target',kpiQTarget:'Q1 Target',kpiRateGuide:'🎯 Completion Rate',kpiRateOn:'🟢 ≥100% On target',kpiRateNear:'🟡 80-99% Near target',kpiRateOff:'🔴 <80% Needs work'}};
+,win1t1:'Revenue 2026',win1t1_en:'Revenue 2026',win1t2:'Sale Dept revenue',win1t2_en:'Sale Dept revenue',win1t3:'Project Est. Value',win1t4:'Actual Target',ncTarget:'Annual target: 160 · 2025 total: 57',kpiGuide:'📊 KPI Guide',kpiGuideEn:'KPI Metrics Guide',kpiAnnual:'Q2 Target',kpiQTarget:'Q1 Target',kpiRateGuide:'🎯 Completion Rate',kpiRateOn:'🟢 ≥100% On target',kpiRateNear:'🟡 80-99% Near target',kpiRateOff:'🔴 <80% Needs work'},vi:{ttl:'Hệ thống quản lý kinh doanh',sub:'Hệ thống quản lý kinh doanh',mf:'TÍNH NĂNG CHÍNH',nd:'Tổng quan',nb:'Theo dõi dự án thầu',nc:'Quản lý khách hàng',ni:'Tương tác khách hàng',nch:'Hiệp hội Thương mại',nplan:'Kế hoạch 2026',ptPlan:'Kế hoạch 2026',psPlan:'Danh sách theo dõi 2026',ptAT:'Mục tiêu năm',psAT:'Mục tiêu bán hàng & KPI',ptWR:'Báo cáo tuần',psWR:'Báo cáo tuần phòng kinh doanh',ptDoc:'Quản lý tài liệu',psDoc:'Hệ thống lưu trữ & đăng ký tài liệu',ptDC:'Thu thập tài liệu',psDC:'Tài liệu đã xác nhận thu thập',ds:'Thống kê',stl1:'Thầu',stl2:'Khách hàng',stl3:'Tương tác',sp:'Tìm kiếm...',ba:'Thêm',bc:'Hủy',bs:'Lưu',be:'Xuất',bi:'Nhập',pt1:'Theo dõi dự án thầu',ps1:'Quản lý và theo dõi tiến độ các dự án thầu',pt2:'Quản lý khách hàng',ps2:'Quản lý thông tin khách hàng và lịch sử theo dõi',pt3:'Tương tác khách hàng',ps3:'Ghi lại lịch sử liên lạc và tương tác khách hàng',pt5:'Tổng quan',ps5:'Tổng hợp dữ liệu chính của ba mô-đun',ma:'Thêm',me:'Sửa',ndd:'Không có dữ liệu',ndh:'Nhấn "Thêm" để thêm dữ liệu',nm:'Không tìm thấy bản ghi',cd:'Xóa bản ghi này?',es:'Xuất thành công! Tệp đã được tải xuống',ic:'Nhập sẽ ghi đè dữ liệu hiện tại. Tiếp tục?',is:'Nhập thành công!',ie:'Nhập thất bại: Định dạng tệp không hợp lệ',s1:'Thông tin dự án',s2:'Đang thầu',s3:'Đang xét duyệt',s4:'Theo dõi',s5:'Trúng thầu',s6:'Sơ tuyển / PQ',s7:'Thu thập tài liệu',s8:'Theo dõi',s9:'Tiềm năng',s10:'Đã hủy',s11:'Theo dõi',st1:'Chờ xử lý',st2:'Đang thực hiện',st3:'Hoàn thành',p1:'Thấp',p2:'Trung bình',p3:'Cao',sp2:'Vui lòng chọn',f1:'Tên khách hàng',f2:'Tên dự án',f3:'Địa điểm',f4:'Diện tích đất',f5:'Ngày giai đoạn',f6:'Giai đoạn thầu',f7:'Người phụ trách',f8:'Email',f9:'Phân loại',f10:'Giá trị dự kiến',ph4:'Đơn vị: m²',ph10:'Đơn vị: VND',f24:'(Ngày bắt đầu công việc)',f25:'(Nội dung đã kích hoạt)',f26:'Ngày hành động tiếp theo',f27:'Nội dung hành động tiếp theo',f11:'Tên công ty',f11b:'Lĩnh vực kinh doanh',f12:'Người liên hệ',f12b:'Chức vụ',f13:'Điện thoại',f14:'Email',f14b:'Quốc gia',f14c:'Mức ưu tiên',f23:'Ngày thêm',f15:'Tên khách hàng',f16:'Ngày tương tác',f17:'Loại tương tác',f18:'Nội dung tương tác',f18b:'Email',f19:'Người phụ trách',f20:'Kế hoạch tiếp theo',f21:'Trạng thái',f22:'Ghi chú',c1:'Tên khách hàng',c2:'Tên dự án',c3:'Địa điểm',c4:'Diện tích đất',c5:'Ngày giai đoạn',c6:'Giai đoạn thầu',c7:'Người phụ trách',c8:'Email',c9:'Phân loại',c10:'Giá trị dự kiến',c11:'Tên công ty',c11b:'Lĩnh vực kinh doanh',c12:'Người liên hệ',c12b:'Chức vụ',c13:'Điện thoại',c14:'Email',c14b:'Quốc gia',c14c:'Mức ưu tiên',c15:'Khách hàng',c16:'Ngày',c17:'Loại',c18:'Nội dung',c19:'Người phụ trách',c20:'Bước tiếp theo',c21:'Trạng thái',c22:'Thao tác',c23:'Thao tác',c24:'(Ngày bắt đầu công việc)',c25:'(Nội dung đã kích hoạt)',nb1:'Thêm thầu',nb2:'Thêm khách hàng',nb3:'Thêm tương tác',eb1:'Sửa thầu',eb2:'Sửa khách hàng',eb3:'Sửa tương tác',catA:'A',catB:'B',it1:'Gọi điện',it2:'Email',it3:'Cuộc họp',it4:'Thăm',it5:'Khác',is1:'Hoàn thành',is2:'Đang thực hiện',is3:'Chờ theo dõi',ch1:'Tên hiệp hội thương mại',ch2:'Tên viết tắt',ch3:'Quốc gia',ch4:'Thành phố',ch5:'Địa chỉ',ch6:'Điện thoại',ch7:'Email',ch8:'Website',ch9:'Người liên hệ',ch10:'Chức vụ',ch11:'Phạm vi kinh doanh',ch12:'Ghi chú',ch13:'Chủ đề',ch14:'Ngày tham dự',ch15:'Địa điểm tham dự',ch16:'Người phụ trách',pt4:'Hiệp hội Thương mại',ps4:'Quản lý thông tin liên hệ hiệp hội thương mại',nb4:'Thêm hiệp hội thương mại',eb4:'Sửa hiệp hội thương mại',cc1:'Tên hiệp hội thương mại',cc3:'Quốc gia',cc6:'Điện thoại',cc7:'Email',cc9:'Người liên hệ',cc14:'Chủ đề',cc15:'Ngày tham dự',cc16:'Địa điểm tham dự',cc17:'Ghi chú',cc18:'Thao tác',smc1:'Số lần tham dự mỗi tháng',stl4:'Thống kê thầu',stl5:'Thống kê khách hàng',stl6:'Thống kê hiệp hội thương mại',sumBidsLabel:'Thông tin dự án',sumCustLabel:'Thống kê khách hàng 2026',sumChambTotalLbl:'Tổng hiệp hội thương mại',sumChambAprAttLbl:'···',sumChambAprUpcLbl:'···',bidInfoStatsLabel:'Thông tin dự án',sumBidsTotalLbl:'Tổng cộng',sumBidsActiveLbl:'Đang thầu',sumBidsWonLbl:'Theo dõi',bidLegTotal:'Tổng cộng',bidLegActive:'Đang thầu',bidLegWon:'Theo dõi',cust2026StatsLabel:'Thống kê khách hàng 2026',sumCust2026TotalLbl:'Tổng 2026',sumCustJunLbl:'···',sumCustInteractLbl:'Tương tác khách hàng',custLegNew:'Khách hàng mới',custLegInteract:'Tương tác khách hàng',chLegAtt:'Đã tham dự',chLegUpc:'Sắp tham dự',win1Title:'Mục tiêu doanh thu',win2Title:'Phân tích thông tin khách hàng',win3Title:'Danh sách sự kiện',win1t1:'Doanh thu 2026',win1t1_en:'Doanh thu 2026',win1t2:'Doanh thu bộ phận kinh doanh',win1t2_en:'Doanh thu bộ phận kinh doanh',win1t3:'Giá trị dự án dự kiến',win1t4:'Mục tiêu thực tế',ncTarget:'Mục tiêu năm: 160 · Tổng 2025: 57',kpiGuide:'📊 Hướng dẫn KPI',kpiGuideEn:'Hướng dẫn chỉ số KPI',kpiAnnual:'Mục tiêu Q2',kpiQTarget:'Mục tiêu Q1',kpiRateGuide:'🎯 Tỷ lệ hoàn thành',kpiRateOn:'🟢 ≥100% Đạt mục tiêu',kpiRateNear:'🟡 80-99% Gần đạt',kpiRateOff:'🔴 <80% Cần cải thiện'}};
 
 let lang='zh',data={bids:[],customers:[],projects:[],chambers:[]},mod='summary',eid=null,custYearFilter='all',custCountryFilter='all',chamberDateFilter='all',chamberMonthFilter='all',custSearchFilter='',custDateFilter='',bidsFilter='all';
 
@@ -3120,45 +3120,182 @@ let lang='zh',data={bids:[],customers:[],projects:[],chambers:[]},mod='summary',
 var CUR_MONTH = new Date().getMonth(); // 0-11
 var MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 var MONTHS_ZH = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+var MONTHS_VI = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
 function monthNameEN(){return MONTHS_EN[CUR_MONTH];}
 function monthNameZH(){return MONTHS_ZH[CUR_MONTH];}
+function monthNameVI(){return MONTHS_VI[CUR_MONTH];}
 function applyDynamicMonthLabels(){
   var _m=monthNameEN();
   // 新客户卡片标签 (Card 2)
   i18n.zh.sumCustJunLbl=_m+' 新增\n'+_m+' New';
   i18n.en.sumCustJunLbl=_m+' New';
+  var _v=monthNameVI();
+  i18n.vi.sumCustJunLbl='Mới trong '+_v;
   // 商会统计卡片标签 (Card 3)
   i18n.zh.sumChambAprAttLbl=_m+' 已出席\n'+_m+' Attended';
   i18n.zh.sumChambAprUpcLbl=_m+' 即将出席\n'+_m+' Upcoming';
   i18n.en.sumChambAprAttLbl=_m+' Attended';
   i18n.en.sumChambAprUpcLbl=_m+' Upcoming';
+  i18n.vi.sumChambAprAttLbl=_v+' đã tham dự';
+  i18n.vi.sumChambAprUpcLbl='Sắp tham dự '+_v;
   // Event List 标题 (Card 6)
   i18n.zh.win3Title='Event List '+_m;
   i18n.en.win3Title='Event List '+_m;
+  i18n.vi.win3Title='Danh sách sự kiện '+_v;
 }
-function t(k){return i18n[lang][k]||k;}
+function t(k){var _b=i18n[lang]||i18n.zh;return _b[k]||k;}
 
 /* 数据里存的双语值（「中文 / English」）按当前语言取一半 —— 只影响显示，不改数据 */
 function biText(v){
   if(v===null||v===undefined)return v;
   var s=String(v);
+  /* 越南语：先查「存储值 → 越南语」映射表；查不到就取非中文的一半 —— 绝不回落中文 */
+  if(lang==='vi'){
+    if(VI_MAP[s]!==undefined)return VI_MAP[s];
+    if(s.indexOf(' / ')<0)return s;
+    var vp=s.split(' / ');
+    for(var q=0;q<vp.length;q++){if(!CJK_RE.test(vp[q]))return vp[q];}
+    return s;
+  }
   if(s.indexOf(' / ')<0)return s;
   var parts=s.split(' / '),zh=null,en=null;
   for(var i=0;i<parts.length;i++){
     var p=parts[i];
-    if(/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(p)){if(zh===null)zh=p;}
+    if(CJK_RE.test(p)){if(zh===null)zh=p;}
     else if(en===null)en=p;
   }
   if(zh===null||en===null)return s;
   return lang==='en'?en:zh;
 }
 
+/* ================= 越南语运行时层（2026-09-28 新增）=================
+   铁律：语言只影响「显示」。越南语永远不写进数据 ——
+   因为统计逻辑靠「存储文字」做关键字/白名单匹配（contentStageMap / BID_KW /
+   status·priority·interactionType 色表都是精确匹配），
+   越南语一旦进数据 → 统计静默出错（数字不对、不报错）。                    */
+var CJK_RE=/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
+
+/* 存储值 → 越南语（只读映射，数据一个字节都不动） */
+var VI_MAP={
+  /* 阶段内容 */
+  '投标中':'Đang thầu','投标中 / Bidding':'Đang thầu','Bidding':'Đang thầu','Bidding / 投标中':'Đang thầu',
+  '跟踪':'Theo dõi','跟踪 / Following':'Theo dõi','Following':'Theo dõi','Following / 跟踪':'Theo dõi',
+  '跟踪 / Follow up':'Theo dõi','Follow up':'Theo dõi','Follow up / 跟踪':'Theo dõi','Follow Up':'Theo dõi','Follow-Up':'Theo dõi',
+  '中标':'Trúng thầu','中标 / Won':'Trúng thầu','Won':'Trúng thầu','Won / 中标':'Trúng thầu',
+  '潜在':'Tiềm năng','潜在 / Potential':'Tiềm năng','Potential':'Tiềm năng','Potential / 潜在':'Tiềm năng',
+  '已取消':'Đã hủy','已取消 / Cancelled':'Đã hủy','Cancelled':'Đã hủy','Cancelled / 已取消':'Đã hủy',
+  '项目信息':'Thông tin dự án','项目信息 / Project Info':'Thông tin dự án','Project Info':'Thông tin dự án',
+  '评审中':'Đang xét duyệt','评审中 / Reviewing':'Đang xét duyệt','Reviewing':'Đang xét duyệt',
+  '资料收集':'Thu thập tài liệu','资料收集 / Data Collection':'Thu thập tài liệu','Data Collection':'Thu thập tài liệu',
+  '资格审核':'Sơ tuyển','资格审核 / PQ':'Sơ tuyển / PQ','资格预审 / Pre-qualification':'Sơ tuyển / PQ','PQ':'Sơ tuyển / PQ',
+  /* 优先级 */
+  '高':'Cao','高 / High':'Cao','High':'Cao','High / 高':'Cao',
+  '中':'Trung bình','中 / Medium':'Trung bình','Medium':'Trung bình','Medium / 中':'Trung bình',
+  '低':'Thấp','低 / Low':'Thấp','Low':'Thấp','Low / 低':'Thấp',
+  /* 状态 */
+  '已完成':'Hoàn thành','已完成 / Completed':'Hoàn thành','Completed':'Hoàn thành','Completed / 已完成':'Hoàn thành',
+  '完成':'Hoàn thành','完成 / Completed':'Hoàn thành',
+  '进行中':'Đang thực hiện','进行中 / In Progress':'Đang thực hiện','In Progress':'Đang thực hiện','In Progress / 进行中':'Đang thực hiện',
+  '待跟进':'Chờ theo dõi','待跟进 / Pending':'Chờ theo dõi','Pending / 待跟进':'Chờ theo dõi',
+  '待处理':'Chờ xử lý','待处理 / Pending':'Chờ xử lý',
+  /* 互动类型 */
+  '电话':'Gọi điện','电话 / Phone':'Gọi điện','Phone':'Gọi điện','Phone / 电话':'Gọi điện',
+  '邮件':'Email','邮件 / Email':'Email','Email / 邮件':'Email',
+  '会议':'Cuộc họp','会议 / Meeting':'Cuộc họp','Meeting':'Cuộc họp','Meeting / 会议':'Cuộc họp',
+  '拜访':'Thăm','拜访 / Visit':'Thăm','Visit':'Thăm','Visit / 拜访':'Thăm',
+  '其他':'Khác','其他 / Other':'Khác','Other':'Khác','Other / 其他':'Khác',
+  /* 国家 */
+  '越南':'Việt Nam','越南 / Vietnam':'Việt Nam','Vietnam':'Việt Nam',
+  '中国':'Trung Quốc','中国 / China':'Trung Quốc','China':'Trung Quốc',
+  '新加坡':'Singapore','新加坡 / Singapore':'Singapore',
+  '泰国':'Thái Lan','泰国 / Thailand':'Thái Lan','Thailand':'Thái Lan',
+  /* 公司业务 */
+  '建筑工程':'Xây dựng','建筑工程 / Construction':'Xây dựng','Construction':'Xây dựng',
+  '房地产开发':'Bất động sản','房地产开发 / Real Estate':'Bất động sản','Real Estate':'Bất động sản',
+  '工程顾问':'Tư vấn kỹ thuật','工程顾问 / Engineering Consultant':'Tư vấn kỹ thuật','Engineering Consultant':'Tư vấn kỹ thuật',
+  '建筑设计':'Kiến trúc','建筑设计 / Architecture':'Kiến trúc','Architecture':'Kiến trúc',
+  /* 职位 */
+  '项目经理':'Giám đốc dự án','项目经理 / Project Manager':'Giám đốc dự án','Project Manager':'Giám đốc dự án',
+  '采购经理':'Trưởng phòng thu mua','采购经理 / Procurement Manager':'Trưởng phòng thu mua','Procurement Manager':'Trưởng phòng thu mua',
+  '总经理':'Tổng giám đốc','总经理 / General Manager':'Tổng giám đốc','General Manager':'Tổng giám đốc',
+  '工程师':'Kỹ sư','工程师 / Engineer':'Kỹ sư','Engineer':'Kỹ sư'
+};
+
+/* 越南语显示串 → 英文规范值。只列「会被存进数据」的下拉枚举，顺序即优先级（防碰撞）。 */
+var VI_ENUM=[['s2','Bidding'],['s11','Follow up'],['s5','Won'],['s9','Potential'],['s10','Cancelled'],
+  ['p1','Low'],['p2','Medium'],['p3','High'],
+  ['it1','Phone'],['it2','Email'],['it3','Meeting'],['it4','Visit'],['it5','Other'],
+  ['is1','Completed'],['is2','In Progress'],['is3','Pending'],['catA','A'],['catB','B']];
+var VI_CANON={};
+(function(){for(var _i=0;_i<VI_ENUM.length;_i++){VI_CANON[i18n.vi[VI_ENUM[_i][0]]]=VI_ENUM[_i][1];}})();
+
+/* 下拉框的「存进数据的值」：越南语界面下退回英文规范值，
+   保证 contentStageMap / BID_KW / 色表等精确白名单照样命中。 */
+function storeVal(o){
+  if(lang!=='vi')return o;
+  var s=String(o);
+  if(VI_CANON[s]!==undefined)return VI_CANON[s];
+  if(s.indexOf(' / ')>-1){var p=s.split(' / ');for(var i=0;i<p.length;i++){if(!CJK_RE.test(p[i]))return p[i];}}
+  return s;
+}
+
+/* 内联文案的三语助手：VI 找不到越南语时退英文，绝不退中文 */
+var VI_STR={
+  'Interactions: ':'Tương tác: ',
+  'Interactions':'Tương tác',
+  'Total':'Tổng cộng',
+  'Bidding':'Đang thầu',
+  'Following':'Theo dõi',
+  'Switch language':'Đổi ngôn ngữ',
+  'Click to change':'Nhấn để đổi',
+  'Pause / Cancel':'Tạm dừng / Hủy',
+  'Attended':'Đã tham dự',
+  'Upcoming':'Sắp tham dự',
+  'Please select':'Vui lòng chọn',
+  'Click "Add" button to add data':'Nhấn "Thêm" để thêm dữ liệu',
+  'Export failed':'Xuất thất bại',
+  'Bid Project Tracking':'Theo dõi dự án thầu',
+  'Bids':'Thầu',
+  'Chamber of Commerce':'Hiệp hội Thương mại',
+  'Chambers':'Hiệp hội thương mại',
+  'Customer Interactions':'Tương tác khách hàng',
+  'Interactions_':'TuongTac_',
+  'Customer Management':'Quản lý khách hàng',
+  'Customers':'Khách hàng',
+  'Admin password':'Mật khẩu quản trị',
+  'Cancel':'Hủy',
+  'Confirm':'Xác nhận',
+  '❌ Wrong password, please try again':'❌ Sai mật khẩu, vui lòng thử lại',
+  'Data Backup':'Sao lưu dữ liệu',
+  'Cloud Versions':'Phiên bản trên cloud',
+  'Data Restore':'Khôi phục dữ liệu',
+  'Restore failed: ':'Khôi phục thất bại: ',
+  'Please enter password':'Vui lòng nhập mật khẩu',
+  'Login success':'Đăng nhập thành công',
+  'Login success (simple)':'Đăng nhập thành công (mật khẩu đơn giản)',
+  'Incorrect password':'Sai mật khẩu',
+  'Maximum categories reached':'Đã đạt số danh mục tối đa',
+  'Please select start date first':'Vui lòng chọn ngày bắt đầu trước',
+  '💾 <span>Save</span>':'💾 <span>Lưu</span>',
+  '✅ Saved':'✅ Đã lưu',
+  '📝 Meeting Minutes':'📝 Biên bản cuộc họp',
+  'Meeting Minutes':'Biên bản cuộc họp'
+};
+function L(zh,en,vi){
+  if(lang==='en')return en;
+  if(lang==='vi')return (vi!==undefined)?vi:((VI_STR[en]!==undefined)?VI_STR[en]:en);
+  return zh;
+}
+
+
 /* 双语标签：EN 模式只显示英文，ZH 模式只显示中文（data-zh / data-en 驱动） */
 function applyBilingual(){
   var els=document.querySelectorAll('[data-zh]');
   for(var i=0;i<els.length;i++){
-    var el=els[i],zh=el.getAttribute('data-zh'),en=el.getAttribute('data-en');
-    el.textContent=(lang==='en'&&en!==null&&en!==undefined)?en:zh;
+    var el=els[i],zh=el.getAttribute('data-zh'),en=el.getAttribute('data-en'),vix=el.getAttribute('data-vi');
+    el.textContent=(lang==='en'&&en!==null&&en!==undefined)?en
+                  :(lang==='vi'&&vix!==null&&vix!==undefined)?vix
+                  :zh;
   }
 }
 
@@ -3166,6 +3303,7 @@ function sl(l){
   lang=l;localStorage.setItem('bms_lang',l);
   document.getElementById('lzh').classList.toggle('active',l==='zh');
   document.getElementById('len').classList.toggle('active',l==='en');
+  document.getElementById('lvi').classList.toggle('active',l==='vi');
   updateUI();if(mod!=='weeklyreport' && mod!=='plan2026' && mod!=='annualtarget') renderTable();
   if(typeof updateSummary==='function'){try{updateSummary();}catch(e){}}
   if(document.getElementById('md').classList.contains('active')){eid?editItem(eid):openAddModal();}
@@ -3173,10 +3311,11 @@ function sl(l){
 
 // 切换营收图表语言
 function toggleWin1Lang(){
-  lang=lang==='en'?'zh':'en';
+  lang=lang==='zh'?'en':(lang==='en'?'vi':'zh');
   localStorage.setItem('bms_lang',lang);
   document.getElementById('lzh').classList.toggle('active',lang==='zh');
   document.getElementById('len').classList.toggle('active',lang==='en');
+  document.getElementById('lvi').classList.toggle('active',lang==='vi');
   updateAllTexts();
   renderWin1Chart();
 }
@@ -3257,9 +3396,10 @@ function getFields(m){
 function loadData(){
   applyDynamicMonthLabels(); // 每月自动更新卡片月份标签
   const sl=localStorage.getItem('bms_lang');
-  if(sl)lang=sl;
+  if(sl==='zh'||sl==='en'||sl==='vi')lang=sl;
   document.getElementById('lzh').classList.toggle('active',lang==='zh');
   document.getElementById('len').classList.toggle('active',lang==='en');
+  document.getElementById('lvi').classList.toggle('active',lang==='vi');
   const sd=localStorage.getItem('bms_data');
   if(sd){data=JSON.parse(sd);if(data.quarterly)delete data.quarterly;// strip removed Quarterly Report leftovers
     if(!data.chambers)data.chambers=[];if(!data.planTracking)data.planTracking=null;
@@ -3486,7 +3626,7 @@ function populateCountryFilter(){
   const countries=[...new Set(data.customers.map(c=>c.country).filter(Boolean))].sort();
   const sel=document.getElementById('countryFilter');
   const current=sel.value;
-  sel.innerHTML='<option value="all" data-zh="全部" data-en="All">全部</option>'+countries.map(c=>'<option value="'+c+'">'+biText(c)+'</option>').join('');
+  sel.innerHTML='<option value="all" data-zh="全部" data-en="All" data-vi="Tất cả">全部</option>'+countries.map(c=>'<option value="'+c+'">'+biText(c)+'</option>').join('');
   sel.value=custCountryFilter;
 }
 
@@ -3578,7 +3718,7 @@ function updateSummary(){
   var qc=q3Records.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
   var badge=document.getElementById('projInteractBadge');
   var q3badge=document.getElementById('q3InteractBadge');
-  if(badge) badge.textContent=(lang==='en'?'Interactions: ':'互动: ')+pic;
+  if(badge) badge.textContent=L('互动: ','Interactions: ')+pic;
   if(q3badge) q3badge.textContent='Q3: '+qc;
   document.getElementById('cust2026StatsLabel').innerHTML=t('cust2026StatsLabel');
   document.getElementById('sumCust2026TotalLbl').innerHTML=t('sumCust2026TotalLbl');
@@ -3689,17 +3829,17 @@ function momRestoreLast(){
 function momSavedSub(){try{return localStorage.getItem('bms_wr_sub')||'report';}catch(e){return 'report';}}
 /* 周报页：页面标题栏跟随页内页签（中英双语，按当前界面语言取） */
 var WR_VIEW_HEAD={
-  report:{t:{zh:'周报',en:'Weekly Report'},s:{zh:'业务部周报',en:'Business Dept Weekly Report'}},
-  mom:{t:{zh:'会议纪要',en:'Meeting Minutes'},s:{zh:'每场会议一份纪要',en:'Minutes for every meeting — one sheet per MOM'}}
+  report:{t:{zh:'周报',en:'Weekly Report',vi:'Báo cáo tuần'},s:{zh:'业务部周报',en:'Business Dept Weekly Report',vi:'Báo cáo tuần phòng kinh doanh'}},
+  mom:{t:{zh:'会议纪要',en:'Meeting Minutes',vi:'Biên bản cuộc họp'},s:{zh:'每场会议一份纪要',en:'Minutes for every meeting — one sheet per MOM',vi:'Biên bản cho mỗi cuộc họp — một trang cho mỗi biên bản'}}
 };
 function wrApplyHead(which){
   if(mod!=='weeklyreport')return;
   var sub=which||(typeof momSavedSub==='function'?momSavedSub():'report');
   var h=WR_VIEW_HEAD[sub]||WR_VIEW_HEAD.report;
-  var isEn=(typeof lang!=='undefined'&&lang==='en');
+  var _lg=(typeof lang!=='undefined')?lang:'zh';
   var pt=document.getElementById('pt'),ps=document.getElementById('ps');
-  if(pt)pt.textContent=isEn?h.t.en:h.t.zh;
-  if(ps)ps.textContent=isEn?h.s.en:h.s.zh;
+  if(pt)pt.textContent=_lg==='en'?h.t.en:(_lg==='vi'&&h.t.vi?h.t.vi:h.t.zh);
+  if(ps)ps.textContent=_lg==='en'?h.s.en:(_lg==='vi'&&h.s.vi?h.s.vi:h.s.zh);
 }
 function wrSwitchSub(which){
   var r=document.getElementById('wrSubReport'),m=document.getElementById('wrSubMom');
@@ -4830,9 +4970,9 @@ function renderWin2Chart(){
     cInteract += cnt;
   });
   var slices=[
-    {label:lang==='zh'?'2026总计':'Total 2026',value:c2026Total,color:'#3b82f6'},
-    {label:lang==='zh'?monthNameZH()+'新增':monthNameEN()+' New',value:cAugTotal,color:'#34d399'},
-    {label:lang==='zh'?'客户互动':'Interactions',value:cInteract,color:'#a78bfa'}
+    {label:L('2026总计','Total 2026'),value:c2026Total,color:'#3b82f6'},
+    {label:L(monthNameZH()+'新增',monthNameEN()+' New',monthNameVI()+' mới'),value:cAugTotal,color:'#34d399'},
+    {label:L('客户互动','Interactions'),value:cInteract,color:'#a78bfa'}
   ];
   var total=slices.reduce(function(s,sl){return s+sl.value;},0);
   if(total===0){container.innerHTML='<div style="color:var(--muted);font-size:12px;padding:16px 0;">No data</div>';return;}
@@ -4855,7 +4995,7 @@ function renderWin2Chart(){
     '<svg width="200" height="'+svgH+'" style="overflow:visible;">'+side+top+
     '<circle cx="'+cx+'" cy="'+cy+'" r="35" fill="var(--card)"/>'+
     '<text x="'+cx+'" y="'+(cy-5)+'" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" fill="var(--text1)" font-family="Space Grotesk,sans-serif">'+c2026Total+'</text>'+
-    '<text x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="var(--muted)" font-family="Noto Sans SC,sans-serif">'+(lang==='zh'?'总计':'Total')+'</text>'+
+    '<text x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="var(--muted)" font-family="Noto Sans SC,sans-serif">'+(L('总计','Total'))+'</text>'+
     labels+'</svg>';
   var leg='<div style="display:flex;flex-direction:column;gap:8px;padding-top:6px;font-size:11px;min-width:140px;">';
   slices.forEach(function(sl){
@@ -4930,9 +5070,9 @@ function renderBidChart(totalCounts, biddingCounts, categoryCounts){
   var h=90;
   var container=document.getElementById('bidChart');
   if(!container)return;
-  var labelTotal=lang==='en'?'Total':'总计';
-  var labelBidding=lang==='en'?'Bidding':'投标中';
-  var labelCategory=lang==='en'?'Following':'追踪';
+  var labelTotal=L('总计','Total');
+  var labelBidding=L('投标中','Bidding');
+  var labelCategory=L('追踪','Following');
   var html='';
   for(var i=0;i<12;i++){
     var ha=Math.round(totalCounts[i]/max*h)||(totalCounts[i]>0?2:0);
@@ -5060,28 +5200,28 @@ function renderWin1Chart(){
     return '<svg viewBox="0 0 300 170" width="100%" style="max-width:300px;display:block;margin:0 auto;">'+s+'</svg>';
   }
   var gaugeHtml='<div style="text-align:center;margin-bottom:6px;">'+rpmGauge(ACTUAL,TARGET)+
-    '<div style="font-size:13px;font-weight:700;color:#22d3ee;margin-top:2px;">'+ACTUAL.toFixed(0)+' B VND <span style="font-size:9px;font-weight:400;color:var(--muted);">('+getWin1Label('win1t4','已中标','Won')+')</span></div>'+
+    '<div style="font-size:13px;font-weight:700;color:#22d3ee;margin-top:2px;">'+ACTUAL.toFixed(0)+' B VND <span style="font-size:9px;font-weight:400;color:var(--muted);">('+getWin1Label('win1t4','已中标','Won','Trúng thầu')+')</span></div>'+
     '<div style="font-size:10px;color:var(--muted);">Target: '+TARGET+'B VND</div>'+(pfuWonB>0?('<div style="font-size:9px;color:var(--muted);margin-top:1px;">Source: Project Follow-up (Won): <b style="color:#f87171">'+pfuWonB.toFixed(0)+'B</b> ('+_pfuWon.items.map(function(it){return String(it.name).replace(/[<>&]/g,'');}).join(' \u00b7 ')+')</div>'):'')+'</div>';
 
   var html=gaugeHtml+
-    barRow(getWin1Label('win1t1','营收目标 2026','Revenue 2026'),TARGET,'#60a5fa','#1e40af')+
+    barRow(getWin1Label('win1t1','营收目标 2026','Revenue 2026','Doanh thu 2026'),TARGET,'#60a5fa','#1e40af')+
     '<div style="height:4px;"></div>'+
-    barRow(getWin1Label('win1t2','业务营收目标','Sale Dept revenue'),BUSINESS,'#34d399','#065f46')+
+    barRow(getWin1Label('win1t2','业务营收目标','Sale Dept revenue','Doanh thu bộ phận kinh doanh'),BUSINESS,'#34d399','#065f46')+
     '<div style="height:4px;"></div>'+
-    barRow(getWin1Label('win1t3','项目预估金额','Project Est. Value'),projectTotal,'#fbbf24','#92400e');
+    barRow(getWin1Label('win1t3','项目预估金额','Project Est. Value','Giá trị dự án dự kiến'),projectTotal,'#fbbf24','#92400e');
 
   // 仅在有中标项目时显示实际目标
   if(ACTUAL>0){
     html+='<div style="height:4px;"></div>'+
-           barRow(getWin1Label('win1t4','实际目标','Actual Target'),ACTUAL,'#f87171','#991b1b');
+           barRow(getWin1Label('win1t4','实际目标','Actual Target','Mục tiêu thực tế'),ACTUAL,'#f87171','#991b1b');
   }
 
   container.innerHTML=html;
 
   // 双语标签函数
-  function getWin1Label(key, zhVal, enVal){
-    var currentVal=lang==='en'?enVal:zhVal;
-    return '<span onclick="toggleWin1Lang()" style="cursor:pointer;text-decoration:underline dotted;" title="'+(lang==='en'?'Switch language':'点击切换语言')+'">'+currentVal+'</span>';
+  function getWin1Label(key, zhVal, enVal, viVal){
+    var currentVal=lang==='en'?enVal:((lang==='vi'&&viVal!==undefined)?viVal:zhVal);
+    return '<span onclick="toggleWin1Lang()" style="cursor:pointer;text-decoration:underline dotted;" title="'+L('点击切换语言','Switch language')+'">'+currentVal+'</span>';
   }
 
   function barRow(label,val,color,bg){
@@ -5324,8 +5464,8 @@ function renderTable(){
   // 投标项目添加暂停/取消勾选列;商会信息添加出席状态列
   const isBids=mod==='bids';
   const isChambers=mod==='chambers';
-  const actionCol=isBids?'<th class="text-center" title="'+(lang==='en'?'Pause / Cancel':'暂停/取消')+'">☑</th>':isChambers?'<th class="text-center" title="'+(lang==='en'?'Attended':'已出席')+'">☑</th>':'';
-  const cols=ff.map(x=>x.l).concat(mod==='projects'?[(lang==='en'?'Interactions':'互动次数')]:isChambers?[]:t('c20')).concat(isChambers?['attendanceStatus']:[]);
+  const actionCol=isBids?'<th class="text-center" title="'+L('暂停/取消','Pause / Cancel')+'">☑</th>':isChambers?'<th class="text-center" title="'+L('已出席','Attended')+'">☑</th>':'';
+  const cols=ff.map(x=>x.l).concat(mod==='projects'?[L('互动次数','Interactions')]:isChambers?[]:t('c20')).concat(isChambers?['attendanceStatus']:[]);
   document.querySelector('#dt thead').innerHTML='<tr>'+cols.map((c,i)=>{
     const firstMod=mod==='bids'?'customerName':mod==='customers'?'companyName':mod==='projects'?'customerName':'chamberName';
     const isFirst=ff[i]&&ff[i].k===firstMod;
@@ -5349,7 +5489,7 @@ function renderRow(item,rowIdx){
     // 双语枚举值：按当前语言取一半（只影响显示，不改数据）
     // sel 型字段 = 下拉枚举，一律单语显示；country/status/priority 虽非 sel 但也是枚举
     if(x.tp==='sel'||['stage','status','priority','country','stageContent'].indexOf(x.k)>=0) v=biText(v);
-    if(x.k==='category'){var _c=String(item.category||'');if(_c.indexOf('A')===0){v=(lang==='en'?'A':'A工程');}else if(_c.indexOf('B')===0){v=(lang==='en'?'B':'B工程');}}
+    if(x.k==='category'){var _c=String(item.category||'');if(_c.indexOf('A')===0){v=L('A工程','A');}else if(_c.indexOf('B')===0){v=L('B工程','B');}}
     // 冻结列:各模块第一列(水平固定)
     const firstMod=mod==='bids'?'customerName':mod==='customers'?'companyName':mod==='projects'?'customerName':'chamberName';
     const firstCls=x.k===firstMod?' col-customer':'';
@@ -5415,8 +5555,9 @@ function renderRow(item,rowIdx){
       else if(cur.includes('中')||cur==='Medium') short='中';
       else if(cur.includes('低')||cur==='Low') short='低';
       if(lang==='en') short={'高':'High','中':'Medium','低':'Low'}[short]||short;
+      else if(lang==='vi') short={'高':'Cao','中':'Trung bình','低':'Thấp'}[short]||short;
       const cls=pCls[cur]||'bdgLow';
-      v='<span class="bdg '+cls+' bdg-priority" onclick="cyclePriority(\''+item.id+'\')" title="'+(lang==='en'?'Click to change':'点击切换')+'">'+short+'</span>';
+      v='<span class="bdg '+cls+' bdg-priority" onclick="cyclePriority(\''+item.id+'\')" title="'+L('点击切换','Click to change')+'">'+short+'</span>';
     }
     if(x.k==='category'){const cls={'A工程':'bdgA','B工程':'bdgB','A':'bdgA','B':'bdgB'}[item.category]||'';v='<span class="bdg '+cls+'">'+v+'</span>';}
     if(x.k==='estimatedValue'&&item.estimatedValue){
@@ -5453,7 +5594,7 @@ function renderRow(item,rowIdx){
   if(mod==='chambers'){
     const isPast=item.attendanceDate&&new Date(item.attendanceDate)<now;
     const checked=isPast?' checked':'';
-    const label=isPast?(lang==='zh'?'已出席':'Attended'):(lang==='zh'?'即将出席':'Upcoming');
+    const label=isPast?L('已出席','Attended'):L('即将出席','Upcoming');
     cells+='<td class="text-center"><input type="checkbox" '+checked+' class="w-5 h-5 accent-blue-500 cursor-default" title="'+label+'" readonly></td>';
   }
   // 客户互动:显示该公司互动次数(累加 interactionCount 字段)
@@ -5650,7 +5791,7 @@ function sm(m){
     });
     var pic=julRecords.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
     var qc=q3Records.reduce(function(s,p){return s+(typeof p.interactionCount==='number'?p.interactionCount:0);},0);
-    if(badge) badge.textContent=(lang==='en'?'Interactions: ':'互动: ')+pic;
+    if(badge) badge.textContent=L('互动: ','Interactions: ')+pic;
     if(q3badge) q3badge.textContent='Q3: '+qc;
   }
   // 显示/隐藏「导出互动」按钮
@@ -5675,13 +5816,13 @@ function openAddModal(){
     }else if(x.tp==='sel'){
       if(x.k==='position' || x.k==='companyBusiness' || x.k==='country'){
         const listId='list_'+x.k+'_'+Date.now();
-        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
+        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+(lang==='vi'?storeVal(o):biText(o))+'">').join('')+'</datalist>';
       }else{
-        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+' onchange="this.dataset.v=this.value"><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'">'+biText(o)+'</option>').join('')+'</select>';
+        inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+' onchange="this.dataset.v=this.value"><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+storeVal(o)+'">'+biText(o)+'</option>').join('')+'</select>';
       }
     }else if(x.tp==='datalist'){
       const listId='list_'+x.k+'_'+Date.now();
-      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
+      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+(lang==='vi'?storeVal(o):biText(o))+'">').join('')+'</datalist>';
     }else if(x.tp==='date'){
       inputHtml='<input type="date" name="'+x.k+'" value="" class="fi fi-t" data-k="'+x.k+'" '+(x.r?'required':'')+' style="color:var(--text1);background:var(--bg2);">';
     }else{
@@ -5741,7 +5882,7 @@ function openInlineEdit(id,k,v,tp,optStr){
   let inputHtml='';
   if(tp==='sel'){
     const opts=optStr.split('|');
-    inputHtml='<select id="ied_'+k+'" class="fi text-sm"><option value="">'+(lang==='en'?'Please select':'请选择')+'</option>'+opts.map(o=>'<option value="'+o+'">'+biText(o)+'</option>').join('')+'</select>';
+    inputHtml='<select id="ied_'+k+'" class="fi text-sm"><option value="">'+L('请选择','Please select')+'</option>'+opts.map(o=>'<option value="'+storeVal(o)+'">'+biText(o)+'</option>').join('')+'</select>';
   }else if(tp==='date'){
     inputHtml='<input type="date" id="ied_'+k+'" class="fi text-sm" value="'+v+'">';
   }else if(tp==='ta'){
@@ -5831,13 +5972,13 @@ function editItem(id){
     }else if(x.tp==='sel'){
       if(x.k==='position' || x.k==='companyBusiness' || x.k==='country'){
         const listId='list_'+x.k+'_'+Date.now();
-        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
+        inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+'><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+(lang==='vi'?storeVal(o):biText(o))+'">').join('')+'</datalist>';
       }else{
         inputHtml='<select name="'+x.k+'" class="fi fi-sel" '+(x.r?'required':'')+'><option value="">'+t('sp2')+'</option>'+x.opt.map(o=>'<option value="'+o+'" '+(o===v?'selected':'')+'>'+biText(o)+'</option>').join('')+'</select>';
       }
     }else if(x.tp==='datalist'){
       const listId='list_'+x.k+'_'+Date.now();
-      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+biText(o)+'">').join('')+'</datalist>';
+      inputHtml='<input name="'+x.k+'" class="fi fi-t" list="'+listId+'" data-k="'+x.k+'" value="'+v+'" '+(x.r?'required':'')+' autocomplete="off"><datalist id="'+listId+'">'+x.opt.map(o=>'<option value="'+(lang==='vi'?storeVal(o):biText(o))+'">').join('')+'</datalist>';
     }else if(x.tp==='date'){
       inputHtml='<input type="date" name="'+x.k+'" value="'+v+'" class="fi fi-t" data-k="'+x.k+'" '+(x.r?'required':'')+' style="color:var(--text1);background:var(--bg2);">';
     }else{
@@ -5878,7 +6019,7 @@ function exportCurrentModule(){
   if(mod==='customers'){ exportData(); return; }
   if(mod==='projects'){ exportInteractionsOnly(); return; }
   if(mod==='chambers'){ exportChambers(); return; }
-  alert(lang==='en'?'Export failed':'导出失败');
+  alert(L('导出失败','Export failed'));
 }
 
 function exportCustomerTemplate(){
@@ -5910,19 +6051,19 @@ function exportBids(){
   const fields = getFields('bids').filter(x=>x.l);
   const headers = fields.map(x=>x.l);
   const rows = data.bids.map(b => fields.map(f => b[f.k]||''));
-  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Bid Project Tracking':'投标项目追踪']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[L('投标项目追踪','Bid Project Tracking')]].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:22}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Bids':'投标项目'));
+  XLSX.utils.book_append_sheet(wb, ws, L('投标项目','Bids'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = (lang==='en'?'BidTracking_':'投标项目追踪_')+dateStr+'.xlsx';
+  a.download = L('投标项目追踪_','BidTracking_','TheoDoiDuAnThau_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert((lang==='en'?'Exported successfully!\n' + data.bids.length + ' bid records':'导出成功！\n共 ' + data.bids.length + ' 条投标记录'));
+  alert(L('导出成功！\n共 ' + data.bids.length + ' 条投标记录','Exported successfully!\n' + data.bids.length + ' bid records','Xuất thành công!\n' + data.bids.length + ' bản ghi thầu'));
 }
 
 function exportChambers(){
@@ -5930,61 +6071,61 @@ function exportChambers(){
   const fields = getFields('chambers').filter(x=>x.l);
   const headers = fields.map(x=>x.l);
   const rows = data.chambers.map(c => fields.map(f => c[f.k]||''));
-  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Chamber of Commerce':'商会信息']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[L('商会信息','Chamber of Commerce')]].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:22}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Chambers':'商会信息'));
+  XLSX.utils.book_append_sheet(wb, ws, L('商会信息','Chambers'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = (lang==='en'?'Chambers_':'商会信息_')+dateStr+'.xlsx';
+  a.download = L('商会信息_','Chambers_','HiepHoiThuongMai_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert((lang==='en'?'Exported successfully!\n' + data.chambers.length + ' chamber records':'导出成功！\n共 ' + data.chambers.length + ' 条商会记录'));
+  alert(L('导出成功！\n共 ' + data.chambers.length + ' 条商会记录','Exported successfully!\n' + data.chambers.length + ' chamber records','Xuất thành công!\n' + data.chambers.length + ' bản ghi hiệp hội thương mại'));
 }
 
 function exportInteractionsOnly(){
   const dateStr = new Date().toISOString().slice(0,10);
-  const headers = (lang==='en'?['Customer','Date','Type','Content','Email','PIC','Next Step','Status','Notes']:['客户名称','互动日期','互动类型','互动内容','邮箱','负责人','下一步计划','状态','备注']);
+  const headers = (lang==='en'?['Customer','Date','Type','Content','Email','PIC','Next Step','Status','Notes']:(lang==='vi'?['Tên khách hàng','Ngày tương tác','Loại tương tác','Nội dung tương tác','Email','Người phụ trách','Kế hoạch tiếp theo','Trạng thái','Ghi chú']:['客户名称','互动日期','互动类型','互动内容','邮箱','负责人','下一步计划','状态','备注']));
   const rows = (data.projects||[]).map(p=>[
     p.customerName||'',p.interactionDate||'',p.interactionType||'',
     p.content||'',p.emailContent||'',p.personInCharge||'',
     p.nextStep||'',p.status||'',p.notes||''
   ]);
-  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Customer Interactions':'客户互动']].concat([headers], rows));
+  const ws = XLSX.utils.aoa_to_sheet([[L('客户互动','Customer Interactions')]].concat([headers], rows));
   ws['!cols'] = headers.map(() => ({wch:25}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Interactions':'客户互动'));
+  XLSX.utils.book_append_sheet(wb, ws, L('客户互动','Interactions'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = (lang==='en'?'Interactions_':'客户互动_')+dateStr+'.xlsx';
+  a.download = L('客户互动_','Interactions_','TuongTac_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert((lang==='en'?'Interactions exported!\n' + rows.length + ' records':'客户互动导出成功！\n共 ' + rows.length + ' 条记录'));
+  alert(L('客户互动导出成功！\n共 ' + rows.length + ' 条记录','Interactions exported!\n' + rows.length + ' records','Xuất tương tác thành công!\n' + rows.length + ' bản ghi'));
 }
 
 function exportData(){
   const dateStr = new Date().toISOString().slice(0,10);
-  const custHeaders = (lang==='en'?['Company Name','Business','Contact Person','Position','Phone','Email','Country','Priority','Date Added']:['公司名称','公司业务','联系人','职位','电话','邮箱','国家','优先级','添加日期']);
+  const custHeaders = (lang==='en'?['Company Name','Business','Contact Person','Position','Phone','Email','Country','Priority','Date Added']:(lang==='vi'?['Tên công ty','Lĩnh vực kinh doanh','Người liên hệ','Chức vụ','Điện thoại','Email','Quốc gia','Mức ưu tiên','Ngày thêm']:['公司名称','公司业务','联系人','职位','电话','邮箱','国家','优先级','添加日期']));
   const custRows = data.customers.map(c => [c.companyName||'',c.companyBusiness||'',c.contactPerson||'',c.position||'',c.phone||'',c.email||'',c.country||'',c.priority||'',c.createdDate||'']);
-  const ws = XLSX.utils.aoa_to_sheet([[lang==='en'?'Customer Management':'客户管理']].concat([custHeaders], custRows));
+  const ws = XLSX.utils.aoa_to_sheet([[L('客户管理','Customer Management')]].concat([custHeaders], custRows));
   ws['!cols'] = custHeaders.map(() => ({wch:25}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, (lang==='en'?'Customers':'客户管理'));
+  XLSX.utils.book_append_sheet(wb, ws, L('客户管理','Customers'));
   const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([buf], {type:'application/octet-stream'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = (lang==='en'?'Customers_':'客户管理_')+dateStr+'.xlsx';
+  a.download = L('客户管理_','Customers_','KhachHang_')+dateStr+'.xlsx';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  alert((lang==='en'?'Exported successfully!\n' + data.customers.length + ' customer records':'导出成功！\n共 ' + data.customers.length + ' 条客户记录'));
+  alert(L('导出成功！\n共 ' + data.customers.length + ' 条客户记录','Exported successfully!\n' + data.customers.length + ' customer records','Xuất thành công!\n' + data.customers.length + ' bản ghi khách hàng'));
 }
 
 
@@ -6013,7 +6154,7 @@ function requirePassword(actionFn,label){
   overlay.id='pwOverlay';
   var existing=document.getElementById('pwOverlay');
   if(existing)existing.remove();
-  overlay.innerHTML='<div id="pwBox"><h3>🔐 '+label+'</h3><input type="password" id="pwInput" placeholder="'+(lang==='en'?'Admin password':'输入管理密码')+'" autocomplete="off"><div id="pwError"></div><div class="pw-actions"><button class="pw-cancel" onclick="removePwOverlay()">'+(lang==='en'?'Cancel':'取消')+'</button><button class="pw-confirm" onclick="checkPwAndRun()">'+(lang==='en'?'Confirm':'确认')+'</button></div></div>';
+  overlay.innerHTML='<div id="pwBox"><h3>🔐 '+label+'</h3><input type="password" id="pwInput" placeholder="'+L('输入管理密码','Admin password')+'" autocomplete="off"><div id="pwError"></div><div class="pw-actions"><button class="pw-cancel" onclick="removePwOverlay()">'+L('取消','Cancel')+'</button><button class="pw-confirm" onclick="checkPwAndRun()">'+L('确认','Confirm')+'</button></div></div>';
   document.body.appendChild(overlay);
   setTimeout(function(){
     var inp=document.getElementById('pwInput');
@@ -6034,15 +6175,15 @@ function checkPwAndRun(){
     removePwOverlay();
     if(action){action();}
   }else{
-    err.textContent=lang==='en'?'❌ Wrong password, please try again':'❌ 密码错误，请重试';
+    err.textContent=L('❌ 密码错误，请重试','❌ Wrong password, please try again');
     inp.value='';
     inp.focus();
   }
 }
 
-function authThenBackup(e){e.stopPropagation();closeToolMenu();requirePassword(function(){backupAll();},lang==='en'?'Data Backup':'数据备份');}
-function authThenCloudVersions(e){e.stopPropagation();closeToolMenu();requirePassword(function(){showCloudSnapshots();},lang==='en'?'Cloud Versions':'云版本恢复');}
-function authThenRestore(e){e.stopPropagation();closeToolMenu();requirePassword(function(){document.getElementById('restoreFile').click();},lang==='en'?'Data Restore':'数据恢复');}
+function authThenBackup(e){e.stopPropagation();closeToolMenu();requirePassword(function(){backupAll();},L('数据备份','Data Backup'));}
+function authThenCloudVersions(e){e.stopPropagation();closeToolMenu();requirePassword(function(){showCloudSnapshots();},L('云版本恢复','Cloud Versions'));}
+function authThenRestore(e){e.stopPropagation();closeToolMenu();requirePassword(function(){document.getElementById('restoreFile').click();},L('数据恢复','Data Restore'));}
 
 // ============================================================
 // 完整系统备份 / 恢复
@@ -6114,7 +6255,7 @@ function restoreAll(event){
         } else { location.reload(); }
       } else { location.reload(); }
     } catch(err) {
-      alert((lang==='en'?'Restore failed: ':'恢复失败: ') + err.message);
+      alert(L('恢复失败: ','Restore failed: ','Khôi phục thất bại: ') + err.message);
     }
   };
   reader.readAsText(file);
@@ -6188,38 +6329,38 @@ function exportCSV(){
 
   // 投标项目追踪 CSV
   let csv1 = '\uFEFF'; // BOM for Chinese
-  csv1 += (lang==='en'?'Customer,Project,Location,Land Area (m2),Track Date,Bid Stage,Next Action Date,Next Action Content,Notes,PIC,Email,Category (A/B),Est. Value (VND),Task Start Date,Stage Content\n':'客户名称,项目名称,地点,土地面积(平方米),跟踪日期,投标阶段,下一步日期,下一步内容,备注,负责人,电子邮箱,分类(A/B),预估金额(VND),任务启动日期,已激活内容\n');
+  csv1 += (lang==='en'?'Customer,Project,Location,Land Area (m2),Track Date,Bid Stage,Next Action Date,Next Action Content,Notes,PIC,Email,Category (A/B),Est. Value (VND),Task Start Date,Stage Content\n':(lang==='vi'?'Tên khách hàng,Tên dự án,Địa điểm,Diện tích đất (m2),Ngày theo dõi,Giai đoạn thầu,Ngày hành động tiếp theo,Nội dung hành động tiếp theo,Ghi chú,Người phụ trách,Email,Phân loại (A/B),Giá trị dự kiến (VND),Ngày bắt đầu công việc,Nội dung đã kích hoạt\n':'客户名称,项目名称,地点,土地面积(平方米),跟踪日期,投标阶段,下一步日期,下一步内容,备注,负责人,电子邮箱,分类(A/B),预估金额(VND),任务启动日期,已激活内容\n'));
   data.bids.forEach(b => {
     csv1 += `"${b.customerName||''}","${b.projectName||''}","${b.location||''}","${b.landArea||''}","${b.trackDate||''}","${b.stage||''}","${b.nextActionDate||''}","${(b.nextActionContent||'').replace(/"/g,'""')}","${(b.notes||'').replace(/"/g,'""')}","${b.personInCharge||''}","${b.email||''}","${b.category||''}","${b.estimatedValue||''}","${b.startDate||''}","${b.stageContent||''}"\n`;
   });
 
   // 客户管理 CSV
   let csv2 = '\uFEFF';
-  csv2 += (lang==='en'?'Company Name,Business,Contact Person,Position,Phone,Email,Country,Priority (High/Med/Low),Date Added\n':'公司名称,公司业务,联系人,职位,电话,邮箱,国家,优先级(高/中/低),添加日期\n');
+  csv2 += (lang==='en'?'Company Name,Business,Contact Person,Position,Phone,Email,Country,Priority (High/Med/Low),Date Added\n':(lang==='vi'?'Tên công ty,Lĩnh vực kinh doanh,Người liên hệ,Chức vụ,Điện thoại,Email,Quốc gia,Mức ưu tiên (Cao/TB/Thấp),Ngày thêm\n':'公司名称,公司业务,联系人,职位,电话,邮箱,国家,优先级(高/中/低),添加日期\n'));
   data.customers.forEach(c => {
     csv2 += `"${c.companyName||''}","${c.companyBusiness||''}","${c.contactPerson||''}","${c.position||''}","${c.phone||''}","${c.email||''}","${c.country||''}","${c.priority||''}","${c.createdDate||''}"\n`;
   });
 
   // 客户互动 CSV
   let csv3 = '\uFEFF';
-  csv3 += (lang==='en'?'Customer,Date,Type,Content,PIC,Next Step,Status,Notes\n':'客户名称,互动日期,互动类型,互动内容,负责人,下一步计划,状态,备注\n');
+  csv3 += (lang==='en'?'Customer,Date,Type,Content,PIC,Next Step,Status,Notes\n':(lang==='vi'?'Tên khách hàng,Ngày tương tác,Loại tương tác,Nội dung tương tác,Người phụ trách,Kế hoạch tiếp theo,Trạng thái,Ghi chú\n':'客户名称,互动日期,互动类型,互动内容,负责人,下一步计划,状态,备注\n'));
   data.projects.forEach(p => {
     csv3 += `"${p.customerName||''}","${p.interactionDate||''}","${p.interactionType||''}","${(p.content||'').replace(/"/g,'""')}","${p.personInCharge||''}","${p.nextStep||''}","${p.status||''}","${(p.notes||'').replace(/"/g,'""')}"\n`;
   });
 
   // 商会信息 CSV
   let csv4 = '\uFEFF';
-  csv4 += (lang==='en'?'Chamber Name,Country,Phone,Email,Contact Person,Topic,Attendance Date,Attendance Location,Notes\n':'商会名称,国家,电话,邮箱,联系人,主题,出席日期,出席地点,备注\n');
+  csv4 += (lang==='en'?'Chamber Name,Country,Phone,Email,Contact Person,Topic,Attendance Date,Attendance Location,Notes\n':(lang==='vi'?'Tên hiệp hội thương mại,Quốc gia,Điện thoại,Email,Người liên hệ,Chủ đề,Ngày tham dự,Địa điểm tham dự,Ghi chú\n':'商会名称,国家,电话,邮箱,联系人,主题,出席日期,出席地点,备注\n'));
   data.chambers.forEach(c => {
     csv4 += `"${c.chamberName||''}","${c.country||''}","${c.phone||''}","${c.email||''}","${c.contactPerson||''}","${c.topic||''}","${c.attendanceDate||''}","${c.attendanceLocation||''}","${(c.notes||'').replace(/"/g,'""')}"\n`;
   });
 
   // 下载4个文件
   const files = [
-    {name: (lang==='en'?'BidTracking_':'投标项目追踪_')+dateStr+'.csv', content: csv1},
-    {name: (lang==='en'?'Customers_':'客户管理_')+dateStr+'.csv', content: csv2},
-    {name: (lang==='en'?'Interactions_':'客户互动_')+dateStr+'.csv', content: csv3},
-    {name: (lang==='en'?'Chambers_':'商会信息_')+dateStr+'.csv', content: csv4}
+    {name: L('投标项目追踪_','BidTracking_','TheoDoiDuAnThau_')+dateStr+'.csv', content: csv1},
+    {name: L('客户管理_','Customers_','KhachHang_')+dateStr+'.csv', content: csv2},
+    {name: L('客户互动_','Interactions_','TuongTac_')+dateStr+'.csv', content: csv3},
+    {name: L('商会信息_','Chambers_','HiepHoiThuongMai_')+dateStr+'.csv', content: csv4}
   ];
 
   files.forEach(f => {
@@ -6232,7 +6373,7 @@ function exportCSV(){
     URL.revokeObjectURL(url);
   });
 
-  alert(lang==='en'?'Exported 4 CSV files!\n\nOpen them in Excel, edit, then use Import to bring them back.':'已导出4个CSV文件!\n\n请用Excel分别打开编辑,然后点击「导入」导入回来。');
+  alert(L('已导出4个CSV文件!\n\n请用Excel分别打开编辑,然后点击「导入」导入回来。','Exported 4 CSV files!\n\nOpen them in Excel, edit, then use Import to bring them back.','Đã xuất 4 tệp CSV!\n\nMở bằng Excel, chỉnh sửa, rồi dùng 「Nhập」 để đưa trở lại.'));
 }
 
 function importData(event){
@@ -6370,7 +6511,7 @@ function importData(event){
           }
         });
 
-        if(confirm(lang==='en'?'Importing Excel will overwrite the current data. Continue?':'导入Excel数据将覆盖当前数据,确定继续吗?')){
+        if(confirm(L('导入Excel数据将覆盖当前数据,确定继续吗?','Importing Excel will overwrite the current data. Continue?','Nhập Excel sẽ ghi đè dữ liệu hiện tại. Tiếp tục?'))){
           saveData();
           updateOptionsFromData();
           updateStats();
@@ -6392,11 +6533,11 @@ function importData(event){
           }
 
           renderTable();
-          alert((lang==='en'?'Excel import successful!\n\nImported:\n- Bids: ':'Excel导入成功!\n\n已导入:\n- 投标项目:') + data.bids.length + (lang==='en'?'\n- Customers: ':' 条\n- 客户管理:') + data.customers.length + (lang==='en'?'\n- Interactions: ':' 条\n- 客户互动:') + data.projects.length + (lang==='en'?'\n- Chambers: ':' 条\n- 商会信息:') + data.chambers.length);
+          alert(L('Excel导入成功!\n\n已导入:\n- 投标项目:','Excel import successful!\n\nImported:\n- Bids: ','Nhập Excel thành công!\n\nĐã nhập:\n- Dự án thầu:') + data.bids.length + L(' 条\n- 客户管理:','\n- Customers: ',' bản ghi\n- Khách hàng:') + data.customers.length + L(' 条\n- 客户互动:','\n- Interactions: ',' bản ghi\n- Tương tác:') + data.projects.length + L(' 条\n- 商会信息:','\n- Chambers: ',' bản ghi\n- Hiệp hội thương mại:') + data.chambers.length);
         }
       }catch(err){
         console.error('导入错误:', err);
-        alert((lang==='en'?'Excel import failed: ':'Excel导入失败: ') + err.message + (lang==='en'?'\n\nPlease make sure the file is a valid Excel file.':'\n\n请确保文件是有效的Excel格式'));
+        alert(L('Excel导入失败: ','Excel import failed: ','Nhập Excel thất bại: ') + err.message + L('\n\n请确保文件是有效的Excel格式','\n\nPlease make sure the file is a valid Excel file.','\n\nVui lòng kiểm tra tệp Excel hợp lệ.'));
       }
     };
     reader.readAsArrayBuffer(file);
@@ -6410,7 +6551,7 @@ function importData(event){
         const lines = text.split('\n').filter(l => l.trim());
 
         if(lines.length < 2){
-          alert(lang==='en'?'CSV file is empty or malformed':'CSV文件为空或格式不正确');
+          alert(L('CSV文件为空或格式不正确','CSV file is empty or malformed','Tệp CSV trống hoặc sai định dạng'));
           return;
         }
 
@@ -6465,7 +6606,7 @@ function importData(event){
           saveData();
           updateStats();
           renderTable();
-          alert(lang==='en'?('Bids imported: '+data.bids.length+' records'):`投标项目导入成功!共${data.bids.length}条记录`);
+          alert(L(`投标项目导入成功!共${data.bids.length}条记录`,('Bids imported: '+data.bids.length+' records'),('Đã nhập dự án thầu: '+data.bids.length+' bản ghi')));
         }
         else if(fileName.includes('客户管理') || fileName.includes('客户') || /customer/i.test(fileName)){
           data.customers = dataRows.map((row, idx) => ({
@@ -6483,7 +6624,7 @@ function importData(event){
           saveData();
           updateCustomerStats();
           renderTable();
-          alert(lang==='en'?('Customers imported: '+data.customers.length+' records'):`客户管理导入成功!共${data.customers.length}条记录`);
+          alert(L(`客户管理导入成功!共${data.customers.length}条记录`,('Customers imported: '+data.customers.length+' records'),('Đã nhập khách hàng: '+data.customers.length+' bản ghi')));
         }
         else if(fileName.includes('互动') || /interaction/i.test(fileName)){
           data.projects = dataRows.map((row, idx) => ({
@@ -6499,7 +6640,7 @@ function importData(event){
           }));
           saveData();
           renderTable();
-          alert(lang==='en'?('Interactions imported: '+data.projects.length+' records'):`客户互动导入成功!共${data.projects.length}条记录`);
+          alert(L(`客户互动导入成功!共${data.projects.length}条记录`,('Interactions imported: '+data.projects.length+' records'),('Đã nhập tương tác: '+data.projects.length+' bản ghi')));
         }
         else if(fileName.includes('商会') || /chamber/i.test(fileName)){
           data.chambers = dataRows.map((row, idx) => ({
@@ -6516,13 +6657,13 @@ function importData(event){
           }));
           saveData();
           renderTable();
-          alert(lang==='en'?('Chambers imported: '+data.chambers.length+' records'):`商会信息导入成功!共${data.chambers.length}条记录`);
+          alert(L(`商会信息导入成功!共${data.chambers.length}条记录`,('Chambers imported: '+data.chambers.length+' records'),('Đã nhập hiệp hội thương mại: '+data.chambers.length+' bản ghi')));
         }
         else{
-          alert(lang==='en'?'Unrecognized CSV type. The filename must contain one of: bid, customer, interaction, chamber':'无法识别CSV文件类型,请确保文件名包含:投标、客户管理、互动、商会');
+          alert(L('无法识别CSV文件类型,请确保文件名包含:投标、客户管理、互动、商会','Unrecognized CSV type. The filename must contain one of: bid, customer, interaction, chamber','Không nhận dạng được loại CSV. Tên tệp phải chứa một trong: bid, customer, interaction, chamber'));
         }
       }catch(err){
-        alert((lang==='en'?'CSV import failed: ':'CSV导入失败: ') + err.message);
+        alert(L('CSV导入失败: ','CSV import failed: ','Nhập CSV thất bại: ') + err.message);
       }
     };
     reader.readAsText(file);
@@ -6553,7 +6694,7 @@ function importData(event){
     reader.readAsText(file);
   }
   else{
-    alert(lang==='en'?'Unsupported file format. Use .xls or .json':'不支持的文件格式,请使用 .xls 或 .json 文件');
+    alert(L('不支持的文件格式,请使用 .xls 或 .json 文件','Unsupported file format. Use .xls or .json','Định dạng tệp không hỗ trợ. Vui lòng dùng .xls hoặc .json'));
   }
   event.target.value = '';
 }
@@ -6805,14 +6946,14 @@ function renderPlanTracking(){
 
   var isZh = lang==='zh';
   var headers = [
-    isZh?'编号':'No.',
-    isZh?'内容':'Content',
+    L('编号','No.','Số'),
+    L('内容','Content','Nội dung'),
     'Annual Plan Cumulative',
-    isZh?'负责人':'Person in Charge',
-    isZh?'开始':'Date Start',
-    isZh?'截止':'Date End',
-    isZh?'资源':'Resources',
-    isZh?'备注':'Note',
+    L('负责人','Person in Charge','Người phụ trách'),
+    L('开始','Date Start','Bắt đầu'),
+    L('截止','Date End','Kết thúc'),
+    L('资源','Resources','Nguồn lực'),
+    L('备注','Note','Ghi chú'),
     '' // Action column
   ];
 
@@ -6911,17 +7052,17 @@ function renderPlanTracking(){
     if(isParent){
       // Parent rows: empty cells except action (column 3 shows pct)
       var parentDisplay = parentPctMap[item.no] !== undefined ? parentPctMap[item.no]+'%' : (item.pct?item.pct:'-');
-      html += '<td style="padding:8px 6px;text-align:center;font-size:12px;font-weight:600;color:'+parentPctColor+'">'+parentDisplay+'</td><td></td><td></td><td></td><td></td><td style="padding:8px 6px;text-align:center"><button onclick="addChildRow(\''+item.no+'\',\''+item.no.split('.')[0]+'\')" style="background:rgba(34,211,238,0.1);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--blue);cursor:pointer;transition:background .15s" onmouseover="this.style.background=\'rgba(34,211,238,0.2)\'" onmouseout="this.style.background=\'rgba(34,211,238,0.1)\'" title="'+(isZh?'添加子项':'Add child')+'">+</button></td>';
+      html += '<td style="padding:8px 6px;text-align:center;font-size:12px;font-weight:600;color:'+parentPctColor+'">'+parentDisplay+'</td><td></td><td></td><td></td><td></td><td style="padding:8px 6px;text-align:center"><button onclick="addChildRow(\''+item.no+'\',\''+item.no.split('.')[0]+'\')" style="background:rgba(34,211,238,0.1);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--blue);cursor:pointer;transition:background .15s" onmouseover="this.style.background=\'rgba(34,211,238,0.2)\'" onmouseout="this.style.background=\'rgba(34,211,238,0.1)\'" title="'+(L('添加子项','Add child','Thêm mục con'))+'">+</button></td>';
     } else if(isSub){
       // Sub rows: show Column 3 (auto-calc'd pct), rest empty except action
-      html += '<td style="padding:8px 6px;text-align:center;font-size:11px;color:'+pctColor+';font-weight:'+fontWeight+'">'+(pctDisplay || '-')+'</td><td></td><td></td><td></td><td></td><td style="padding:8px 6px;text-align:center"><button onclick="addChildRow(\''+item.no+'\',\''+item.no.split('.')[0]+'\')" style="background:rgba(34,211,238,0.1);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--blue);cursor:pointer;transition:background .15s" onmouseover="this.style.background=\'rgba(34,211,238,0.2)\'" onmouseout="this.style.background=\'rgba(34,211,238,0.1)\'" title="'+(isZh?'添加子项':'Add child')+'">+</button> <button onclick="deletePlanRow('+idx+',this)" title="'+(isZh?'删除':'Delete')+'" style="background:rgba(239,68,68,0.1);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-size:11px;color:#ef4444;cursor:pointer;transition:background .15s;display:inline-flex;align-items:center;gap:2px" onmouseover="this.style.background=\'rgba(239,68,68,0.2)\'" onmouseout="this.style.background=\'rgba(239,68,68,0.1)\'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"></polyline><path d="M19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a1,1 0 0,1,1-1h4a1,1 0 0,1,1,1v2"></path></svg><span style="font-size:11px">Del</span></button></td>';
+      html += '<td style="padding:8px 6px;text-align:center;font-size:11px;color:'+pctColor+';font-weight:'+fontWeight+'">'+(pctDisplay || '-')+'</td><td></td><td></td><td></td><td></td><td style="padding:8px 6px;text-align:center"><button onclick="addChildRow(\''+item.no+'\',\''+item.no.split('.')[0]+'\')" style="background:rgba(34,211,238,0.1);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--blue);cursor:pointer;transition:background .15s" onmouseover="this.style.background=\'rgba(34,211,238,0.2)\'" onmouseout="this.style.background=\'rgba(34,211,238,0.1)\'" title="'+(L('添加子项','Add child','Thêm mục con'))+'">+</button> <button onclick="deletePlanRow('+idx+',this)" title="'+(L('删除','Delete','Xóa'))+'" style="background:rgba(239,68,68,0.1);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-size:11px;color:#ef4444;cursor:pointer;transition:background .15s;display:inline-flex;align-items:center;gap:2px" onmouseover="this.style.background=\'rgba(239,68,68,0.2)\'" onmouseout="this.style.background=\'rgba(239,68,68,0.1)\'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"></polyline><path d="M19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a1,1 0 0,1,1-1h4a1,1 0 0,1,1,1v2"></path></svg><span style="font-size:11px">Del</span></button></td>';
     } else {
       // Leaf rows: all inputs + delete
     html += '<td style="padding:8px 6px"><div style="display:flex;align-items:center;gap:6px;justify-content:center"><input type="text" value="'+escHtml(item.annualPlan)+'" placeholder="Plan" data-idx="'+idx+'" data-k="annualPlan" class="plan-input" style="width:70px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:var(--text1);outline:none" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'"/><input type="text" value="'+escHtml((item.cumulative||'').replace(/%/g,''))+(item.cumulative?'%':'')+'" placeholder="%" data-idx="'+idx+'" data-k="cumulative" class="plan-input plan-num" style="width:60px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:'+pctColor+';outline:none" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'" oninput="var v=this.value.replace(/[^0-9]/g,\'\');this.value=v+(v?\'%\':\'\');updatePctRowDisplay()"/></div></td>';
 
     // Person in Charge dropdown
     html += '<td style="padding:8px 6px;text-align:center"><select data-idx="'+idx+'" data-k="pic" class="plan-input" style="width:130px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:var(--text1);outline:none;cursor:pointer" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'">';
-    html += '<option value="">'+(isZh?'请选择':'Select')+'</option>';
+    html += '<option value="">'+(L('请选择','Select','Vui lòng chọn'))+'</option>';
     PO.forEach(function(opt){
       html += '<option value="'+opt+'"'+(item.pic===opt?' selected':'')+'>'+opt+'</option>';
     });
@@ -6930,7 +7071,7 @@ function renderPlanTracking(){
     html += '<td style="padding:8px 6px;text-align:center"><input type="date" value="'+escHtml(item.dateEnd)+'" data-idx="'+idx+'" data-k="dateEnd" class="plan-input" style="width:100px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:var(--text1);outline:none" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'"/></td>';
     html += '<td style="padding:8px 6px;text-align:center"><input type="text" value="'+escHtml(item.resources)+'" placeholder="-" data-idx="'+idx+'" data-k="resources" class="plan-input" style="width:100px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:var(--text1);outline:none" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'"/></td>';
     html += '<td style="padding:8px 6px;text-align:center"><input type="text" value="'+escHtml(item.note)+'" placeholder="-" data-idx="'+idx+'" data-k="note" class="plan-input" style="width:130px;padding:4px 6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;text-align:center;font-size:11px;color:var(--text1);outline:none" onfocus="this.style.borderColor=\'var(--blue)\'" onblur="this.style.borderColor=\'var(--border)\'"/></td>';
-    html += '<td style="padding:8px 6px;text-align:center"><button onclick="deletePlanRow('+idx+',this)" title="'+(isZh?'删除':'Delete')+'" style="background:rgba(239,68,68,0.1);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-size:11px;color:#ef4444;cursor:pointer;transition:background .15s;display:inline-flex;align-items:center;gap:2px" onmouseover="this.style.background=\'rgba(239,68,68,0.2)\'" onmouseout="this.style.background=\'rgba(239,68,68,0.1)\'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"></polyline><path d="M19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a1,1 0 0,1,1-1h4a1,1 0 0,1,1,1v2"></path></svg><span style="font-size:11px">Del</span></button></td>';
+    html += '<td style="padding:8px 6px;text-align:center"><button onclick="deletePlanRow('+idx+',this)" title="'+(L('删除','Delete','Xóa'))+'" style="background:rgba(239,68,68,0.1);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-size:11px;color:#ef4444;cursor:pointer;transition:background .15s;display:inline-flex;align-items:center;gap:2px" onmouseover="this.style.background=\'rgba(239,68,68,0.2)\'" onmouseout="this.style.background=\'rgba(239,68,68,0.1)\'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"></polyline><path d="M19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a1,1 0 0,1,1-1h4a1,1 0 0,1,1,1v2"></path></svg><span style="font-size:11px">Del</span></button></td>';
     }
     html += '</tr>';
   });
@@ -6938,7 +7079,7 @@ function renderPlanTracking(){
   // Add row button below table
   html += '</tbody></table>';
   html += '<div style="margin-top:12px;display:flex;gap:8px">';
-  html += '<button onclick="addNewCategory()" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer">'+(isZh?'+ 新增大类':'+ Add Category')+'</button>';
+  html += '<button onclick="addNewCategory()" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer">'+(L('+ 新增大类','+ Add Category','+ Thêm danh mục'))+'</button>';
   html += '</div>';
   container.innerHTML = html;
 
@@ -6946,7 +7087,7 @@ function renderPlanTracking(){
   var titleEl = document.getElementById('plan2026Title');
   if(titleEl) titleEl.textContent = 'System Tracking List 2026';
   var saveBtn = document.getElementById('planSaveBtn');
-  if(saveBtn) saveBtn.innerHTML = (lang==='en'?'💾 <span>Save</span>':'💾 <span>保存</span>');
+  if(saveBtn) saveBtn.innerHTML = L('💾 <span>保存</span>','💾 <span>Save</span>');
 }
 
 // Live-update sub/parent row pct display when leaf cumulative changes
@@ -7027,13 +7168,11 @@ function savePlanTracking(){
   var issues = checkPlanSpelling(items);
   if(issues.length > 0){
     var isZh = lang==='zh';
-    var msg = isZh
-      ? '检测到以下拼写可能错误：\n\n'
-      : 'Possible spelling issues detected:\n\n';
+    var msg = L('检测到以下拼写可能错误：\n\n','Possible spelling issues detected:\n\n','Phát hiện lỗi chính tả có thể có:\n\n');
     issues.forEach(function(iss){
       msg += '[' + iss.no + '] "' + iss.bad + '" → "' + iss.good + '"\n';
     });
-    msg += '\n' + (isZh ? '是否自动修正这些拼写？' : 'Auto-correct these spellings?');
+    msg += '\n' + L('是否自动修正这些拼写？','Auto-correct these spellings?','Tự động sửa các lỗi chính tả này?');
     if(confirm(msg)){
       items.forEach(function(it){
         issues.forEach(function(iss){
@@ -7047,10 +7186,10 @@ function savePlanTracking(){
   // flash save indicator (match Q2 Result style)
   var btn = document.getElementById('planSaveBtn');
   if(btn){
-    btn.innerHTML = (lang==='en'?'✅ Saved':'✅ 已保存');
+    btn.innerHTML = L('✅ 已保存','✅ Saved');
     btn.style.background = '#10b981';
     setTimeout(function(){
-      btn.innerHTML = (lang==='en'?'💾 <span>Save</span>':'💾 <span>保存</span>');
+      btn.innerHTML = L('💾 <span>保存</span>','💾 <span>Save</span>');
       btn.style.background = '';
     }, 1500);
   }
@@ -7159,7 +7298,7 @@ function deletePlanRow(idx, btn){
   var item = items[idx];
   if(!item) return;
   var isZh = lang==='zh';
-  if(!confirm((isZh?'确定删除「':'Delete "') + item.content + (isZh?'」?\n\n注意：所有子项也会被删除。':'"?\n\nAll child items will also be removed.') + '\n\n编号: ' + item.no)) return;
+  if(!confirm(L('确定删除「','Delete "','Xóa "') + item.content + L('」?\n\n注意：所有子项也会被删除。','"?\n\nAll child items will also be removed.','"?\n\nLưu ý: tất cả mục con cũng sẽ bị xóa.') + L('\n\n编号: ','\n\nNo.: ','\n\nSố: ') + item.no)) return;
   var no = item.no;
   // Remove this item and all its children
   items = items.filter(function(it){ return !it.no.startsWith(no + '.') && it.no !== no; });
@@ -7203,7 +7342,7 @@ function addNewCategory(){
     if(usedLetters.indexOf(letter) < 0){ nextLetter = letter; break; }
   }
   if(!nextLetter){
-    alert(lang==='zh'?'已达最大类别数':'Maximum categories reached');
+    alert(L('已达最大类别数','Maximum categories reached','Đã đạt số danh mục tối đa'));
     return;
   }
   items.push({
@@ -7288,7 +7427,7 @@ function quickSetStage(id,stageType){
   var dateInput=document.document.querySelector('input[onchange*=\"updateStartDate\(\''+id+'\'\)\"]');
   var selectedDate=dateInput?dateInput.value:'';
   if(!selectedDate){
-    alert(lang==='zh'?'请先选择启动日期':'Please select start date first');
+    alert(L('请先选择启动日期','Please select start date first','Vui lòng chọn ngày bắt đầu trước'));
     return;
   }
   var item=data.bids.find(b=>b.id===id);
@@ -7658,7 +7797,7 @@ window.addEventListener('load', function(){
 if(document.getElementById("login-btn")){
   document.getElementById("login-btn").onclick = function(){
     var p = document.getElementById("login-password").value;
-    if(!p){ document.getElementById("login-msg").textContent = lang==="zh" ? "请输入密码" : "Please enter password"; return; }
+    if(!p){ document.getElementById("login-msg").textContent = L('请输入密码','Please enter password','Vui lòng nhập mật khẩu'); return; }
     
     // Try Firebase Auth first
     if(fauth && typeof fauth.signInWithEmailAndPassword === 'function'){
@@ -7674,7 +7813,7 @@ if(document.getElementById("login-btn")){
           if(window.renderTable) window.renderTable();
           var cs = document.getElementById("cloudStatus");
           if(cs){ cs.textContent = '☁️'; cs.className = 'text-green-400 text-sm'; }
-          document.getElementById("login-msg").textContent = "✓ " + (lang==="zh" ? "登录成功" : "Login success");
+          document.getElementById("login-msg").textContent = "✓ " + (L('登录成功','Login success','Đăng nhập thành công'));
           // Start real-time cloud listener
           listenToCloud();
         })
@@ -7693,9 +7832,9 @@ if(document.getElementById("login-btn")){
             if(typeof listenToCloud === 'function') listenToCloud();
             var cs = document.getElementById("cloudStatus");
             if(cs){ cs.textContent = '☁️'; cs.className = 'text-green-400 text-sm'; }
-            document.getElementById("login-msg").textContent = "✓ " + (lang==="zh" ? "登录成功 (简单密码)" : "Login success (simple)");
+            document.getElementById("login-msg").textContent = "✓ " + (L('登录成功 (简单密码)','Login success (simple)','Đăng nhập thành công (mật khẩu đơn giản)'));
           } else {
-            document.getElementById("login-msg").textContent = (lang==="zh" ? "密码错误" : "Incorrect password") + " (" + error.code + ")";
+            document.getElementById("login-msg").textContent = (L('密码错误','Incorrect password','Sai mật khẩu')) + " (" + error.code + ")";
           }
         });
     } else {
@@ -7713,7 +7852,7 @@ if(document.getElementById("login-btn")){
         // Start real-time cloud listener for simple password too
         if(typeof listenToCloud === 'function') listenToCloud();
       } else {
-        document.getElementById("login-msg").textContent = lang==="zh" ? "密码错误" : "Incorrect password";
+        document.getElementById("login-msg").textContent = L('密码错误','Incorrect password','Sai mật khẩu');
       }
     }
   };
@@ -10554,19 +10693,19 @@ function rfiPrint(){
 
 /* 投标页：页面标题栏跟随页内页签（中英双语，按当前界面语言取） */
 var BIDS_VIEW_HEAD={
-  table:{t:{zh:'投标追踪',en:'Bid Tracking'},s:{zh:'投标项目全清单 —— 阶段、分类与预估金额',en:'Full list of bid projects — stage, category and estimated value'}},
-  verify:{t:{zh:'项目验证',en:'Project Verification'},s:{zh:'五步验证与 MR-001 负责人表',en:'5-step verification and the MR-001 PIC form'}},
-  tracking:{t:{zh:'项目跟进',en:'Project Follow-up'},s:{zh:'按六个阶段跟进每个项目',en:'Track each project through the 6 follow-up stages'}},
-  mom:{t:{zh:'项目会议纪要',en:'Project MOM'},s:{zh:'每个项目一份会议纪要',en:'Meeting minutes per project — one file per project'}},
-  rfi:{t:{zh:'资料索取单 RFI',en:'RFI'},s:{zh:'每个项目的资料索取记录',en:'Request-for-information log per project'}}
+  table:{t:{zh:'投标追踪',en:'Bid Tracking',vi:'Theo dõi thầu'},s:{zh:'投标项目全清单 —— 阶段、分类与预估金额',en:'Full list of bid projects — stage, category and estimated value',vi:'Danh sách đầy đủ dự án thầu — giai đoạn, phân loại và giá trị dự kiến'}},
+  verify:{t:{zh:'项目验证',en:'Project Verification',vi:'Xác minh dự án'},s:{zh:'五步验证与 MR-001 负责人表',en:'5-step verification and the MR-001 PIC form',vi:'Xác minh 5 bước và bảng phụ trách MR-001'}},
+  tracking:{t:{zh:'项目跟进',en:'Project Follow-up',vi:'Theo dõi dự án'},s:{zh:'按六个阶段跟进每个项目',en:'Track each project through the 6 follow-up stages',vi:'Theo dõi từng dự án qua sáu giai đoạn'}},
+  mom:{t:{zh:'项目会议纪要',en:'Project MOM',vi:'Biên bản họp dự án'},s:{zh:'每个项目一份会议纪要',en:'Meeting minutes per project — one file per project',vi:'Biên bản họp cho mỗi dự án — một tệp cho mỗi dự án'}},
+  rfi:{t:{zh:'资料索取单 RFI',en:'RFI',vi:'Phiếu yêu cầu thông tin RFI'},s:{zh:'每个项目的资料索取记录',en:'Request-for-information log per project',vi:'Nhật ký yêu cầu thông tin cho mỗi dự án'}}
 };
 function bidsApplyHead(){
   if(mod!=='bids')return;
   var h=BIDS_VIEW_HEAD[bidsView]||BIDS_VIEW_HEAD.table;
-  var isEn=(typeof lang!=='undefined'&&lang==='en');
+  var _lg=(typeof lang!=='undefined')?lang:'zh';
   var pt=document.getElementById('pt'), ps=document.getElementById('ps');
-  if(pt)pt.textContent=isEn?h.t.en:h.t.zh;
-  if(ps)ps.textContent=isEn?h.s.en:h.s.zh;
+  if(pt)pt.textContent=_lg==='en'?h.t.en:(_lg==='vi'&&h.t.vi?h.t.vi:h.t.zh);
+  if(ps)ps.textContent=_lg==='en'?h.s.en:(_lg==='vi'&&h.s.vi?h.s.vi:h.s.zh);
 }
 function bidsSwitchView(v){
   bidsView=(v==='tracking')?'tracking':((v==='verify')?'verify':((v==='mom')?'mom':((v==='rfi')?'rfi':'table')));
