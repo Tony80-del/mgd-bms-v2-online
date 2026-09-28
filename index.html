@@ -4871,16 +4871,16 @@ function exportSummaryPDF(){
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
     html+='<h2>'+(lang==='en'?'Active Pipeline: Bidding — Value: ':'投标中管线 — 金额: ')+(pdfActive>0?(pdfActive>=100?Math.round(pdfActive):pdfActive.toFixed(1))+'B':'—')+' (Bidding: '+(pdfBA>0?(pdfBA>=100?Math.round(pdfBA):pdfBA.toFixed(1))+'B':'—')+')</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+t('f3')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     biddingBids.forEach(function(b,i){
-      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
+      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.location||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
     html+='</tbody></table>';
     if(potentialBids.length>0){
       html+='<h2 style="margin-top:24px;">'+(lang==='en'?'Active Pipeline: Potential — Value: ':'潜在管线 — 金额: ')+(pdfPA>0?(pdfPA>=100?Math.round(pdfPA):pdfPA.toFixed(1))+'B':'—')+'</h2>';
-      html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
+      html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+t('f3')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
       potentialBids.forEach(function(b,i){
-        html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
+        html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.location||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
       });
       html+='</tbody></table>';
     }
@@ -4893,9 +4893,9 @@ function exportSummaryPDF(){
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
     html+='<h2>'+(lang==='en'?'Active Pipeline: Follow up — Value: ':'跟踪管线 — 金额: ')+(pdfTA>0?(pdfTA>=100?Math.round(pdfTA):pdfTA.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+t('f3')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     trackingBids.forEach(function(b,i){
-      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
+      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.location||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
     html+='</tbody></table>';
     html+='</div>';
@@ -4907,9 +4907,9 @@ function exportSummaryPDF(){
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
     html+='<h2>'+(lang==='en'?'Cancelled Projects — Value: ':'已取消项目 — 金额: ')+(pdfCA>0?(pdfCA>=100?Math.round(pdfCA):pdfCA.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+t('f3')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     cancelledBids.forEach(function(b,i){
-      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
+      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.location||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
     html+='</tbody></table>';
   // ---- Won / 中标 ----
@@ -4918,9 +4918,9 @@ function exportSummaryPDF(){
     html+='<div class="page-header">Page '+pageIdx+' / '+totalActivePages+'</div>';
     html+='<h1>MGD Business Management System</h1>';
     html+='<h2>'+(lang==='en'?'Won Projects — Value: ':'中标项目 — 金额: ')+(pdfW>0?(pdfW>=100?Math.round(pdfW):pdfW.toFixed(1))+'B':'—')+'</h2>';
-    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+(lang==='en'?'Project':'项目')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
+    html+='<table class="table"><thead><tr><th>#</th><th>'+(lang==='en'?'Customer':'客户')+'</th><th>'+t('f3')+'</th><th>'+(lang==='en'?'Next Action Content':'下一步内容')+'</th><th>'+(lang==='en'?'Est. Value':'金额')+'</th></tr></thead><tbody>';
     wonBids.forEach(function(b,i){
-      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.projectName||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
+      html+='<tr><td>'+(i+1)+'</td><td>'+(b.customerName||'')+'</td><td>'+(b.location||'')+'</td><td>'+(b.nextActionContent||'')+'</td><td>'+(b.estimatedValue?parseInt(b.estimatedValue).toLocaleString():'')+'</td></tr>';
     });
     html+='</tbody></table>';
     html+='</div>';
