@@ -902,8 +902,8 @@ input[type="date"]::-moz-calendar-picker-indicator {
     <div class="ni" data-mod="bids" onclick="navGo('bids','table',event)">
       <span class="nic">📈</span><span id="nb">投标追踪</span>
     </div>
-    <!-- 3 · Customers Mgmt -->
-    <div class="ni" data-mod="customers" onclick="navGo('customers',null,event)">
+    <!-- 3 · Customers Mgmt — 入口直接落在「客户互动 → Calendar」（Tony 2026-09-28 定） -->
+    <div class="ni" data-mod="customers" onclick="navCustMgmt(event)">
       <span class="nic">👥</span><span id="nc">客户管理</span>
     </div>
     <!-- 4 · Annual Target -->
@@ -2747,6 +2747,15 @@ window.atRenderAll = renderAll;
       .calx-hrow .n{font-size:11.5px;color:var(--text1);font-weight:600;text-align:right}
       .calx-lunbig{font-size:11.5px;color:var(--text2);margin-top:3px}
       .calx-holwarn{margin:8px 0 2px;font-size:11.5px;color:#fca5a5;background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.28);border-radius:8px;padding:6px 9px}
+      /* 侧栏卡片 · 展开 / 收起（Holidays + Settings，2026-09-28）
+         状态 100% 由 .open 决定（grid-template-rows 0fr↔1fr 动画到真实内容高，无魔法数字）；
+         动画只是加分项 —— 即使浏览器不支持 fr 过渡，展开/收起依然正确。 */
+      .calx-hdet{display:grid;grid-template-rows:0fr;opacity:0;margin-top:0;transition:grid-template-rows .3s ease,opacity .22s ease,margin-top .3s ease}
+      .calx-hdet.open{grid-template-rows:1fr;opacity:1;margin-top:9px}
+      .calx-hin{overflow:hidden;min-height:0}
+      .calx-hfoot{margin-top:10px}
+      .calx-hbtn{display:block;width:100%;font:inherit;font-size:11.5px;font-weight:600;padding:7px 10px;border-radius:9px;border:1px solid var(--border);background:var(--bg2);color:var(--text1);cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+      .calx-hbtn:hover{border-color:var(--blue);background:var(--cardh);color:var(--blue)}
       .calx-side{display:flex;flex-direction:column;gap:12px}
       .calx-ct{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:9px}
       .calx-lab{display:block;font-size:10.5px;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;margin:9px 0 5px}
@@ -2847,7 +2856,7 @@ window.atRenderAll = renderAll;
             <div id="calxHolidayBox"></div>
             <div style="font-size:11px;color:var(--text2);margin-top:9px">🌙 lunar date · 🎉 Vietnam public holiday · ◆ Vietnamese observance · • international</div>
           </div>
-          <div class="calx-card">
+          <div class="calx-card" id="calxSettingsCard">
             <div class="calx-ct">⚙️ Settings</div>
             <label class="calx-lab">Month</label>
             <div class="calx-navrow">
@@ -2855,6 +2864,7 @@ window.atRenderAll = renderAll;
               <div class="calx-mrow" id="calxMonth">—</div>
               <button class="calx-nav" onclick="calShift(1)">›</button>
             </div>
+            <div class="calx-hdet" id="calxSetDet"><div class="calx-hin">
             <label class="calx-lab">PIC</label>
             <select class="calx-inp" id="calxPic" onchange="calRender()"><option value="all">All PIC</option></select>
             <label class="calx-lab">Type</label>
@@ -2880,6 +2890,8 @@ window.atRenderAll = renderAll;
             <div class="calx-krow"><span>Overdue</span><b id="calxK3" style="color:#ef4444">0</b></div>
             <div class="calx-krow"><span>Completed</span><b id="calxK4" style="color:#22c55e">0</b></div>
             <div class="calx-krow"><span>Logged (open)</span><b id="calxK6" style="color:#94a3b8">0</b></div>
+            </div></div>
+            <div class="calx-hfoot"><button class="calx-hbtn" data-open="▼ Show filters &amp; stats" data-close="▲ Hide filters &amp; stats" title="Show the filters and the month statistics" onclick="calxToggleSet()">▼ Show filters &amp; stats</button></div>
           </div>
           <div class="calx-card" id="calxDay"></div>
           <div class="calx-card">
@@ -6821,6 +6833,16 @@ function navGo(mod, sub, ev){
   var ni=document.querySelector('.ni[data-mod="'+mod+'"]');
   if(ni) ni.classList.add('active');
   if(ev && ev.currentTarget && ev.currentTarget.tagName==='A' && ev.currentTarget.closest('.subm')){ ev.currentTarget.classList.add('active'); }
+  document.querySelectorAll('.ni.has-sub').forEach(function(n){n.classList.remove('open');});
+}
+/* 顶栏「客户管理」= 客户区入口。2026-09-28 Tony 定：点进去**第一页就是「客户互动 → Calendar」**
+   （不是客户管理表格）。走 custModSwitch('projects') —— 它会 sm('projects')、把顶栏高亮留在
+   「客户管理」、显示模块切换行并把 tab 切到「客户互动」；而 sm('projects') 内部调 custApplyView()
+   → custSwitchView('calendar') → 渲染 Calendar。 */
+function navCustMgmt(ev){
+  if(ev){try{ev.stopPropagation();}catch(e){}}
+  try{ custModSwitch('projects'); }
+  catch(e){ try{ sm('projects'); }catch(e2){} }
   document.querySelectorAll('.ni.has-sub').forEach(function(n){n.classList.remove('open');});
 }
 function navParent(mod, ev){
@@ -12072,7 +12094,7 @@ Project is at PQ stage. BOD to decide contractors go to bidding stage</textarea>
 </div>
 <script>
 /* ===================== Customer Interactions · Calendar (read-only view over data.projects) ===================== */
-var CAL={y:0,m:0,sel:'',view:'records'};
+var CAL={y:0,m:0,sel:'',view:'records',holAll:false,setAll:false};
 var CAL_TYPE={Meeting:{ic:'\uD83E\uDD1D',n:'Meeting',c:'#a78bfa'},Visit:{ic:'\uD83D\uDEB6',n:'Visit',c:'#fbbf24'},
               Phone:{ic:'\uD83D\uDCDE',n:'Phone',c:'#38bdf8'},Email:{ic:'\u2709\uFE0F',n:'Email',c:'#34d399'},
               Other:{ic:'\uD83D\uDCCC',n:'Other',c:'#94a3b8'}};
@@ -12109,6 +12131,22 @@ function calInitState(){if(CAL.y)return;var t=calToday0();CAL.y=t.getFullYear();
 function calPickDay(s){CAL.sel=s;var d=calParse(s);CAL.y=d.getFullYear();CAL.m=d.getMonth();calRender();calxOpenDay(s);}
 function calShift(n){var d=new Date(CAL.y,CAL.m+n,1);CAL.y=d.getFullYear();CAL.m=d.getMonth();calRender();}
 function calToday(){var t=calToday0();CAL.y=t.getFullYear();CAL.m=t.getMonth();CAL.sel=calIso(t);calRender();}
+/* 侧栏卡片的通用「展开 / 收起」：状态 100% 由 .open class 决定（见 .calx-hdet 的 CSS 注释） */
+function calxSetDet(open,detId,btn){
+  var d=document.getElementById(detId);
+  if(d) d.classList.toggle('open',!!open);
+  if(btn) btn.textContent=((open?btn.getAttribute('data-close'):btn.getAttribute('data-open'))||'');
+}
+function calxToggleHol(){ CAL.holAll=!CAL.holAll;
+  var b=document.getElementById('calxHolidayBox'); if(!b)return;
+  calxSetDet(CAL.holAll,'calxHDet',b.querySelector('.calx-hbtn'));
+  try{ b.scrollIntoView({behavior:'smooth',block:'nearest'}); }catch(e){}
+}
+function calxToggleSet(){ CAL.setAll=!CAL.setAll;
+  var c=document.getElementById('calxSettingsCard'); if(!c)return;
+  calxSetDet(CAL.setAll,'calxSetDet',c.querySelector('.calx-hbtn'));
+  try{ c.scrollIntoView({behavior:'smooth',block:'nearest'}); }catch(e){}
+}
 function calAddAt(s){ if(typeof openAddModal!=='function')return;
   if(s)CAL.sel=s;
   try{ calxCloseDay(); }catch(e){}
@@ -12294,16 +12332,23 @@ function calRender(){
   // Holidays · Lunar card
   var hbox=document.getElementById('calxHolidayBox');
   if(hbox){
-    var t0l=calToday0(), lxt=calLunOf(t0l), up=calHolUpcoming(90), hh='';
+    var t0l=calToday0(), lxt=calLunOf(t0l), up=calHolUpcoming(60), hh='';
     hh+='<div class="calx-lunbig">'+calLunLine(t0l)+'</div>';
     (function(){ var hs=calHolsOf(t0l); if(hs.length) hh+='<div class="calx-lunbig" style="color:'+(hs[0].t==='v'?'#fca5a5':'var(--text2)')+'">'+calHolLine(t0l)+'</div>'; })();
-    if(up.length){ hh+='<div style="margin-top:9px">'+up.slice(0,10).map(function(x){
+    if(up.length){
+      var hrows=up.map(function(x){
         var dd=x.d, tt='Today'; var diff=Math.round((dd-t0l)/86400000); if(diff===1)tt='Tomorrow'; else if(diff>1)tt='in '+diff+'d';
         return '<div class="calx-hrow" title="'+calEsc(x.h.n)+'"><span class="d">'+dd.getDate()+' '+CAL_MON3[dd.getMonth()]+'</span><span class="n">'+calHolIcon(x.h.t)+' '+calEsc(x.h.s)+' <span style="color:var(--muted);font-weight:400">'+tt+'</span></span></div>';
-      }).join('')+'</div>';
-    } else hh+='<div class="calx-lunbig">No holiday in the next 90 days</div>';
+      }).join('');
+      hh+='<div class="calx-hdet'+(CAL.holAll?' open':'')+'" id="calxHDet"><div class="calx-hin">'+hrows+'</div></div>';
+      var hLo='\u25BC Show next 2 months ('+up.length+')', hLc='\u25B2 Hide list';
+      hh+='<div class="calx-hfoot"><button class="calx-hbtn" data-open="'+hLo+'" data-close="'+hLc+'" title="'+(CAL.holAll?'Hide the holiday list':'Show holidays in the next 2 months')+'" onclick="calxToggleHol()">'+(CAL.holAll?hLc:hLo)+'</button></div>';
+    }
     hbox.innerHTML=hh;
   }
+  // Settings 卡片 · 展开/收起（静态 HTML，靠这里把 CAL.setAll 同步回 DOM，保证重渲染/切语言后不丢）
+  var scard=document.getElementById('calxSettingsCard');
+  if(scard) calxSetDet(CAL.setAll,'calxSetDet',scard.querySelector('.calx-hbtn'));
   // PIC 下拉
   var ps=document.getElementById('calxPic');
   if(ps){
