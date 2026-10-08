@@ -981,11 +981,21 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
   </header>
 
+  <!-- Approval trace banner (Phase 3 · 2026-10-07). Hidden until apvReconcile() finds a decision
+       that is not yet inside data.verify. Deliberately NOT an automatic write: saveData() pushes
+       the whole document, and a stale browser has already overwritten real data once (WR 31-38).
+       The cloud only changes when [Write to BMS] is clicked. -->
+  <div id="apvBanner" style="display:none;padding:10px 32px;background:#3a2c07;border-bottom:1px solid #6b5410;color:#ffe6a8;font-size:13px;align-items:center;gap:14px;flex-wrap:wrap">
+    <span id="apvBannerTxt"></span>
+    <button class="bp" onclick="apvApply()" style="padding:5px 13px;font-size:12px">Write to BMS</button>
+    <button class="bs" onclick="apvDismiss()" style="padding:5px 13px;font-size:12px">Dismiss</button>
+  </div>
   <div class="p-8">
     <!-- Bid Project Tracking sub-tabs: list view | Project Follow-up -->
     <div id="bidsSubTabsRow" style="display:none;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);position:sticky;top:81px;z-index:40;background:var(--bg1);">
       <button id="bidsSubTabTable" onclick="bidsSwitchView('table')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--blue);background:transparent;border:none;border-bottom:2px solid var(--blue);cursor:pointer;margin-bottom:-1px;" data-zh="📊 投标列表" data-en="📊 Bid Tracking" data-vi="📊 Danh sách thầu">📊 投标列表</button>
       <button id="bidsSubTabVerify" onclick="bidsSwitchView('verify')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">✅ Project verification</button>
+      <button id="bidsSubTabApprovals" onclick="bidsSwitchView('approvals')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📋 Approvals</button>
       <button id="bidsSubTabTracking" onclick="bidsSwitchView('tracking')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">🏗️ Project Follow-up</button>
       <button id="bidsSubTabMom" onclick="bidsSwitchView('mom')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📝 Project MOM</button>
       <button id="bidsSubTabRfi" onclick="bidsSwitchView('rfi')" style="padding:10px 18px;font-size:13px;font-weight:600;color:var(--text2);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">📄 RFI</button>
@@ -1085,8 +1095,12 @@ input[type="date"]::-moz-calendar-picker-indicator {
     </div>
     <!-- ================= PROJECT VERIFICATION (5 steps + MR-001 PIC form) ================= -->
     <div id="bidsVerifyContainer" style="display:none">
-      <iframe id="bidsVerifyFrame" title="Project verification — Stage 1" data-src="pfu-verify.html?v=20260916b" style="width:100%;height:calc(100vh - 150px);min-height:780px;border:1px solid var(--border);border-radius:12px;background:var(--bg2);display:block"></iframe>
+      <iframe id="bidsVerifyFrame" title="Project verification — Stage 1" data-src="pfu-verify.html?v=20261008a" style="width:100%;height:calc(100vh - 150px);min-height:780px;border:1px solid var(--border);border-radius:12px;background:var(--bg2);display:block"></iframe>
     </div>
+    <!-- ================= APPROVALS (Phase 3 · 2026-10-07) =================
+         Lists the cloud `approvals` collection directly over REST, so it works on ANY machine —
+         the token is not recovered from localStorage like the PIC page's status bar. -->
+    <div id="bidsApprovalsContainer" style="display:none"></div>
     <!-- ================= PROJECT MOM (project meeting minutes · 1 project = 1 file) ================= -->
     <div id="bidsMomContainer" style="display:none"></div>
     <div id="bidsRfiContainer" style="display:none"></div>
@@ -5614,6 +5628,10 @@ function renderRow(item,rowIdx){
       const escVal=val.replace(/"/g,'&quot;');
       v='<span class="cell-editable" onclick="openInlineEdit(\''+item.id+'\',\''+x.k+'\',\''+escVal+'\',\''+x.tp+'\',\''+(x.opt?x.opt.join('|').replace(/'/g,'&apos;'):'')+'\')">'+v+'</span>';
     }
+    /* Bid Tracking: the approval status badge rides right after the project name (Phase 3, 2026-10-07).
+       It is deliberately placed OUTSIDE the cell-editable span, so clicking it can never open the
+       inline editor by accident. */
+    if(mod==='bids'&&x.k==='projectName'){try{v+=apvBadge(item.id);}catch(e){}}
     // 备注字段:限制最大宽度,显示省略号
     if(x.k==='notes'&&v&&v!=='-'){
       v='<span class="text-[var(--text2)]" style="max-width:150px;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" title="'+v.replace(/"/g,'&quot;')+'">'+v+'</span>';
@@ -7580,6 +7598,20 @@ function cloudOk(){
   }catch(e){}
 }
 
+/* 2026-10-08 (synced from v1, commit c8320b3) — realm-safe cloud payload.
+   The Project verification iframe hands its record to this page, and an object built inside the
+   IFRAME carries the IFRAME's `Object` as its constructor. Firestore validates nested values here,
+   in the parent, with `constructor === Object` — which fails across realms, and the write is
+   rejected with "Unsupported field value: a custom Object object (found in field
+   data.verify.<bidId>)". Worse, because the poisoned object now lives inside `data`, EVERY later
+   save fails the same way until the page is reloaded. JSON.stringify/parse is realm-aware, so
+   rebuilding here turns every nested object into a plain object of THIS realm. Same fix as the
+   Phase-2 snapshot bug, one layer deeper.
+   No try/catch on purpose: _origSave() above already ran JSON.stringify(data) unguarded, so by the
+   time control reaches here a full stringify has demonstrably succeeded. */
+function cloudPayload(){
+  return JSON.parse(JSON.stringify(data));
+}
 // Wrap original saveData to also push to Firebase
 var _origSave = window.saveData || function(){};
 window.saveData = function(){
@@ -7643,7 +7675,7 @@ window.saveData = function(){
     console.warn('[Firebase] Auto-snapshot skipped (non-fatal):', e && e.message);
   }).then(function(){
     // Push new data to Firebase (async)
-    return fdb.collection('bms_data').doc('master').set({ data: data, updatedBy: 'user', updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
+    return fdb.collection('bms_data').doc('master').set({ data: cloudPayload(), updatedBy: 'user', updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
   }).then(function(){
       return settle({ok:true});
     })
@@ -10884,18 +10916,19 @@ function bidsApplyHead(){
   if(ps)ps.textContent=_lg==='en'?h.s.en:(_lg==='vi'&&h.s.vi?h.s.vi:h.s.zh);
 }
 function bidsSwitchView(v){
-  bidsView=(v==='tracking')?'tracking':((v==='verify')?'verify':((v==='mom')?'mom':((v==='rfi')?'rfi':'table')));
+  bidsView=(v==='tracking')?'tracking':((v==='verify')?'verify':((v==='mom')?'mom':((v==='rfi')?'rfi':((v==='approvals')?'approvals':'table'))));
   bidsApplyView();
 }
 function bidsApplyView(){
-  var showTable=(bidsView==='table'),showTrack=(bidsView==='tracking'),showVerify=(bidsView==='verify'),showMom=(bidsView==='mom'),showRfi=(bidsView==='rfi');
+  var showTable=(bidsView==='table'),showTrack=(bidsView==='tracking'),showVerify=(bidsView==='verify'),showMom=(bidsView==='mom'),showRfi=(bidsView==='rfi'),showAppr=(bidsView==='approvals');
   var tT=document.getElementById('bidsSubTabTable');
   var tK=document.getElementById('bidsSubTabTracking');
   var tV=document.getElementById('bidsSubTabVerify');
   var tM=document.getElementById('bidsSubTabMom');
   var tR=document.getElementById('bidsSubTabRfi');
+  var tA=document.getElementById('bidsSubTabApprovals');
   function _st(el,on){if(!el)return;el.style.color=on?'var(--blue)':'var(--text2)';el.style.borderBottomColor=on?'var(--blue)':'transparent';}
-  _st(tT,showTable);_st(tK,showTrack);_st(tV,showVerify);_st(tM,showMom);_st(tR,showRfi);
+  _st(tT,showTable);_st(tK,showTrack);_st(tV,showVerify);_st(tM,showMom);_st(tR,showRfi);_st(tA,showAppr);
   if(mod!=='bids')return;
   var bs=document.getElementById('bs'),bf=document.getElementById('bf'),tc=document.querySelector('.tc'),ct=document.getElementById('bidsTrackingContainer');
   if(bs)bs.style.display=showTable?'grid':'none';
@@ -10910,6 +10943,9 @@ function bidsApplyView(){
   var cr=document.getElementById('bidsRfiContainer');
   if(cr)cr.style.display=showRfi?'block':'none';
   if(showRfi){try{rfiRender();}catch(e){console.error('[RFI]',e);}}
+  var ca=document.getElementById('bidsApprovalsContainer');
+  if(ca)ca.style.display=showAppr?'block':'none';
+  if(showAppr){try{apvRenderList();}catch(e){console.error('[Approvals]',e);}}
   if(showVerify){
     var fr=document.getElementById('bidsVerifyFrame');
     if(fr&&!fr.getAttribute('src'))fr.setAttribute('src',fr.getAttribute('data-src'));
@@ -11834,11 +11870,55 @@ window.pifSave=pifSave;
    v1 only ever called saveData() and returned undefined, so the iframe had no way to tell a real
    cloud write from a silent failure — it showed "synced into BMS ✓" either way. The iframe checks
    `br.v >= 2` before trusting the returned status; an older page falls back to "not confirmed". */
+/* ===== Phase 2 \u00b7 approval-flow helpers (2026-10-07) ======================================
+   A 128-bit random token IS the whole security model of the approval link: whoever holds the
+   URL holds the key, and there is nothing to guess. The link points at approve.html sitting
+   next to this file, so it works on GitHub Pages and on any host that serves the folder. */
+function apNewToken(){
+  var a=new Uint8Array(16);
+  if(window.crypto&&window.crypto.getRandomValues){window.crypto.getRandomValues(a);}
+  else{for(var i=0;i<16;i++){a[i]=Math.floor(Math.random()*256);}}
+  var s='';
+  for(var j=0;j<16;j++){s+=('0'+a[j].toString(16)).slice(-2);}
+  return s;
+}
+function apApproveUrl(token){
+  var base=String(location.href||'').replace(/[^\/]*$/,'');
+  /* v2 (2026-10-08) — approve.html carries the v1 project as its default, because in v1 that
+     IS the right answer. Here it is not: without an explicit p/k the director would open a page
+     that reads and writes the v1 cloud. Pass this page's own project + key on every link. */
+  var p='',k='';
+  try{p=String(firebaseConfig.projectId||'');k=String(firebaseConfig.apiKey||'');}catch(e){}
+  return base+'approve.html?t='+encodeURIComponent(token)+(p?'&p='+encodeURIComponent(p):'')+(k?'&k='+encodeURIComponent(k):'');
+}
+/* bridge for the embedded Project verification page (same-origin iframe)
+   v2 (2026-10-07): save() now RETURNS the cloud-write result instead of swallowing it.
+   v1 only ever called saveData() and returned undefined, so the iframe had no way to tell a real
+   cloud write from a silent failure — it showed "synced into BMS ✓" either way. The iframe checks
+   `br.v >= 2` before trusting the returned status; an older page falls back to "not confirmed". */
 window.__bmsVerifyBridge={
-  v:2,
+  /* v4 (2026-10-08) adds setVerify() — see the warning on it below.
+     v3 (2026-10-07, phase 2) added createApproval() / watchApproval() for the approval flow.
+     v2 made save() tell the truth; v1 swallowed the cloud result. The PIC page checks for the
+     feature it needs by NAME, so an older bridge degrades to a plain message, never a crash. */
+  v:4,
   getData:function(){return data;},
   getBids:function(){return (data&&data.bids)?data.bids:[];},
   getVerify:function(){if(!data.verify)data.verify={};return data.verify;},
+  /* Write ONE verification record, rebuilt in THIS realm. The iframe must NOT assign into
+     getVerify() itself: an object it builds carries the IFRAME's Object as its constructor, and
+     Firestore — which validates here, in the parent — refuses it as "a custom Object object".
+     That was a live bug on 2026-10-08: it silently killed EVERY cloud save from the Project
+     verification page, and kept killing every later save until the page was reloaded, because the
+     bad object stayed inside `data`. Same trap as the Phase-2 snapshot, one layer deeper. */
+  setVerify:function(bidId,snap){
+    try{
+      var id=String(bidId||'');if(!id)return false;
+      if(!data.verify)data.verify={};
+      data.verify[id]=JSON.parse(JSON.stringify(snap||{}));
+      return true;
+    }catch(e){return false;}
+  },
   save:function(){
     try{
       var r=saveData();
@@ -11850,8 +11930,388 @@ window.__bmsVerifyBridge={
     }catch(e){
       return Promise.resolve({ok:false,why:(e&&e.message)||String(e)});
     }
-  }
+  },
+  /* Phase 2 \u00b7 approval flow. The PIC page (pfu-verify.html) runs in an iframe with no Firebase
+     of its own, so it hands the frozen snapshot here and THIS page does the cloud write.
+     The 20s race is deliberate: when the browser cannot reach Firestore the SDK's promise never
+     settles \u2014 neither .then nor .catch \u2014 which is exactly the silent failure diagnosed on
+     2026-10-07. Without the race the Submit button would hang forever with no message. */
+  createApproval:function(snap){
+    try{
+      if(typeof fdb==='undefined'||!fdb)return Promise.resolve({ok:false,why:'Firestore is not available in this page'});
+      /* The snapshot is built INSIDE THE IFRAME, so every plain object in it belongs to another
+         realm. Firestore's set() validates nested values with `constructor === Object`, and that
+         check fails across realms — the observed error was:
+           "Unsupported field value: a custom Object object (found in field snapshot.st …)"
+         Round-tripping through JSON HERE rebuilds the whole tree in THIS page's realm. It also
+         drops any `undefined`, which Firestore rejects as well. Verified 2026-10-07. */
+      snap=JSON.parse(JSON.stringify(snap||{}));
+      var token=apNewToken();
+      var now=new Date();
+      var exp=new Date(now.getTime()+30*24*3600*1000);
+      var rec={
+        bidId:String(snap.bidId||''),
+        project:String(snap.project||''),
+        client:String(snap.client||''),
+        /* The snapshot is a FROZEN COPY on purpose: the approver sees the form exactly as it
+           was submitted, and later edits on the PIC side cannot rewrite an issued approval. */
+        snapshot:{st:snap.st||{},ko:snap.ko||[],meta:snap.meta||{},note:String(snap.note||''),noteAt:String(snap.noteAt||'')},
+        createdBy:'Tony Cheong',
+        createdAt:now.toISOString(),
+        expiresAt:exp.toISOString(),
+        decision:null,decidedBy:'',decidedAt:'',reason:'',
+        ver:1
+      };
+      var write=fdb.collection('approvals').doc(token).set(rec);
+      return Promise.race([
+        write.then(function(){return {ok:true,token:token,url:apApproveUrl(token),rec:rec};}),
+        new Promise(function(res){
+          setTimeout(function(){res({ok:false,why:'cloud write timed out after 20s \u2014 this browser could not reach Firestore'});},20000);
+        })
+      ]);
+    }catch(e){return Promise.resolve({ok:false,why:(e&&e.message)||String(e)});}
+  },
+  /* Live watch, so the PIC page flips to APPROVED / REJECTED the moment the approver decides. */
+  watchApproval:function(token,cb){
+    try{
+      if(typeof fdb==='undefined'||!fdb)return null;
+      return fdb.collection('approvals').doc(token).onSnapshot(function(d){
+        try{cb(d&&d.exists?d.data():null);}catch(e){}
+      },function(){});
+    }catch(e){return null;}
+  },
+  /* Phase 3 (2026-10-07). The PIC page calls this the moment its live watch sees a decision, so
+     BMS re-reads the approvals collection and raises the "pending write" banner. It only TRIGGERS
+     A READ — the cloud write still waits for Tony to click [Write to BMS]. */
+  notifyApproval:function(){try{apvFetch(null,true);}catch(e){}}
 };
+/* ===== Approval trace (Phase 3 \u00b7 2026-10-07) =================================================
+   The gap this closes: a decision lands in the cloud `approvals` collection, but NOTHING in BMS
+   ever read it. The director could approve and BMS would never know \u2014 the only place it showed up
+   was a status bar inside the pfu-verify iframe, and even that needed the SAME browser, because
+   the token was recovered from localStorage.
+
+   Three rules this block follows:
+     1. READING is automatic and free \u2014 the approvals collection is listed over plain REST, no SDK
+        and no auth, and every call is wrapped so a blocked network can never break the page.
+     2. WRITING is NEVER automatic. Reconciliation only fills an in-memory queue and raises the
+        banner; the cloud changes when [Write to BMS] is clicked. saveData() pushes the WHOLE
+        document, and a stale browser has already overwritten real data once (WR 31-38).
+     3. data.verify[bidId].approval is ADDITIVE. No existing key is touched, so deleting it
+        restores the previous state exactly. Rollback = git revert + delete that key.
+   ============================================================================ */
+var APV={list:null,byBid:{},fetchedAt:0,pending:{},busy:false,fetching:false};
+var APV_CACHE_MS=60000;
+/* v2 (2026-10-08): the v1 fallback project id was dropped on purpose. If firebaseConfig were
+   ever missing, this page must read NOTHING rather than fall back onto the v1 cloud. An
+   empty project id builds a malformed URL, the request 404s, and apvFetch reports empty. */
+function apvProj(){try{return (typeof firebaseConfig!=='undefined'&&firebaseConfig.projectId)||'';}catch(e){return '';}}
+function apvKey(){try{return (typeof firebaseConfig!=='undefined'&&firebaseConfig.apiKey)||'';}catch(e){return '';}}
+function apvBase(){return 'https://firestore.googleapis.com/v1/projects/'+apvProj()+'/databases/(default)/documents/approvals';}
+function apvEsc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+/* Firestore REST speaks tagged values, and mapValue.fields must be decoded RECURSIVELY \u2014 that
+   nesting is exactly how the frozen snapshot travels. */
+function apvVal(v){
+  if(!v)return null;
+  if('stringValue' in v)return v.stringValue;
+  if('integerValue' in v)return Number(v.integerValue);
+  if('doubleValue' in v)return v.doubleValue;
+  if('booleanValue' in v)return v.booleanValue;
+  if('nullValue' in v)return null;
+  if('timestampValue' in v)return v.timestampValue;
+  if('mapValue' in v){var o={},f=v.mapValue.fields||{};for(var k in f)o[k]=apvVal(f[k]);return o;}
+  if('arrayValue' in v){return (v.arrayValue.values||[]).map(apvVal);}
+  return null;
+}
+function apvDoc(doc){var o={},f=(doc&&doc.fields)||{};for(var k in f)o[k]=apvVal(f[k]);o.token=String((doc&&doc.name)||'').split('/').pop();return o;}
+function apvState(rec){
+  var d=String((rec&&rec.decision)||'');
+  return (d==='approved')?'approved':((d==='rejected')?'rejected':'pending');
+}
+/* Plain-text twin of apvChip(). confirm() shows raw text, never HTML, so the delete dialog needs
+   this instead of the chip. */
+function apvStateTxt(st){
+  return (st==='approved')?'Approved':((st==='rejected')?'Rejected':'Pending');
+}
+/* First 6 chars of the 32-char token. On 2026-10-08 the list held three Okia-Lg submissions that
+   were identical in every visible column (same project, same client, same status); this plus a
+   second-precision timestamp is what tells them apart inside a confirm() box, which cannot show
+   a table. */
+function apvShort(token){return String(token||'').slice(0,6);}
+function apvSay(msg){
+  try{
+    var old=document.getElementById('apvToast');if(old)old.remove();
+    var d=document.createElement('div');d.id='apvToast';
+    d.style.cssText='position:fixed;bottom:20px;right:20px;max-width:440px;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:13px;z-index:9999;line-height:1.5';
+    d.textContent=msg;document.body.appendChild(d);
+    setTimeout(function(){try{d.remove();}catch(e){}} ,4200);
+  }catch(e){}
+}
+function apvFetch(cb,force){
+  if(APV.fetching)return;
+  if(!force&&APV.list&&(Date.now()-APV.fetchedAt)<APV_CACHE_MS){if(cb)cb(APV.list);return;}
+  APV.fetching=true;
+  try{
+    fetch(apvBase()+'?key='+encodeURIComponent(apvKey())+'&pageSize=200',{cache:'no-store'}).then(function(r){
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(d){
+      APV.list=(d.documents||[]).map(apvDoc);
+      APV.byBid={};
+      APV.list.forEach(function(rec){if(rec.bidId)APV.byBid[String(rec.bidId)]=rec;});
+      APV.fetchedAt=Date.now();APV.fetching=false;
+      try{apvReconcile();}catch(e){}
+      try{apvPaint();}catch(e){}
+      /* the row badges come from this list, so repaint the bid table once the data arrives */
+      try{if(bidsView==='table')renderTable();}catch(e){}
+      if(cb)cb(APV.list);
+    }).catch(function(e){
+      APV.fetching=false;
+      if(cb)cb(null,e);
+    });
+  }catch(e){APV.fetching=false;if(cb)cb(null,e);}
+}
+/* A decision counts as "already known" when data.verify[bidId].approval.at matches the cloud's
+   decidedAt \u2014 decidedAt is unique per decision, so a RE-decision is correctly seen as a change.
+   NOTE the field name differs on purpose: the stored record uses the short `at` (same shape as
+   the pending queue and as apvBadge() reads), while the cloud field is `decidedAt`. Reading
+   `have.decidedAt` here was a real bug caught by test-approval-trace.js \u2014 the comparison never
+   matched, so every fetch re-queued an approval that had already been written. */
+function apvReconcile(){
+  if(!APV.list)return 0;
+  var V=(typeof data!=='undefined'&&data&&data.verify)||{};
+  APV.list.forEach(function(rec){
+    if(apvState(rec)==='pending')return;
+    var bid=String(rec.bidId||'');
+    if(!bid)return;
+    var have=V[bid]&&V[bid].approval;
+    if(have&&String(have.at||'')===String(rec.decidedAt||''))return;
+    APV.pending[bid]={decision:apvState(rec),by:String(rec.decidedBy||''),at:String(rec.decidedAt||''),
+      reason:String(rec.reason||''),token:String(rec.token||''),project:String(rec.project||''),ver:1};
+  });
+  apvBanner();
+  return Object.keys(APV.pending).length;
+}
+function apvPendingCount(){return Object.keys(APV.pending).length;}
+function apvBanner(){
+  var el=document.getElementById('apvBanner');if(!el)return;
+  var n=apvPendingCount();
+  if(!n){el.style.display='none';return;}
+  var txt=document.getElementById('apvBannerTxt');
+  if(txt)txt.textContent='\uD83D\uDCCB '+n+' approval decision'+(n===1?'':'s')+' not yet written into the BMS record \u2014 the cloud stays untouched until you click \u201cWrite to BMS\u201d.';
+  el.style.display='flex';
+}
+function apvDismiss(){
+  APV.pending={};apvBanner();
+  try{apvPaint();}catch(e){}
+  try{if(bidsView==='table')renderTable();}catch(e){}
+}
+/* The ONLY place that writes the decision into BMS data. Manual on purpose \u2014 see rule 2 above. */
+function apvApply(){
+  if(APV.busy)return;
+  var keys=Object.keys(APV.pending);
+  if(!keys.length)return;
+  var msg='Write '+keys.length+' approval decision'+(keys.length===1?'':'s')+' into the BMS record and sync to the cloud?\n\n'+
+    'This only adds the field data.verify[bidId].approval \u2014 nothing else is touched.\n'+
+    'Reminder: saveData() pushes the WHOLE document \u2014 make sure this browser holds the latest data before writing.';
+  try{if(!confirm(msg))return;}catch(e){}
+  if(!data.verify)data.verify={};
+  keys.forEach(function(bid){
+    if(!data.verify[bid])data.verify[bid]={bidId:bid};
+    data.verify[bid].approval=APV.pending[bid];
+  });
+  APV.busy=true;
+  var p=null;
+  try{p=(typeof saveData==='function')?saveData():null;}catch(e){}
+  var finish=function(ok,why){
+    APV.busy=false;
+    if(ok)APV.pending={};
+    apvBanner();
+    try{apvPaint();}catch(e){}
+    try{if(bidsView==='table')renderTable();}catch(e){}
+    apvSay(ok?('\u2705 Wrote '+keys.length+' approval decision'+(keys.length===1?'':'s'))
+             :('\u26a0 Cloud not confirmed: '+(why||'unknown')+' \u2014 saved locally; click \u201cWrite to BMS\u201d again or press \uD83D\uDCBE Save to retry'));
+  };
+  if(p&&typeof p.then==='function'){
+    p.then(function(r){finish(!!(r&&r.ok),r&&r.why);}).catch(function(e){finish(false,(e&&e.message)||String(e));});
+  }else{
+    finish(false,'saveData() returned no cloud status');
+  }
+}
+/* `withSec` exists for the delete dialog only: two submissions a few seconds apart look identical
+   at minute precision, and the whole point of that dialog is telling them apart. */
+function apvWhen(iso,withSec){
+  if(!iso)return '\u2014';
+  try{
+    var d=new Date(iso);if(isNaN(d.getTime()))return String(iso);
+    var t=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);
+    if(withSec)t+=':'+('0'+d.getSeconds()).slice(-2);
+    return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+' \u00b7 '+t;
+  }catch(e){return String(iso);}
+}
+function apvChip(st){
+  var c=(st==='approved')?['#0f3d28','#7ee2a8','#1d6b45','\u2705 Approved']
+      :((st==='rejected')?['#3d1414','#ff9b9b','#7a2b2b','\u26d4 Rejected']
+      :['#3a2c07','#ffe6a8','#6b5410','\u23f3 Pending']);
+  return '<span style="display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;background:'+c[0]+';color:'+c[1]+';border:1px solid '+c[2]+'">'+c[3]+'</span>';
+}
+function apvLink(token){
+  var base=String(location.href||'').replace(/[^\/]*$/,'');
+  return base+'approve.html?t='+encodeURIComponent(String(token||''));
+}
+function apvOpenLink(token){try{window.open(apvLink(token),'_blank');}catch(e){}}
+function apvCopyLink(token){
+  var u=apvLink(token);
+  try{if(navigator&&navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u);apvSay('Approval link copied');return;}}catch(e){}
+  try{var ta=document.createElement('textarea');ta.value=u;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();apvSay('Approval link copied');}catch(e){apvSay(u);}
+}
+/* Delete ONE approval record. Tony's calls on 2026-10-08: delete A + B together, and "plain confirm
+   box, delete straight away" — no local backup, no soft-delete flag.
+     A · cloud document approvals/<token>   -> DELETE. One document, no side effects, irreversible.
+     B · data.verify[bidId].approval         -> remove the key, then saveData() (whole-document push).
+   Rule 3 at the top of this block is what makes B safe: `approval` is ADDITIVE, so removing it
+   restores the previous state exactly and no other key of data.verify[bidId] is touched. That is
+   also why this only ever deletes `.approval` and never the whole verify entry — the entry may
+   carry other verification fields that have nothing to do with approvals.
+   The confirm() text must identify the row on its own (project + submit time to the second + token
+   prefix) because three identical Okia-Lg rows were on screen when this was written. */
+function apvDelete(token){
+  var tk=String(token||'');
+  if(!tk||APV.busy)return;
+  var rec=null;
+  try{(APV.list||[]).forEach(function(r){if(String(r.token||'')===tk)rec=r;});}catch(e){}
+  if(!rec){apvSay('Could not find that approval record — click “🔄 Reload” first.');return;}
+  var bid=String(rec.bidId||''),st=apvState(rec),hasB=false;
+  try{hasB=!!(typeof data!=='undefined'&&data&&data.verify&&data.verify[bid]&&data.verify[bid].approval);}catch(e){}
+  var msg='Delete this approval record?\n\n'
+    +'Project   : '+(rec.project||'—')+'\n'
+    +'Submitted : '+apvWhen(rec.createdAt,true)+'\n'
+    +'Status    : '+apvStateTxt(st)+'\n'
+    +'ID        : '+apvShort(tk)+'\n\n';
+  if(st==='pending')msg+='⚠ Not decided yet — deleting it kills the approval link the director is holding.\n';
+  if(hasB)msg+='⚠ The copy inside the BMS record is deleted too: the list row and the project badge go together.\n';
+  else msg+='No copy in the BMS record, so only the cloud document is removed.\n';
+  msg+='\nThis cannot be undone and there is no backup. Delete it?';
+  try{if(!confirm(msg))return;}catch(e){}
+
+  APV.busy=true;
+  fetch(apvBase()+'/'+encodeURIComponent(tk)+'?key='+encodeURIComponent(apvKey()),{method:'DELETE'})
+  .then(function(r){
+    if(!r.ok&&r.status!==404)throw new Error('cloud delete failed — HTTP '+r.status);
+    var p=null,cleared=false;
+    try{
+      if(typeof data!=='undefined'&&data&&data.verify&&data.verify[bid]&&data.verify[bid].approval){
+        delete data.verify[bid].approval;
+        cleared=true;
+        if(typeof saveData==='function')p=saveData();
+      }
+    }catch(e){}
+    var done=function(ok,why){
+      APV.busy=false;
+      try{delete APV.pending[bid];}catch(e){}
+      /* drop the row locally first so the table and the badge react immediately, then let the
+         forced re-read below confirm against the server */
+      try{
+        APV.list=(APV.list||[]).filter(function(x){return String(x.token||'')!==tk;});
+        APV.byBid={};
+        APV.list.forEach(function(x){if(x.bidId)APV.byBid[String(x.bidId)]=x;});
+      }catch(e){}
+      APV.fetchedAt=0;
+      apvBanner();
+      try{apvPaint();}catch(e){}
+      try{if(bidsView==='table')renderTable();}catch(e){}
+      if(!ok)apvSay('⚠ Cloud document deleted, but the BMS copy did not sync: '+(why||'unknown')+' — cleared locally, press 💾 Save to retry');
+      else apvSay(cleared?'✅ Deleted (cloud + BMS copy)':'✅ Approval record deleted');
+      apvFetch(null,true);
+    };
+    if(p&&typeof p.then==='function'){
+      p.then(function(rr){done(!(rr&&rr.ok===false),rr&&rr.why);})
+       .catch(function(e){done(false,(e&&e.message)||String(e));});
+    }else{done(true,null);}
+  })
+  .catch(function(e){
+    APV.busy=false;
+    apvSay('⚠ Delete failed: '+((e&&e.message)||e)+' — the cloud was not changed');
+  });
+}
+function apvRenderList(){
+  var box=document.getElementById('bidsApprovalsContainer');if(!box)return;
+  box.innerHTML='<div style="padding:18px;color:var(--text2);font-size:13px">Reading approval records from the cloud\u2026</div>';
+  apvFetch(function(list,err){
+    if(!list){
+      box.innerHTML='<div style="padding:18px;color:#f87171;font-size:13px">Could not read the approval records from the cloud'+(err?(' ('+apvEsc((err&&err.message)||err)+')'):'')+'. If a firewall blocks Firestore from this browser, this will keep failing.</div>';
+      return;
+    }
+    apvPaint();
+  },true);
+}
+function apvPaint(){
+  var box=document.getElementById('bidsApprovalsContainer');if(!box)return;
+  var list=APV.list;
+  if(!list){box.innerHTML='<div style="padding:18px;color:var(--text2);font-size:13px">Reading approval records from the cloud\u2026</div>';return;}
+  var rows=list.slice().sort(function(a,b){return String(b.createdAt||'').localeCompare(String(a.createdAt||''));});
+  var nP=0,nA=0,nR=0;
+  rows.forEach(function(r){var s=apvState(r);if(s==='approved')nA++;else if(s==='rejected')nR++;else nP++;});
+  var h='<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">'
+    +'<span style="font-size:13px;color:var(--text2)">'+rows.length+' total \u00b7 \u23f3 Pending '+nP+' \u00b7 \u2705 Approved '+nA+' \u00b7 \u26d4 Rejected '+nR+'</span>'
+    +'<button class="bs" onclick="apvRenderList()" style="padding:5px 12px;font-size:12px">\uD83D\uDD04 Reload</button>'
+    +'</div>';
+  if(!rows.length){
+    box.innerHTML=h+'<div style="padding:18px;color:var(--text2);font-size:13px;line-height:1.7;border:1px solid var(--border);border-radius:12px">No approval records in the cloud yet.<br>Pick a project in <b>\u2705 Project verification</b>, fill in MR-001, then click <b>\uD83D\uDCE4 Submit for Approval</b> \u2014 the record will show up here.</div>';
+    return;
+  }
+  var cols=['Project','Client','Status','Submitted','Decided by','Decided at','Reason','Actions'];
+  h+='<div style="overflow:auto;border:1px solid var(--border);border-radius:12px"><table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="background:var(--bg2);text-align:left">';
+  cols.forEach(function(c){h+='<th style="padding:9px 12px;font-weight:600;color:var(--text2);white-space:nowrap">'+c+'</th>';});
+  h+='</tr></thead><tbody>';
+  rows.forEach(function(r){
+    var st=apvState(r),bid=String(r.bidId||'');
+    var inBms=!!(typeof data!=='undefined'&&data&&data.verify&&data.verify[bid]&&data.verify[bid].approval);
+    var mark=inBms?'<span title="Written into the BMS record" style="font-size:11px;color:#7ee2a8">\u2713 In BMS</span>'
+                 :((st==='pending')?'':'<span title="Not written into the BMS record yet" style="font-size:11px;color:#ffe6a8">Not written</span>');
+    h+='<tr style="border-top:1px solid var(--border)">'
+      +'<td style="padding:9px 12px"><b>'+apvEsc(r.project||'\u2014')+'</b><br><span style="font-size:11px;color:var(--text2)">'+apvEsc(bid||'')+'</span></td>'
+      +'<td style="padding:9px 12px">'+apvEsc(r.client||'\u2014')+'</td>'
+      +'<td style="padding:9px 12px">'+apvChip(st)+'</td>'
+      +'<td style="padding:9px 12px;white-space:nowrap">'+apvEsc(apvWhen(r.createdAt))+'</td>'
+      +'<td style="padding:9px 12px">'+apvEsc(r.decidedBy||'\u2014')+'</td>'
+      +'<td style="padding:9px 12px;white-space:nowrap">'+apvEsc(apvWhen(r.decidedAt))+'</td>'
+      +'<td style="padding:9px 12px;max-width:240px">'+apvEsc(r.reason||'\u2014')+'</td>'
+      +'<td style="padding:9px 12px;white-space:nowrap">'+mark
+        +' <button class="bs" onclick="apvOpenLink(\''+apvEsc(r.token)+'\')" style="padding:3px 9px;font-size:11.5px" title="Open the approval page and see the frozen snapshot">\u2197 Open</button>'
+        +' <button class="bs" onclick="apvCopyLink(\''+apvEsc(r.token)+'\')" style="padding:3px 9px;font-size:11.5px" title="Copy the approval link">\uD83D\uDCCB Link</button>'
+        /* Destructive action, so it is tinted red and sits LAST — away from the two safe buttons.
+           It deletes the cloud record and the BMS copy; see apvDelete() for the two-layer rule. */
+        +' <button class="bs" onclick="apvDelete(\''+apvEsc(r.token)+'\')" style="padding:3px 9px;font-size:11.5px;color:#ff9b9b;border-color:#7a2b2b" title="Delete this approval record (cannot be undone)">🗑️ Delete</button>'
+      +'</td></tr>';
+  });
+  h+='</tbody></table></div>';
+  box.innerHTML=h;
+}
+/* Row badge for Bid Tracking. Source of truth, in order: what BMS already stored, then a decision
+   waiting to be written, then the live cloud record (so "submitted, not yet decided" is visible). */
+function apvBadge(bidId){
+  var id=String(bidId||'');if(!id)return '';
+  var a=null,p=null,rec=APV.byBid[id]||null;
+  try{a=(typeof data!=='undefined'&&data&&data.verify&&data.verify[id]&&data.verify[id].approval)||null;}catch(e){}
+  p=APV.pending[id]||null;
+  var st=a?String(a.decision||''):(p?String(p.decision||''):(rec?apvState(rec):''));
+  if(!st)return '';
+  var by=a?(a.by||''):(p?(p.by||''):(rec?(rec.decidedBy||''):''));
+  var at=a?(a.at||''):(p?(p.at||''):(rec?(rec.decidedAt||''):''));
+  var c=(st==='approved')?['#0f3d28','#7ee2a8','#1d6b45','Approved']
+      :((st==='rejected')?['#3d1414','#ff9b9b','#7a2b2b','Rejected']
+      :['#3a2c07','#ffe6a8','#6b5410','Pending']);
+  var tip=c[3]+(by?(' \u00b7 '+by):'')+(at?(' \u00b7 '+apvWhen(at)):'')+(a?'':' (not yet written into the BMS record)');
+  return '<span title="'+apvEsc(tip)+'" style="display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:600;vertical-align:middle;white-space:nowrap;background:'+c[0]+';color:'+c[1]+';border:1px solid '+c[2]+'">'+c[3]+'</span>';
+}
+/* Read the approvals collection once the page has settled \u2014 deferred so it never competes with
+   loadData() or the first paint. */
+function apvBoot(){try{apvFetch();}catch(e){}}
+try{
+  if(document.readyState==='complete'){setTimeout(apvBoot,2200);}
+  else{window.addEventListener('load',function(){setTimeout(apvBoot,2200);});}
+}catch(e){}
 window.bidsSwitchView=bidsSwitchView;
 window.bidsApplyView=bidsApplyView;
 window.pfuPick=pfuPick;
