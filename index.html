@@ -12162,8 +12162,11 @@ function apvChip(st){
   return '<span style="display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;background:'+c[0]+';color:'+c[1]+';border:1px solid '+c[2]+'">'+c[3]+'</span>';
 }
 function apvLink(token){
-  var base=String(location.href||'').replace(/[^\/]*$/,'');
-  return base+'approve.html?t='+encodeURIComponent(String(token||''));
+  /* v2 (2026-10-10) — this used to build the URL itself, so it dropped the p/k suffix that
+     apApproveUrl() already carries. approve.html defaults to the v1 project, which meant a row
+     clicked on THIS page sent the director to the v1 cloud. Delegate to the one builder so both
+     entry points can never drift apart again. */
+  return apApproveUrl(String(token||''));
 }
 function apvOpenLink(token){try{window.open(apvLink(token),'_blank');}catch(e){}}
 function apvCopyLink(token){
